@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人中心</title>
+		<script src="js/mui.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div id="mui-content" class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a onClick="javascript :history.back(-1);" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">个人中心</h1>
+				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
+			</header>
+			<div class="person-details">
+				<a href="personal-information.html"><img src="images/head portrait.png" /></a>
+				<span>18748448170</span><br />
+				<span>注册用户</span>
+				<a href="empty-shoppingcart.html"><i class="iconfont">&#xe600;</i></a>
+			</div>
+			<a href="my-indent.html">
+				<div class="personal-center-indent">
+					<i class="iconfont">&#xe62f;</i>
+					<span class="myindent">我的订单</span>
+					<span class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+				</div>
+			</a>
+			<a href="my-wallet.html">
+				<div class="personal-center-indent my-wallet">
+					<i class="iconfont">&#xe64f;</i>
+					<span class="myindent">我的钱包</span>
+					<span class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+				</div>
+			</a>
+			<div class="mui-row wallet-details">
+				<div class="mui-col-xs-4">
+					<div>账户余额</div>
+					<div>0.00</div>
+				</div>
+				<div class="mui-col-xs-4">
+					<div>积分</div>
+					<div>0</div>
+				</div>
+				<div class="mui-col-xs-4">
+					<div>红包</div>
+					<div>0</div>
+				</div>
+			</div>
+			<ul id="user-function" class="mui-table-view mui-grid-view user-function">
+				<li class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="address-manage.html"><i class="iconfont iconfont1">&#xe700;</i></a>
+					<div class="mui-media-body">收货地址</div>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="customer-service.html"><i class="iconfont iconfont2">&#xe684;</i></a>
+					<div class="mui-media-body">客户服务</div>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="my-collect.html"><i class="iconfont iconfont3">&#xe607;</i></a>
+					<div class="mui-media-body">我的收藏</div>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3">
+					<a href="Browsing history.html"><i class="iconfont iconfont4">&#xe61e;</i></a>
+					<div class="mui-media-body">浏览历史</div>
+				</li>
+			</ul>
+			<div class="promote-goods-heading">推荐商品</div>
+			<ul id="promote-goods" class="mui-table-view mui-grid-view promote-goods">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="goods-detail.html"><img src="images/promote-goods.jpg" /></a>
+					<div class="mui-media-body">S6810W清新加厚沥水香皂盒-本白色</div>
+					<div class="mui-media-body">￥1.88</div>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="goods-detail.html"><img src="images/promote-goods.jpg" /></a>
+					<div class="mui-media-body">S6810W清新加厚沥水香皂盒-本白色</div>
+					<div class="mui-media-body">￥1.88</div>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4">
+					<a href="goods-detail.html"><img src="images/promote-goods.jpg" /></a>
+					<div class="mui-media-body">S6810W清新加厚沥水香皂盒-本白色</div>
+					<div class="mui-media-body">￥1.88</div>
+				</li>
+			</ul>
+			<a href="index.html">
+				<div class="exit">
+					退出登陆
+				</div>
+			</a>
+			<div id="index-footer" class="index-footer mui-bar-footer">
+				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
+						<a href="index.html">
+							<i style="color: black;" class="iconfont">&#xe639;</i>
+							<a href="index.html">
+								<div style="color: black;" class="mui-media-body">首页</div>
+							</a>
+						</a>
+					</li>
+					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<i class="iconfont">&#xe604;</i>
+						<div class="mui-media-body">电话</div>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="#">
+							<i class="iconfont">&#xe643;</i>
+							<a href="sales-promotion.html">
+								<div class="mui-media-body">促销</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="empty-shoppingcart.html">
+							<i class="iconfont">&#xe600;</i>
+							<a href="empty-shoppingcart.html">
+								<div class="mui-media-body">购物车</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="personal-center.html">
+							<i style="color: #da0203;" class="iconfont">&#xe6c9;</i>
+							<a href="personal-center.html">
+								<div style="color: #da0203;" class="mui-media-body">我的</div>
+							</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("call").addEventListener('tap', function() {
+					var btnArray = ['拨打', '取消'];
+					var Phone = "0571-88888888";
+					mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+						if(e.index == 0) {
+							plus.device.dial(Phone, false);
+						}
+					});
+				});
+		</script>
+	</body>
+</html>

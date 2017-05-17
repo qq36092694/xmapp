@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>注册</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+				font-family: "微软雅黑";
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+				font-size: 0.92em;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+				font-family: "微软雅黑";
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+				font-family: "微软雅黑";
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a onClick="javascript :history.back(-1);" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+				</div>
+				<div class="mui-input-row">
+					<label>确认</label>
+					<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="请确认密码">
+				</div>
+				<div class="mui-input-row">
+					<label>邮箱</label>
+					<input id='email' type="email" class="mui-input-clear mui-input" placeholder="请输入邮箱">
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<a href="javascript:void(0)"><button id='reg' class="mui-btn mui-btn-block mui-btn-primary">注册</button></a>
+			</div>
+			<div id="index-footer" class="index-footer mui-bar-footer">
+					<ul id="index-footer-main" class="mui-table-view mui-grid-view">
+						<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
+							<a href="index.html">
+								<i class="iconfont">&#xe639;</i>
+								<a href="index.html">
+									<div class="mui-media-body">首页</div>
+								</a>
+							</a>
+						</li>
+						<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+							<i class="iconfont">&#xe604;</i>
+						<div class="mui-media-body">电话</div>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+							<a href="#">
+								<i class="iconfont">&#xe643;</i>
+								<a href="sales-promotion.html">
+									<div class="mui-media-body">促销</div>
+								</a>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+							<a href="empty-shoppingcart.html">
+								<i class="iconfont">&#xe600;</i>
+								<a href="empty-shoppingcart.html">
+									<div class="mui-media-body">购物车</div>
+								</a>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+							<a href="personal-center.html">
+								<i class="iconfont">&#xe6c9;</i>
+								<a href="personal-center.html">
+									<div class="mui-media-body">我的</div>
+								</a>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<script src="js/mui.min.js"></script>
+			<script src="js/app.js"></script>
+			<script>
+				(function($, doc) {
+					$.init();
+					$.plusReady(function() {
+						var settings = app.getSettings();
+						var regButton = doc.getElementById('reg');
+						var accountBox = doc.getElementById('account');
+						var passwordBox = doc.getElementById('password');
+						var passwordConfirmBox = doc.getElementById('password_confirm');
+						var emailBox = doc.getElementById('email');
+						regButton.addEventListener('tap', function(event) {
+							console.log(1111)
+							var regInfo = {
+								account: accountBox.value,
+								password: passwordBox.value,
+								email: emailBox.value
+							};
+							var passwordConfirm = passwordConfirmBox.value;
+							if(passwordConfirm != regInfo.password) {
+								plus.nativeUI.toast('密码两次输入不一致');
+								return;
+							}
+							app.reg(regInfo, function(err) {
+								if(err) {
+									plus.nativeUI.toast(err);
+									return;
+								}
+								plus.nativeUI.toast('注册成功');
+								$.openWindow({
+									url: 'login.html',
+									id: 'login',
+									show: {
+										aniShow: 'pop-in'
+									}
+								});
+							});
+						});
+					});
+					document.getElementById("call").addEventListener('tap', function() {
+					var btnArray = ['拨打', '取消'];
+					var Phone = "0571-88888888";
+					mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+						if(e.index == 0) {
+							plus.device.dial(Phone, false);
+						}
+					});
+				});
+				}(mui, document));
+				
+			</script>
+	</body>
+
+</html>

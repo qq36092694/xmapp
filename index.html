@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>商品分类</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			#offCanvasWrapper {
+				widows: 100%;
+				max-width: 640px;
+				overflow: hidden;
+				margin: auto;
+				margin: auto;
+			}
+			
+			p {
+				text-indent: 22px;
+			}
+			
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			
+			.title {
+				margin: 35px 15px 10px;
+			}
+			
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			input {
+				color: #000;
+			}
+			
+			header {
+				margin: auto;
+			}
+			
+			header>a:first-child {
+				color: #515151;
+			}
+			
+			header>a:last-child {
+				color: #515151;
+				line-height: 2.7em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="mui-bar-nav">
+				<a href="index.html">
+					<div class="logo-index">首页</div>
+				</a>
+				<a href="Browsing history.html">
+					<div class="logo-other">每日上新</div>
+				</a>
+				<a href="allgoods.html">
+					<div class="logo-other">韩国进口</div>
+				</a>
+				<a href="allgoods.html">
+					<div class="logo-other">开心厨房</div>
+				</a>
+				<a href="allgoods.html">
+					<div class="logo-other">居家生活</div>
+				</a>
+				<a href="allgoods.html">
+					<div class="logo-other">卫浴清洁</div>
+				</a>
+			</div>
+			<div class="mui-row">
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="goods-detail.html">
+								<img src="images/4.jpg">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="goods-detail.html">
+								<img src="images/1.png">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="goods-detail.html">
+								<img src="images/2.jpg">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="goods-detail.html">
+								<img src="images/3.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="goods-detail.html">
+								<img src="images/4.jpg">
+							</a>
+						</div>
+
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="goods-detail.html">
+								<img src="images/1.png">
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mui-row mui-row-second">
+				<div class="index-search">
+					<img src="images/logo_03.png" />
+					<div class="">
+						<input style="" type="text" name="" id="" value="" placeholder="请输入搜索关键词!" />
+						<a href="allgoods.html"><span class="mui-icon mui-icon-search index-search-icon"></span></a>
+						<a href="goods-category.html"><i class="iconfont index-list-icon">&#xe60d;</i></a>
+					</div>
+				</div>
+				<div id="index-entry" class="mui-row mui-row-third">
+					<ul class="mui-table-view mui-grid-view">
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="goods-category.html">
+								<img class="mui-media-object" src="images/index-logo_03.png" style="width: 2.5rem;">
+								<div class="mui-media-body">全部分类</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="my-indent.html">
+								<img class="mui-media-object" src="images/index-logo_05.png" style="width: 2.5rem;">
+								<div class="mui-media-body">我的订单</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="Browsing history.html"><img class="mui-media-object" src="images/index-logo_07.png" style="width: 2.5rem;">
+								<div class="mui-media-body">每日上新</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="sales-promotion.html">
+								<img class="mui-media-object" src="images/index-logo_09.png" style="width: 2.5rem;">
+								<div class="mui-media-body">促销活动</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="allgoods.html">
+								<img class="mui-media-object" src="images/index-logo_15.png" style="width: 2.5rem;">
+								<div class="mui-media-body">热门搜索</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="about-us.html">
+								<img class="mui-media-object" src="images/index-logo_16.png" style="width: 2.5rem;">
+								<div class="mui-media-body">关于我们</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="personal-center.html"><img class="mui-media-object" src="images/index-logo_17.png" style="width: 2.5rem;">
+								<div class="mui-media-body">个人中心</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3">
+							<a href="empty-shoppingcart.html">
+								<img class="mui-media-object" src="images/index-logo_18.png" style="width: 2.5rem;">
+								<div class="mui-media-body">购物车</div>
+							</a>
+						</li>
+					</ul>
+					<a href="">
+						<div class="index-news">
+							<img src="images/index-news_03.png" />
+							<div id="container">
+								<div id="inContainer">
+									<span id="onetxt">
+               关于G20峰会期间发货(快递物流)的通知
+            </span>
+									<span id="twotxt">
+                 关于G20峰会期间发货(快递物流)的通知
+            </span>
+								</div>
+							</div>
+						</div>
+					</a>
+					<div class="index-activity">
+						| 热门活动
+					</div>
+					<div class="index-activity-cell">
+						<a href=""><img src="images/activity-cell_06.png" alt=" " /></a>
+						<a href=""><img src="images/activity-cell_07.png" alt="" /></a>
+						<a href=""><img src="images/activity-cell_08.png" alt="" /></a>
+						<a href=""><img src="images/activity-cell_09.png" alt="" /></a>
+					</div>
+					<div class="index-activity">
+						| 限量抢购
+					</div>
+					<div class="index-activity-cell">
+						<a href=""><img src="images/activity-cell_06.png" alt=" " /></a>
+						<a href=""><img src="images/activity-cell_07.png" alt="" /></a>
+						<a href=""><img src="images/activity-cell_08.png" alt="" /></a>
+						<a href=""><img src="images/activity-cell_09.png" alt="" /></a>
+					</div>
+					<div class="index-activity">
+						| 爆款推荐
+					</div>
+					<div class="index-activity-cell">
+						<a href=""><img src="images/activity-cell_06.png" alt=" " /></a>
+						<a href=""><img src="images/activity-cell_07.png" alt="" /></a>
+						<a href=""><img src="images/activity-cell_08.png" alt="" /></a>
+						<a href=""><img src="images/activity-cell_09.png" alt="" /></a>
+					</div>
+				</div>
+				<div class="mui-row mui-row-four">
+					<img src="images/daily-newgoods.jpg"/>
+					<ul id="newgoods" class="mui-table-view mui-grid-view">
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6">
+							<a href="goods-detail.html">
+								<img class="mui-media-object" src="images/new-goods_12.png">
+								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
+								<div class="mui-media-body newgoods-price">
+									现价:2.10
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="index-footer" class="index-footer mui-bar-footer">
+				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
+						<a href="index.html">
+							<i class="iconfont">&#xe639;</i>
+							<a href="index.html">
+								<div class="mui-media-body">首页</div>
+							</a>
+						</a>
+					</li>
+					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<i class="iconfont">&#xe604;</i>
+						<div class="mui-media-body">电话</div>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="#">
+							<i class="iconfont">&#xe643;</i>
+							<a href="sales-promotion.html">
+								<div class="mui-media-body">促销</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="empty-shoppingcart.html">
+							<i class="iconfont">&#xe600;</i>
+							<a href="empty-shoppingcart.html">
+								<div class="mui-media-body">购物车</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="personal-center.html">
+							<i class="iconfont">&#xe6c9;</i>
+							<a href="personal-center.html">
+								<div class="mui-media-body">我的</div>
+							</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript"> 
+			document.getElementById("call").addEventListener('tap', function() {
+				console.log(111)
+				var btnArray = ['拨打', '取消'];
+				var Phone = "0571-88888888";
+				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.device.dial(Phone, false);
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

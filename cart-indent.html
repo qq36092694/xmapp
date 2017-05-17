@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的购物车</title>
+		<script src="js/mui.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a onClick="javascript :history.back(-1);" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">我的购物车</h1>
+				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
+			</header>
+			<a href="address-manage.html">
+				<div style="margin-top: 2.7em;" class="customer-address">
+					<div class="address-left">
+						<i class="iconfont">&#xe61b;</i>
+					</div>
+					<div class="address-right">
+						<span>收货人：金正勇</span><span>手机：18654677843 </span><br />
+						<span>浙江省金华市义乌市金麟北路36-6号</span>
+					</div>
+				</div>
+				<div class="input-cell">
+					<span>获得积分 :</span><span> 0积分</span>
+				</div>
+				<div class="input-cell">
+					<span>应付款金额</span><span> ￥4:00</span>
+				</div>
+			</a>
+			<ul id="shoppinglist" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a id="toggle-bar" class="mui-navigate-right" href="#">商品列表</a>
+					<div class="mui-collapse-content">
+						<div class="mui-col-xs-3 goods-preview">
+							<img src="images/goods-preview.jpg" />
+						</div>
+						<div class="mui-col-xs-8 goods-operation">
+							<div>S6552韩式卡通手动环保伞</div>
+							<div>货号:S6552</div>
+							<div>￥16.30</div>
+							<div>数量 :2</div>
+							<div>小计 : </div>
+							<div>32.6</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<a href="afford.html" class="indent-sub2">
+				提交订单
+			</a>
+		</div>
+	</body>
+
+</html>

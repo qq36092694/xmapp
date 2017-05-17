@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>商品分类</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<style>
+			header {
+				margin: auto;
+			}
+			
+			header>a:first-child {
+				color: #515151;
+			}
+			
+			header>a:last-child {
+				color: #515151;
+				line-height: 2.7em;
+			}
+			
+			.mui-row.mui-fullscreen>[class*="mui-col-"] {
+				height: 100%;
+			}
+			
+			.mui-col-xs-3,
+			.mui-control-content {
+				overflow-y: auto;
+				height: 100%;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+			}
+			#segmentedControls>a{
+				font-size: 0.9em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">商品分类</h1>
+			<a class="mui-pull-right" href=""><i class="iconfont">&#xe639;</i></a>
+		</header>
+		<div class="mui-content mui-row mui-fullscreen">
+			<div class="mui-col-xs-5">
+				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+					<a class="mui-control-item" href="#content1">毛巾抹布</a>
+					<a class="mui-control-item" href="#content2">韩国牙刷</a>
+					<a class="mui-control-item" href="#content3">舒爽洗浴</a>
+					<a class="mui-control-item" href="#content4">开心厨房</a>
+					<a class="mui-control-item" href="#content5">时尚生活</a>
+					<a class="mui-control-item" href="#content6">韩国洗化</a>
+					<a class="mui-control-item" href="#content7">美妆工具</a>
+				</div>
+			</div>
+			<div id="segmentedControlContents" class="mui-col-xs-7" style="border-left: 1px solid #c8c7cc;">
+				<div id="content1" class="mui-control-content mui-active">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">竹纤维抹</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">不沾油抹布</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">印花毛巾</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">儿童毛巾 </a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">万用抹布</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">毛巾面巾</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">擦手巾</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">所有毛巾抹布</a>
+						</li>
+					</ul>
+				</div>
+				<div id="content2" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">旅行牙具套装</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">五支装牙刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">四支装牙刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">三支装牙刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">两支装牙刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">单支装牙刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">儿童护齿牙刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">所有韩国牙刷</a>
+						</li>
+					</ul>
+				</div>
+				<div id="content3" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">干发帽/干发巾</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">超柔浴巾</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">牙签/牙线 </a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">牙具盒/牙刷架</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">漱口杯/洗簌套装</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">洗浴包/浴帘/浴垫</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">拖鞋/居家拖</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">浴室吸盘挂钩</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">实用沐浴套装</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">皂盒/牙刷架</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">浴帽/束发带</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">浴花/浴球/澡巾</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">韩国进口牙膏</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">精油皂/手工皂</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">所有舒爽洗浴</a>
+						</li>
+					</ul>
+				</div>
+				<div id="content4" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">开瓶器/开罐器</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">清洁膏</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">磨刀器/研磨器 </a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">泡茶器/茶球</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">保温杯</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">保鲜盒/保鲜膜</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">封口夹/食物夹</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">切菜器/食物罩</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">饭盒/便当盒</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">起碗夹/蒸架</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">核桃夹/压蒜器</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">餐具盒/筷子笼</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">打蛋器</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">冰箱除味</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">厨房小工具</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">其他厨房用品</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">洗碗巾/百洁布</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">杯刷/清洁刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">厨房小家电</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">水果签</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">铝台布/抗菌垫</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">油壶/调味罐</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">围裙/微波炉手套</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">烧烤夹/烤肉盘</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">炒锅/汤锅/煎锅</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">炒铲/汤勺/漏勺</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">果盘/沥水篮</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">菜板</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">剔骨刀/鸡骨剪</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">菜刀/肉片刀</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">刨皮刀/水果刀</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">杯垫/隔热垫</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">碗/碗筷套装</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">叉/勺/餐具套装</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">筷子/学习筷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">所有开心厨房</a>
+						</li>
+					</ul>
+				</div>
+				<div id="content5" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">脸盆</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">其他生活用品</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">创可贴/药盒 </a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">闹钟/计时器</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">棉签/耳勺</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">家务手套</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">电源插板</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">剃须刀</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">礼品袋/购物袋</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">门垫/地垫</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">袜子/保暖裤</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">雨伞/雨衣</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">充电宝/耳机</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">钥匙扣</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">吸盘/挂钩</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">安全防护/门塞</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">汽车周边</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">居家装饰</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">去毛器/除尘刷</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">针线盒</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">卫生间清洁</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">鞋子周边</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">马桶周边</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">收纳储存</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">家务清洁</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">洗衣晾晒</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">所有时尚生活</a>
+						</li>
+					</ul>
+				</div>
+				<div id="content6" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">抹布皂/尿布皂</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">唇膏</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">去灰皂</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">美容皂</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">护手霜</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">面膜</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">所有韩国洗化</a>
+						</li>
+					</ul>
+				</div>
+				<div id="content7" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">黄瓜切片器</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">化妆棉/卸妆棉</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">头绳/发圈</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">刮痧板</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">脚部护理工具</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">指甲剪/修甲刀</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">眉刀/修眉工具</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">喷瓶/化妆瓶套装</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">美发梳</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">化妆镜</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">粉刺针</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">面扑/粉扑</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="allgoods.html">所有美妆工具</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="index-footer" class="index-footer mui-bar-footer">
+				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
+						<a href="index.html">
+							<i class="iconfont">&#xe639;</i>
+							<a href="index.html">
+								<div class="mui-media-body">首页</div>
+							</a>
+						</a>
+					</li>
+					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<i class="iconfont">&#xe604;</i>
+						<div class="mui-media-body">电话</div>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="#">
+							<i class="iconfont">&#xe643;</i>
+							<a href="sales-promotion.html">
+								<div class="mui-media-body">促销</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="empty-shoppingcart.html">
+							<i class="iconfont">&#xe600;</i>
+							<a href="empty-shoppingcart.html">
+								<div class="mui-media-body">购物车</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="personal-center.html">
+							<i class="iconfont">&#xe6c9;</i>
+							<a href="personal-center.html">
+								<div class="mui-media-body">我的</div>
+							</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			//默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+			document.getElementById("call").addEventListener('tap', function() {
+					var btnArray = ['拨打', '取消'];
+					var Phone = "0571-88888888";
+					mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+						if(e.index == 0) {
+							plus.device.dial(Phone, false);
+						}
+					});
+				});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购物车</title>
+		<script src="js/mui.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content mui-content1">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a onClick="javascript :history.back(-1);" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">我的购物车</h1>
+				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
+			</header>
+			<div class="cartlist">
+				<i class="iconfont">&#xe605;</i>
+				<div class="">
+					您的购物车空空如也
+				</div>
+				<a href="allgoods.html">
+					<div class="">
+						去购物
+					</div>
+				</a>
+			</div>
+			<div id="index-footer" class="index-footer mui-bar-footer">
+				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
+						<a href="index.html">
+							<i style="color: black;" class="iconfont">&#xe639;</i>
+							<a href="index.html">
+								<div style="color: black;" class="mui-media-body">首页</div>
+							</a>
+						</a>
+					</li>
+					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<i class="iconfont">&#xe604;</i>
+						<div class="mui-media-body">电话</div>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="#">
+							<i class="iconfont">&#xe643;</i>
+							<a href="sales-promotion.html">
+								<div class="mui-media-body">促销</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="empty-shoppingcart.html">
+							<i style="color: #da0203;" class="iconfont">&#xe600;</i>
+							<a href="empty-shoppingcart.html">
+								<div style="color: #da0203;" class="mui-media-body">购物车</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="personal-center.html">
+							<i class="iconfont">&#xe6c9;</i>
+							<a href="personal-center.html">
+								<div class="mui-media-body">我的</div>
+							</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="mui-content mui-content2">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a onClick="javascript :history.back(-1);" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">我的购物车</h1>
+				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
+			</header>
+			<div id="shopping-cart-goods" class="mui-row shopping-cart-goods">
+				<div class="shoppingcart-goods-cell">
+					<div class="mui-col-xs-3 goods-preview">
+						<img src="images/goods-preview.jpg" />
+					</div>
+					<div class="mui-col-xs-7 goods-operation">
+						<div>S6552韩式卡通手动环保伞</div>
+						<div>S6552</div>
+						<div class="unit cost">￥16.30</div>
+						<div class="mui-numbox" data-numbox-min='1' data-numbox-max='99'>
+							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							<input class="mui-input-numbox input-number" type="number" value="1" />
+							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+						</div>
+					</div>
+					<div class="mui-col-xs-2 goods-delete">
+						<i class="iconfont">&#xe602;</i>
+					</div>
+				</div>
+				<div class="shoppingcart-goods-cell">
+					<div class="mui-col-xs-3 goods-preview">
+						<img src="images/goods-preview.jpg" />
+					</div>
+					<div class="mui-col-xs-7 goods-operation">
+						<div>S6552韩式卡通手动环保伞</div>
+						<div>S6552</div>
+						<div class="unit cost">￥16.30</div>
+						<div class="mui-numbox" data-numbox-min='1' data-numbox-max='99'>
+							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							<input class="mui-input-numbox input-number" type="number" value="1" />
+							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+						</div>
+					</div>
+					<div class="mui-col-xs-2 goods-delete">
+						<i class="iconfont">&#xe602;</i>
+					</div>
+				</div>
+				<div class="shoppingcart-goods-cell">
+					<div class="mui-col-xs-3 goods-preview">
+						<img src="images/goods-preview.jpg" />
+					</div>
+					<div class="mui-col-xs-7 goods-operation">
+						<div>S6552韩式卡通手动环保伞</div>
+						<div>S6552</div>
+						<div class="unit cost">￥16.30</div>
+						<div class="mui-numbox" data-numbox-min='1' data-numbox-max='99'>
+							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							<input class="mui-input-numbox input-number" type="number" value="1" />
+							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+						</div>
+					</div>
+					<div class="mui-col-xs-2 goods-delete">
+						<i class="iconfont">&#xe602;</i>
+					</div>
+				</div>
+				<div class="shoppingcart-goods-cell">
+					<div class="mui-col-xs-3 goods-preview">
+						<img src="images/goods-preview.jpg" />
+					</div>
+					<div class="mui-col-xs-7 goods-operation">
+						<div>S6552韩式卡通手动环保伞</div>
+						<div>S6552</div>
+						<div class="unit cost">￥16.30</div>
+						<div class="mui-numbox" data-numbox-min='1' data-numbox-max='99'>
+							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							<input class="mui-input-numbox input-number" type="number" value="1" />
+							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+						</div>
+					</div>
+					<div class="mui-col-xs-2 goods-delete">
+						<i class="iconfont">&#xe602;</i>
+					</div>
+				</div>
+			</div>
+			<div class="shopping-cart-footer mui-bar-footer">
+				<div class="">商品价格 :</div>
+				<div class="total-price">￥32.6</div>
+				<div class="empty-cart">清空购物车</div>
+				<a href="cart-indent.html" class="">
+					立即结算
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("call").addEventListener('tap', function() {
+					var btnArray = ['拨打', '取消'];
+					var Phone = "0571-88888888";
+					mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+						if(e.index == 0) {
+							plus.device.dial(Phone, false);
+						}
+					});
+				});
+		</script>
+	</body>
+</html>

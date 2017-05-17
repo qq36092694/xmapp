@@ -1,0 +1,291 @@
+{
+	"index.html": {
+		"resources": [
+			"images/cbd.jpg",
+			"js/main.js",
+			"images/muwu.jpg",
+			"images/yuantiao.jpg",
+			"css/main.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/shuijiao.jpg",
+			"images/index-logo_16.png",
+			"images/activity-cell_06.png",
+			"images/index-logo_17.png",
+			"images/2.jpg",
+			"images/index-logo_15.png",
+			"images/activity-cell_09.png",
+			"images/activity-cell_08.png",
+			"images/logo_03.png",
+			"images/index-news_03.png",
+			"fonts/mui.ttf",
+			"images/index-logo_09.png",
+			"images/3.jpg",
+			"images/4.jpg",
+			"images/1.png",
+			"images/activity-cell_07.png",
+			"images/new-goods_12.png",
+			"images/index-logo_18.png",
+			"images/index-logo_03.png",
+			"images/index-logo_05.png",
+			"images/index-logo_07.png",
+			"personal-center.html",
+			"empty-shoppingcart.html",
+			"goods-detail.html",
+			"exchange-details.html",
+			"allgoods.html",
+			"assets/iconfont.woff",
+			"css/iconfont.css",
+			"sales-promotion.html",
+			"goods-category.html",
+			"js/vue.js",
+			"my-indent.html",
+			"images/daily-newgoods.jpg"
+		],
+		"refer": [
+			"personal-center.html",
+			"empty-shoppingcart.html",
+			"goods-detail.html",
+			"exchange-details.html",
+			"allgoods.html",
+			"sales-promotion.html",
+			"goods-category.html",
+			"my-indent.html"
+		]
+	},
+	"empty-shoppingcart.html": {
+		"resources": [
+			"css/main.css",
+			"css/mui.min.css",
+			"personal-center.html",
+			"allgoods.html",
+			"js/main.js",
+			"js/mui.min.js",
+			"sales-promotion.html",
+			"css/iconfont.css",
+			"images/goods-preview.jpg",
+			"personal-information.html"
+		],
+		"refer": [
+			"personal-center.html",
+			"allgoods.html",
+			"sales-promotion.html",
+			"personal-information.html"
+		]
+	},
+	"personal-center.html": {
+		"resources": [
+			"images/head portrait.png",
+			"css/main.css",
+			"images/promote-goods.jpg",
+			"css/mui.min.css",
+			"my-indent.html",
+			"index.html",
+			"js/mui.min.js",
+			"personal-information.html",
+			"my-wallet.html",
+			"empty-shoppingcart.html",
+			"allgoods.html",
+			"css/iconfont.css",
+			"my-collect.html"
+		],
+		"refer": [
+			"my-indent.html",
+			"index.html",
+			"personal-information.html",
+			"my-wallet.html",
+			"empty-shoppingcart.html",
+			"allgoods.html",
+			"my-collect.html"
+		]
+	},
+	"my-indent.html": {
+		"resources": [
+			"css/main.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"index.html",
+			"indent-details.html",
+			"personal-center.html",
+			"js/main.js"
+		],
+		"refer": [
+			"index.html",
+			"indent-details.html",
+			"personal-center.html"
+		]
+	},
+	"allgoods.html": {
+		"resources": [
+			"images/goods-preview.jpg",
+			"empty-shoppingcart.html",
+			"index.html",
+			"css/main.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"goods-detail.html",
+			"goods-category.html",
+			"css/iconfont.css",
+			"personal-center.html",
+			"pullrefresh_sub.html"
+		],
+		"refer": [
+			"empty-shoppingcart.html",
+			"index.html",
+			"goods-detail.html",
+			"goods-category.html",
+			"personal-center.html",
+			"pullrefresh_sub.html"
+		]
+	},
+	"indent-details.html": {
+		"resources": [
+			"js/main.js",
+			"css/main.css",
+			"css/mui.min.css",
+			"afford.html",
+			"images/goods-preview.jpg",
+			"js/mui.min.js",
+			"my-indent.html",
+			"goods-detail.html"
+		],
+		"refer": [
+			"afford.html",
+			"my-indent.html",
+			"goods-detail.html"
+		]
+	},
+	"exchange-details.html": {
+		"resources": [
+			"index.html",
+			"js/main.js",
+			"css/main.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"afford.html"
+		],
+		"refer": [
+			"index.html",
+			"afford.html"
+		]
+	},
+	"afford.html": {
+		"resources": [
+			"exchange-details.html",
+			"indent-details.html",
+			"js/main.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"exchange-details.html",
+			"indent-details.html"
+		]
+	},
+	"goods-detail.html": {
+		"resources": [
+			"images/detailed-description.jpg",
+			"images/goods-details-banner4.jpg",
+			"images/goods-details-banner5.jpg",
+			"css/main.css",
+			"images/goods-details-banner1.jpg",
+			"images/goods-details-banner3.jpg",
+			"css/mui.min.css",
+			"images/goods-details-banner2.jpg",
+			"indent-details.html",
+			"js/main.js",
+			"js/mui.min.js",
+			"allgoods.html",
+			"sales-promotion.html"
+		],
+		"refer": [
+			"indent-details.html",
+			"allgoods.html",
+			"sales-promotion.html"
+		]
+	},
+	"sales-promotion.html": {
+		"resources": [
+			"css/main.css",
+			"css/mui.min.css",
+			"empty-shoppingcart.html",
+			"images/sales-promotion1.png",
+			"js/main.js",
+			"js/mui.min.js",
+			"index.html",
+			"images/2.jpg",
+			"images/1.png",
+			"goods-detail.html",
+			"images/3.jpg",
+			"images/4.jpg",
+			"css/iconfont.css",
+			"js/vue.js"
+		],
+		"refer": [
+			"empty-shoppingcart.html",
+			"index.html",
+			"goods-detail.html"
+		]
+	},
+	"personal-information.html": {
+		"resources": [
+			"personal-center.html",
+			"css/main.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"empty-shoppingcart.html"
+		],
+		"refer": [
+			"personal-center.html",
+			"empty-shoppingcart.html"
+		]
+	},
+	"my-wallet.html": {
+		"resources": [
+			"images/account_bonus.png",
+			"personal-center.html"
+		],
+		"refer": [
+			"personal-center.html"
+		]
+	},
+	"goods-category.html": {
+		"resources": [
+			"css/app.css",
+			"allgoods.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/main.css",
+			"css/iconfont.css",
+			"index.html",
+			"empty-shoppingcart.html"
+		],
+		"refer": [
+			"allgoods.html",
+			"index.html",
+			"empty-shoppingcart.html"
+		]
+	},
+	"my-collect.html": {
+		"resources": [
+			"js/main.js",
+			"images/goods-preview.jpg",
+			"js/vue.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"pullrefresh_sub.html": {
+		"resources": [
+			"images/goods-preview.jpg",
+			"css/mui.min.css",
+			"goods-category.html",
+			"goods-detail.html"
+		],
+		"refer": [
+			"goods-category.html",
+			"goods-detail.html"
+		]
+	}
+}

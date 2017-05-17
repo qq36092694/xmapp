@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>关于我们</title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a onClick="javascript :history.back(-1);" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">关于我们</h1>
+				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
+			</header>
+			<div class="about-us-title">
+				关于我们
+			</div>
+			<div class="brief-production1">
+				韩国思诚良品商城隶属韩国GREENBEE株社会社与义乌市赛珊日用品有限公司合作单位，下辖义乌市朗迅百货贸易有限公司，成立于2009年，坐落于有“小商品海洋，购物者天堂”之称的中国义乌国际商贸城附近。我们拥有36个大类、5000多种商品。公司创立至今日，在全国各地都拥有众多的分销商，代理商、批发商，立足义乌，服务全球。本公司是集韩国日用百货产业研发，进口，自主生产和自主销售为一体的综合性企业，主要经营：韩国进口日用百货、各种韩式居家百货、创意家居用品、生活用品、牙刷、毛巾抹布等系列产品。
+			</div>
+			<div class="brief-production2">
+				从2009年至今，一路走来，更明白市场的行情、更了解顾客的需求。所以本公司一直把新产品研发，客户的服务，产品质量、实用性等重点问题放在首位，不断开发创新以供市场需求.本公司秉承：思者常新，诚信为本的理念。服务于广大消费朋友。以我们独有的优势，创立“思诚良品”连锁加盟品牌，10元店加盟模式火热招商中，让有着创业梦想的朋友，能够以最小的成本加盟我们先行动起来，率先富起来！同时期待与更多拥有创业梦想的朋友一起努力共创造美好明天。
+			</div>
+			<div class="brief-production-imgbox">
+				<img src="images/brief-production1.jpg"/>
+				<img src="images/brief-production2.jpg"/>
+			</div>
+			<div id="index-footer" class="index-footer mui-bar-footer">
+				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
+						<a href="index.html">
+							<i class="iconfont">&#xe639;</i>
+							<a href="index.html">
+								<div class="mui-media-body">首页</div>
+							</a>
+						</a>
+					</li>
+					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<i class="iconfont">&#xe604;</i>
+						<div class="mui-media-body">电话</div>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="#">
+							<i class="iconfont">&#xe643;</i>
+							<a href="sales-promotion.html">
+								<div class="mui-media-body">促销</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="empty-shoppingcart.html">
+							<i class="iconfont">&#xe600;</i>
+							<a href="empty-shoppingcart.html">
+								<div class="mui-media-body">购物车</div>
+							</a>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+						<a href="personal-center.html">
+							<i class="iconfont">&#xe6c9;</i>
+							<a href="personal-center.html">
+								<div class="mui-media-body">我的</div>
+							</a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("call").addEventListener('tap', function() {
+					var btnArray = ['拨打', '取消'];
+					var Phone = "0571-88888888";
+					mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+						if(e.index == 0) {
+							plus.device.dial(Phone, false);
+						}
+					});
+				});
+		</script>
+				
+	</body>
+
+</html>
