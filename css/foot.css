@@ -1,0 +1,7 @@
+.wallet-details{
+	position: relative;
+}
+.circle2{
+	display:block;width: 1.6em;height: 1.6em;border-radius: 0.8em;background: red;text-align: center;line-height: 1.6em;color: #fff;
+	position: absolute;
+}

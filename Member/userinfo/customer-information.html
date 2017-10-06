@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>收货人信息</title>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.picker.min.js"></script>
+		<script src="../../js/mui.poppicker.js"></script>
+		<script src="../../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<style type="text/css">
+			.input-area .mui-input-row:nth-child(-n+5) input {
+				width: 80% !important;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.input-area .mui-input-row:last-child input {
+				width: 70% !important;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">收货人信息</h1>
+			</header>
+			<div class="mui-input-group input-area" style="margin-top: 3.4rem;">
+				<div class="mui-input-row b-b">
+					<label class="ml-2">姓名</label>
+					<input type="text" name="" id="cusName" class="mui-input-clear mui-input" value="" placeholder="收货人姓名必填" />
+				</div>
+				<div class="mui-input-row b-b">
+					<label class="ml-2">手机</label>
+					<input type="text" name="" id="cusPhone" class="mui-input-clear mui-input" value="" placeholder="手机必填" />
+				</div>
+				<div class="mui-input-row b-b">
+					<label class="ml-2">电话</label>
+					<input type="text" name="" id="telPhone" value="" class="mui-input-clear mui-input" placeholder="电话可选" />
+				</div>
+				<div class="mui-input-row b-b">
+					<label class="ml-2">地区</label>
+					<input type="text" name="" id="address-main" value="" placeholder="详细地址必填" />
+				</div>
+				<div class="mui-input-row b-b">
+					<label class="ml-2">详细地址</label>
+					<input type="text" name="" id="address-detail" value="" placeholder="详细地址必填" />
+				</div>
+			</div>
+			<a class="address-submit">
+				<div class="add-address">
+					确定
+				</div>
+			</a>
+			<ul class="footer mui-bar-footer">
+				<li>
+					<a class="hrefCell" name="../../index.html">
+						<div class="iconfont">
+							&#xe639;
+						</div>
+						<div class="">
+							首页
+						</div>
+					</a>
+				</li>
+				<li id="call">
+					<div class="iconfont">
+						&#xe604;
+					</div>
+					<div class="">
+						电话
+					</div>
+				</li>
+				<li>
+					<a class="hrefCell" name="../../allgoods.html">
+						<div style="font-weight: bolder;" class="iconfont">
+							&#xe6a4;
+						</div>
+						<div class="">
+							商品
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="hrefCell" name="../../empty-shoppingcart.html">
+						<div class="iconfont">
+							&#xe600;
+						</div>
+						<div class="">
+							购物车
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="hrefCell" name="../../personal-center.html">
+						<div style="color: #da0203;" class="iconfont">
+							&#xe6c9;
+						</div>
+						<div style="color: #da0203;" class="">
+							我的
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var mask = mui.createMask();
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var shrObj = JSON.parse(self.shrObj);
+				$("#cusName").val(shrObj.shr);
+				$("#cusPhone").val(shrObj.phoneNum);
+				console.log(shrObj.addressID);
+				$(".add-address").attr("name", shrObj.addressID);
+			});
+			$(".address-submit").on("tap", function() {
+				if($("#cusName").val() == "") {
+					mui.alert('姓名不能为空', function() {});
+					return false;
+				};
+				var cusPhone = $("#cusPhone").val()
+				var regcusPhone = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+				if(!regcusPhone.test(cusPhone)) {
+					mui.alert('您输入的手机号码有误', function() {});
+					return false;
+				};
+				if($("#s_county").val() == "市、县级市") {
+					mui.alert('请选择完整的省市县地址', function() {});
+					return false;
+				};
+				if($("#address-detail").val() == "") {
+					mui.alert('请填写详细的收货地址', function() {});
+					return false;
+				} else {
+					var _url = APP_SERVER_URL+APP_user_addressM;
+					mui.ajax(_url, {
+						data: {
+							Id: $(".add-address").attr("name"),
+							UserId: app.getState().UserId,
+							sh: $("#address-main").val().split(" ")[0],
+							ToCity: $("#address-main").val().split(" ")[1],
+							ToCounty: $("#address-main").val().split(" ")[2],
+							moble: $("#cusPhone").val(),
+							tel: $("#telPhone").val(),
+							username: $("#cusName").val(),
+							address: $("#address-detail").val(),
+						},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						beforeSend: function() {
+							plus.nativeUI.showWaiting();
+							mask.show(); //显示遮罩层
+						},
+						complete: function() {
+							plus.nativeUI.closeWaiting();
+							mask.close(); //关闭遮罩层
+						},
+						success: function(data) {
+							mui.toast(data.msg);
+						},
+						error: function(xhr, type, errorThrown) {
+							mui.toast(errorThrown);
+						}
+					});
+					return true;
+				}
+			});
+			$(".footer").on("tap", ".hrefCell", function() {
+				var _url = $(this).attr("name");
+				var rand = parseInt(Math.random() * 100);
+				mui.openWindow({
+					id: _url + rand,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: "slide-in-right",
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					}
+				})
+			});
+			document.getElementById("call").addEventListener('tap', function() {
+				var btnArray = ['拨打', '取消'];
+				var Phone = "0571-88888888";
+				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.device.dial(Phone, false);
+					}
+				});
+			});
+			var _getParam = function(obj, param) {
+				return obj[param] || '';
+			};
+			var addressShow = new mui.PopPicker({
+				layer: 3
+			});
+			addressShow.setData(cityData3);
+			document.getElementById('address-main').addEventListener('click', function(event) {
+				document.activeElement.blur(); //隐藏软键盘 
+				addressShow.show(function(items) {
+					document.getElementById('address-main').value = _getParam(items[0], 'text') + " " + _getParam(items[1], 'text') + " " + _getParam(items[2], 'text');
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			}, false);
+		</script>
+	</body>
+
+</html>

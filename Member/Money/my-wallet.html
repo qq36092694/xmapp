@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的钱包</title>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+	</head>
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">资金管理</h1>
+			</header>
+			<div class="account-details" style="margin-top: 2.7em;">
+				<div>账户总额</div>
+				<div>￥0.00</div>
+				<div><i class="iconfont">&#xe644;</i>&nbsp;查看明细</div>
+				<div class="frozen-capital">提现冻结 ￥0.00</div>
+				<img src="../../images/account_bonus.png" />
+				<div class="wallet-charge"><i class="iconfont">&#xe609;</i> 充值</div>
+				<div class="wallet-cash"><i class="iconfont">&#xe609;</i> 提现</div>
+			</div>
+			<a class="my-bankcard">
+				<div class="bank-card">
+					<i class="iconfont">&#xe652;</i>
+					<span class="bank-account">我的银行卡账户</span>
+					<span class="mui-icon mui-icon-arrowright"></span>
+					<span class="bind-card">绑定</span>
+				</div>
+			</a>
+			<a class="my-bankcard">
+				<div class="bank-card">
+					<i class="iconfont red-pocket">&#xe7e6;</i>
+					<span class="bank-account">红包</span>
+					<span class="mui-icon mui-icon-arrowright"></span>
+					<span class="bind-card">0 个</span>
+				</div>
+			</a>
+			<a class="my-bankcard">
+				<div class="bank-card">
+					<i class="iconfont bonus-point">&#xe654;</i>
+					<span class="bank-account">积分</span>
+					<span class="bind-card">0 分</span>
+				</div>
+			</a>
+			<ul class="footer mui-bar-footer">
+				<li>
+					<a name="../../index.html" class="hrefCell">
+						<div class="iconfont">
+							&#xe639;
+						</div>
+						<div class="">
+							首页
+						</div>
+					</a>
+				</li>
+				<li id="call">
+					<div class="iconfont">
+						&#xe604;
+					</div>
+					<div class="">
+						电话
+					</div>
+				</li>
+				<li>
+					<a name="../../allgoods.html" class="hrefCell">
+						<div style="font-weight: bolder;" class="iconfont">
+							&#xe6a4;
+						</div>
+						<div class="">
+							商品
+						</div>
+					</a>
+				</li>
+				<li>
+					<a name="../../empty-shoppingcart.html" class="hrefCell">
+						<div class="iconfont">
+							&#xe600;
+						</div>
+						<div class="">
+							购物车
+						</div>
+					</a>
+				</li>
+				<li>
+					<a name="../../personal-center.html" class="hrefCell">
+						<div style="color: #da0203;" class="iconfont">
+							&#xe6c9;
+						</div>
+						<div style="color: #da0203;" class="">
+							我的
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("call").addEventListener('tap', function() {
+				var btnArray = ['拨打', '取消'];
+				var Phone = "0571-88888888";
+				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.device.dial(Phone, false);
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

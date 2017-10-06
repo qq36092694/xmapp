@@ -1,0 +1,629 @@
+*{
+	margin: 0;padding: 0;
+}
+.mui-content {
+	width: 100%;
+	max-width: 640px;
+	padding-top: 2.7rem;
+	margin: auto;
+	overflow: hidden;
+	padding-bottom: 5rem;
+	position: relative;
+}
+
+#header {
+	max-width: 640px;
+	background: #fff;
+	margin: auto;
+}
+
+#header h1 {
+	font-size: 1rem;
+	letter-spacing: 0.05rem;
+	font-family: "微软雅黑";
+	color: #515151;
+}
+.mui-bar-nav {
+	width: 100%;
+	padding: 0rem 0.2rem 0.2rem 0.3rem;
+	overflow: hidden;
+	position: fixed;
+	z-index: 999;
+	background: #fcfcfc;
+	max-width: 640px;
+}
+
+.index-footer {
+	width: 100%;
+	overflow: hidden;
+	position: fixed;
+	z-index: 999;
+	background: #fcfcfc;
+	max-width: 640px;
+}
+.index-news {
+	width: 100%;
+	height: 2.33rem;
+	margin-top: 0.66rem;
+	padding: 0rem 0.3rem 0rem 0.3rem;
+	margin-top: 0.66rem;
+	background: #fcfcfc;
+}
+
+.index-news img {
+	display: block;
+	width: 1.2rem;
+	border-radius: 8px;
+	float: left;
+	margin-left: 1rem;
+	margin-top: 0.6rem;
+}
+
+#container {
+	float: left;
+	width: 86%;
+	height: 2rem;
+	color: #616161;
+	margin-left: 0.4rem;
+	margin-top: 0.5rem;
+	overflow: hidden;
+}
+
+#onetxt,
+#twotxt {
+	width: 100%;
+	height: 2rem;
+	line-height: 1.25rem;
+	font-size: 0.5rem;
+	letter-spacing: 0.05rem;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	color: #ff1d65;
+	font-family: "微软雅黑";
+}
+
+#inContainer {
+	width: 76%;
+	height: 4rem;
+	float: left;
+}
+.cx-img{
+	width: 100%;max-width: 640px;overflow: hidden;margin: auto;background: #fcfcfc;
+}
+.cx-img img{
+	width: 100%;margin-top: 1em;
+}
+.index-activity {
+	width: 100%;
+	height: 2rem;
+	overflow: hidden;
+	margin: auto;
+	text-align: center;
+	padding: 0.2rem 0rem 0.2rem 0rem;
+	font-size: 0.8rem;
+	line-height: 1.6rem;
+	background: #fff;
+	color: #dc0201;
+	text-indent: 0.2rem;
+	letter-spacing: 0.1rem;
+}
+
+.index-activity-cell {
+	width: 100%;
+	overflow: hidden;
+}
+
+.index-activity-cell>a>img {
+	display: block;
+	float: left;
+}
+
+.index-activity-cell>a:first-child>img {
+	width: 39.6%;
+}
+
+.index-activity-cell>a:nth-child(2)>img {
+	width: 60.4%;
+}
+
+.index-activity-cell>a:nth-child(3)>img {
+	width: 60.4%;
+}
+
+.index-activity-cell>a:nth-child(4)>img {
+	width: 100%;
+}
+
+.mui-row .mui-row-four {
+	background: #fff;
+}
+
+.mui-row-four>img {
+	width: 100%;
+	margin-top: 0.8rem;
+}
+
+#newgoods .buy-btn {
+	float: right;
+	width: 2.5rem;
+	height: 1.3rem;
+	line-height: 1.3rem;
+	text-align: center;
+	background: #da0203;
+	color: #fff;
+	border-radius: 0.4rem;
+	position: absolute;
+	right: 0.5rem;
+	bottom: 0.5rem;
+	letter-spacing: 0.05rem;
+}
+
+#newgoods .newsgoods-name {
+	font-size: 0.86rem;
+	margin-left: -0.5rem;
+	color: #515151;
+	letter-spacing: 0.03rem;
+}
+
+#index-footer .mui-media-body {
+	font-size: 0.6rem;
+	font-family: "微软雅黑";
+	color: #515151;
+}
+
+#index-footer .mui-media-other {
+	margin-left: 1rem;
+}
+
+#index-footer .mui-media-first a .iconfont,
+#index-footer .mui-media-first a .mui-media-body {
+	color: #da0203;
+}
+
+.index-input {
+	margin-top: 2.6rem;
+}
+
+.index-input input,
+.index-input button,
+.index-input label {
+	font-size: 0.85rem;
+	font-family: "微软雅黑";
+}
+
+.index-input label {
+	color: #515151;
+}
+#search {
+	position: fixed;
+	border-radius: 0.4em;
+	outline: none;
+	left: 4.5%;
+	right: 5%;
+	border: 1px solid #ececec;
+	margin: auto;
+	display: block;
+	width: 76%;
+	max-width: 520px;
+	max-height: 30px;
+	font-size: 0.96em;
+	padding-left: 3em;
+}
+
+.search-box>img {
+	display: block;
+	float: left;
+	width: 8%;
+	max-width: 32px;
+	margin-left: 0.4em;
+}
+
+.search-box>a:first-child {
+	color: #515151;
+	font-size: 1.4em;
+}
+
+.search-box>a:last-child {
+	color: #fff;
+	display: block;
+	max-width: 34px;
+	max-height: 34px;
+	font-size: 1.3em;
+	float: right;
+	margin-top: 0.2em;
+	margin-right: 0.65em;
+}
+
+.mui-icon-search {
+	color: #515151;
+	position: absolute;
+	left: 2.4em;
+	top: 0.5em;
+}
+
+.search-box {
+	width: 100%;
+	max-width: 640px;
+	padding: 0.5em 0em 0.5em 0em;
+	overflow: hidden;
+	background: rgba(255, 255, 255, .1);
+	position: fixed;
+	z-index: 999;
+}
+#newgoods>li a .mui-media-object {
+	width: 100%;
+	margin-left: -1rem;
+}
+
+
+#newgoods>li {
+	overflow: hidden;
+}
+
+
+#newgoods .newgoods-price {
+	width: 4.5rem;
+	float: left;
+	margin-left: -0.8rem;
+	color: #e21939;
+	font-size: 0.96rem;
+}
+
+#newgoods .old-price {
+	font-size: 0.6rem;
+	text-decoration: line-through;
+	line-height: 1rem;
+	width: 3.2rem;
+	float: left;
+	color: #818181;
+}
+
+#newgoods {
+	width: 100%;
+	overflow: hidden;
+	background: #efeff4;
+}
+
+
+#newgoods .newsgoods-name {
+	color: #515151;
+	text-align: center;
+}
+
+
+#newgoods>li:nth-child(odd) {
+	width: 48%;
+	background: #fff;
+	margin-left: 0.35rem;
+	margin-top: 0.35rem;
+	padding-bottom: 0.2rem;
+	position: relative;
+}
+
+#newgoods>li:nth-child(even) {
+	width: 48%;
+	background: #fff;
+	margin-left: 0.5rem;
+	margin-top: 0.35rem;
+	padding-bottom: 0.2rem;
+	position: relative;
+}
+#newgoods .allgoods-buy {
+	display: block;
+	padding: 0.3rem 0.55rem 0.3rem 0.55rem;
+	text-align: left;
+	font-family: "微软雅黑";
+	border-radius: 0.3rem;
+	background: #e21939;
+	color: #fff;
+	font-size: 0.6rem;
+	line-height: 0.6rem;
+	float: left;
+	position: absolute;
+	right: 0.5rem;
+	bottom: 0.3rem;
+}
+.footer {
+	width: 100%;
+	max-width: 640px;
+	overflow: hidden;
+	background: #fcfcfc;
+	position: fixed;
+	margin: auto;
+}
+
+.footer>li {
+	width: 20%;
+	overflow: hidden;
+	float: left;
+}
+
+.footer>li>a {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.footer>li>a>.iconfont {
+	text-align: center;
+	font-size: 1.2rem;
+	color: #515151;
+	line-height: 1.2rem;
+}
+
+.footer>li>a>.iconfont {
+	text-align: center;
+	font-size: 1.2rem;
+	color: #515151;
+	line-height: 1.2rem;
+}
+
+.footer>li>a>div:last-child {
+	text-align: center;
+	font-size: 0.96rem;
+	color: #515151;
+	font-family: "微软雅黑";
+	line-height: 0.96rem;
+	margin-top: 0.5rem;
+}
+
+.footer>li>.iconfont {
+	text-align: center;
+	font-size: 1.2rem;
+	color: #515151;
+	line-height: 1.2rem;
+}
+
+.footer>li>div:last-child {
+	text-align: center;
+	font-size: 0.96rem;
+	color: #515151;
+	font-family: "微软雅黑";
+	line-height: 0.96rem;
+	margin-top: 0.5rem;
+}
+
+#call {
+	padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+
+/*********************************************************星币记录*************************************************/
+
+.coin-cell {
+	width: 100%;
+	height: 5rem;
+	background: #fff;
+	border: 1px solid #ececec;
+}
+
+.coin-cell>div {
+	width: 50%;
+	height: 2.5rem;
+	line-height: 1.5rem;
+	font-size: 1rem;
+	float: left;
+	padding: 1rem 1rem 0rem 1rem;
+	letter-spacing: 0.05rem;
+}
+
+.coin-cell>div:first-child {
+	color: #434343;
+}
+
+.coin-cell>div:nth-child(2) {
+	color: #ff5500;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.coin-cell>div:nth-child(n+3) {
+	color: #C8C7CC;
+	padding: 0rem 1rem 0rem 1rem;
+	line-height: 2rem;
+}
+
+.coin-cell>div:nth-child(odd) {
+	text-align: left;
+}
+
+.coin-cell>div:nth-child(even) {
+	text-align: right;
+}
+
+
+/************************************************************优惠券*******************************************************/
+
+.coupon-warning {
+	width: 100%;
+	height: 3rem;
+	text-align: center;
+	line-height: 3rem;
+	background: #878787;
+}
+
+.coupon-warning>.iconfont {
+	font-size: 1.2rem;
+	color: #fff;
+}
+
+.coupon-warning>span {
+	font-size: 0.9rem;
+	color: #fff;
+	font-family: "微软雅黑";
+	letter-spacing: 0.05rem;
+}
+
+#item1mobile .coupon-box {
+	width: 100%;
+	overflow: hidden;
+	padding: 0rem 0.6rem 0rem 0.6rem;
+	background: url(../images/noused.png) no-repeat;
+	background-size: 96%;
+	margin-top: 0.6rem;
+	background-position-x: 0.5rem;
+}
+
+#item2mobile .coupon-box {
+	width: 100%;
+	overflow: hidden;
+	background: url(../images/used.png) no-repeat;
+	background-size: 96%;
+	margin-top: 0.6rem;
+	background-position-x: 0.5rem;
+}
+
+#item3mobile .coupon-box {
+	width: 100%;
+	overflow: hidden;
+	padding: 0rem 0.6rem 0rem 0.6rem;
+	background: url(../images/used.png) no-repeat;
+	background-size: 96%;
+	margin-top: 0.6rem;
+	background-position-x: 0.5rem;
+}
+
+.coupon {
+	width: 96%;
+	overflow: hidden;
+	margin: auto;
+}
+
+.coupon-left {
+	width: 75%;
+	height: 6.5rem;
+	float: left;
+	padding: 1rem 0rem 0.3rem 0rem;
+}
+
+.coupon-right {
+	width: 25%;
+	height: 6.5rem;
+	float: left;
+}
+
+#item2mobile .coupon-right {
+	position: relative;
+}
+
+#item2mobile .coupon-right img {
+	position: absolute;
+	left: 8%;
+	top: -5%;
+}
+
+.face-value {
+	float: left;
+	font-size: 3rem;
+	color: #fff;
+	margin-left: 3rem;
+	margin-top: 1rem;
+	font-weight: bolder;
+}
+
+#item2mobile .face-value {
+	float: left;
+	font-size: 3rem;
+	color: #fff;
+	margin-left: 3.6rem;
+	margin-top: 1rem;
+	font-weight: bolder;
+}
+
+.suffix {
+	font-size: 1.2rem;
+	color: #fff;
+	letter-spacing: 0.1rem;
+	line-height: 2.2rem;
+	margin-top: 1rem;
+}
+
+#item2mobile .suffix {
+	font-size: 1.2rem;
+	color: #fff;
+	letter-spacing: 0.1rem;
+	line-height: 2.2rem;
+	margin-top: 1rem;
+	margin-left: 0.6rem;
+}
+
+.valid-period {
+	font-size: 0.9rem;
+	margin-top: 0.6rem;
+	color: #fff;
+	letter-spacing: 0.05rem;
+}
+
+#item2mobile .valid-period {
+	font-size: 0.9rem;
+	margin-top: 0.6rem;
+	color: #fff;
+	letter-spacing: 0.05rem;
+	margin-left: 0.6rem;
+}
+
+#item1mobile .coupon-right>div:first-child {
+	width: 80%;
+	overflow: hidden;
+	text-align: center;
+	color: #FF5500;
+	font-size: 1.45rem;
+	line-height: 1.6rem;
+	margin-top: 1rem;
+	letter-spacing: 0.1rem;
+	margin-left: 0.8rem;
+}
+
+#item1mobile .coupon-right>div:last-child {
+	font-size: 0.96rem;
+	text-align: center;
+	color: #8a8a8a;
+	margin-top: 0.4rem;
+	margin-left: 0.5rem
+}
+
+#item2mobile .coupon-right>div:first-child {
+	width: 80%;
+	overflow: hidden;
+	text-align: center;
+	color: #8a8a8a;
+	font-size: 1.45rem;
+	line-height: 1.6rem;
+	margin-top: 1rem;
+	letter-spacing: 0.1rem;
+	margin-left: 0.4rem;
+}
+
+#item2mobile .coupon-right>div:nth-child(2) {
+	font-size: 0.96rem;
+	text-align: center;
+	color: #8a8a8a;
+	margin-top: 0.4rem;
+	margin-left: -0.3rem;
+}
+
+#item3mobile .coupon-right>div:first-child {
+	width: 80%;
+	overflow: hidden;
+	text-align: center;
+	color: #8a8a8a;
+	font-size: 1.45rem;
+	line-height: 1.6rem;
+	margin-top: 1rem;
+	letter-spacing: 0.1rem;
+	margin-left: 0.8rem;
+}
+
+#item3mobile .coupon-right>div:last-child {
+	font-size: 0.96rem;
+	text-align: center;
+	color: #8a8a8a;
+	margin-top: 0.4rem;
+	margin-left: 0.5rem
+}
+
+#coupon-select .mui-pullleft {
+	border-bottom: 1px solid #ececec;
+}

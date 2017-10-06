@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购物车</title>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/shopCart.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+		<style type="text/css">
+			.shoppingcart-goods-cell>div {
+				font-size: 0.9rem;
+				line-height: 1.2;
+			}
+			
+			.goods-operation {
+				padding: 0.4rem 0.2rem;
+			}
+			
+			.goods-preview>a {
+				display: block;
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.goods-preview>a>img {
+				margin-top: calc(20%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mui-content mui-content1" style="display: none;">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">我的购物车</h1>
+			</header>
+			<div class="cartlist">
+				<i class="iconfont">&#xe605;</i>
+				<div class="">
+					您的购物车空空如也
+				</div>
+				<a name="../index.html" class="hrefCell">
+					<div class="">
+						去购物
+					</div>
+				</a>
+			</div>
+		 
+		</div>
+		<div class="mui-content mui-content2">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">我的购物车</h1>
+			</header>
+			<div id="shopping-cart-goods" class="mui-row shopping-cart-goods">
+		 
+	 
+			</div>
+			<div class="shopping-cart-footer mui-bar-footer">
+				<div class="">商品价格 :</div>
+				<div class="total-price">￥32.6</div>
+				<div class="empty-cart">清空购物车</div>
+				<a name="cart-indent.html" class="hrefCell" >
+					立即结算
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+		 
+
+
+function Getlistcart()
+{
+	  var productlist = cart.getProductList();
+	  var list='';
+	  var j=1;
+	   for(var i in productlist){
+	 	
+	 	list+='<div class="shoppingcart-goods-cell"><div class="mui-col-xs-2 goods-preview"><a name="goods-detail.html" class="hrefCell"><img src="'+APP_SERVER_WWW_URL+productlist[i].pic+'" /></a></div><div class="mui-col-xs-9 goods-operation"><div>'+productlist[i].name+'</div><div><label for="">产品编号:</label><span class="ml-1 blue">'+productlist[i].ProModel+'</span></div><div><label for="">单价:</label><span class="red unit-cost">￥'+productlist[i].price+'</span></div><div class="mui-numbox" data-numbox-min="1" data="'+productlist[i].id+'" ><button class="mui-btn mui-btn-numbox-minus" type="button">-</button><input class="mui-input-numbox input-number" type="number" value="1"  id="number_'+productlist[i].id+'" onchange="onchangefun('+productlist[i].id+')"/><button class="mui-btn mui-btn-numbox-plus" type="button">+</button></div></div><div class="mui-col-xs-1 goods-delete" data="'+productlist[i].id+'"><i class="iconfont">&#xe602;</i></div></div>';
+	 	j++;
+	 	}
+	   
+	 		if(j ==1) {
+			 	$(".mui-content1").show()
+					$(".mui-content2").hide()
+			 } else {
+					$(".mui-content1").hide()
+					$(".mui-content2").show()
+		 	}
+			 
+			 
+			 var goodTotalPrice=Number(orderdetail.totalAmount);
+				$(".total-price").text("￥" + goodTotalPrice.toFixed(2));	
+		 
+ $("#shopping-cart-goods").html(list);
+        }
+	
+	
+ 
+
+			function calculate() {
+				 
+				  var goodTotalPrice=Number(orderdetail.totalAmount);
+				$(".total-price").text("￥" + goodTotalPrice.toFixed(2));	
+				 
+				/**************************载入页面判断购物车是否为空*******************************/
+				if(goodTotalPrice == 0) {
+					$(".mui-content1").show()
+					$(".mui-content2").hide()
+				} else {
+					$(".mui-content1").hide()
+					$(".mui-content2").show()
+				}
+			};
+			
+			
+			
+			Getlistcart();
+			//删除所有商品
+			$(".empty-cart").on("tap", function() {
+				
+				cart.clearProduct();
+				$("#shopping-cart-goods").html("");
+				$(".total-price").text("￥" + 0)
+				$(".mui-content1").show()
+				$(".mui-content2").hide()
+			});
+			
+	
+
+			$(".mui-numbox").on("tap","button",function  () {
+					 
+				var _id= $(this).parents(".mui-numbox").attr("data");
+				 var _Number=$("#number_"+_id).val();
+				 	cart.updateProductNum(_id,_Number);
+				  calculate();
+			})
+			//修改产品
+			
+			function onchangefun(id)
+			{
+				var _Number=$("#number_"+id).val();
+				cart.updateProductNum(id,_Number);
+				 calculate();
+			}
+		 
+			 
+			
+			
+			/****************************************购物车删除商品****************************************/
+			$("#shopping-cart-goods").on("tap", ".goods-delete", function() {
+				var _id=$(this).attr("data");
+				console.log(_id);
+					cart.clearProduct(_id);
+			  $(this).parents(".shoppingcart-goods-cell").remove();
+				calculate();
+			});
+			
+			$(".mui-content").on("tap", ".hrefCell", function() {
+				var _url = $(this).attr("name");
+				mui.openWindow({
+					id: _url,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: "slide-in-right",
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>
