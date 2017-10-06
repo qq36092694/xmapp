@@ -40,7 +40,27 @@
 			"goods-category.html",
 			"js/vue.js",
 			"my-indent.html",
-			"images/daily-newgoods.jpg"
+			"images/daily-newgoods.jpg",
+			"js/jQuery.min.js",
+			"css/reset.css",
+			"forget_password.html",
+			"login.html",
+			"about-us.html",
+			"news-center.html",
+			"images/sslogo.png",
+			"reg.html",
+			"images/goods-details-banner4.jpg",
+			"images/goods-details-banner1.jpg",
+			"images/goods-details-banner3.jpg",
+			"images/goods-details-banner2.jpg",
+			"css/fl.css",
+			"js/app.js",
+			"js/jquery.fly.min.js",
+			"js/mui.min2.css",
+			"index2.html",
+			"customer-information.html",
+			"js/shopCart.js",
+			"css/style.css"
 		],
 		"refer": [
 			"personal-center.html",
@@ -50,7 +70,15 @@
 			"allgoods.html",
 			"sales-promotion.html",
 			"goods-category.html",
-			"my-indent.html"
+			"my-indent.html",
+			"login.html",
+			"index2.html",
+			"customer-information.html",
+			"news-center.html",
+			"classfy.html",
+			"about-us.html",
+			"Member/order/my-indent.html",
+			"cart/shoppingcart.html"
 		]
 	},
 	"empty-shoppingcart.html": {
@@ -64,13 +92,34 @@
 			"sales-promotion.html",
 			"css/iconfont.css",
 			"images/goods-preview.jpg",
-			"personal-information.html"
+			"personal-information.html",
+			"cart-indent.html",
+			"customer-information.html",
+			"js/jQuery.min.js",
+			"my-wallet.html",
+			"customer-service.html",
+			"index.html",
+			"fonts/mui.ttf",
+			"assets/iconfont.woff",
+			"my-indent.html",
+			"css/reset.css",
+			"js/shopCart.js",
+			"js/app.js",
+			"address-manage.html",
+			"goods-detail.html"
 		],
 		"refer": [
 			"personal-center.html",
 			"allgoods.html",
 			"sales-promotion.html",
-			"personal-information.html"
+			"personal-information.html",
+			"index.html",
+			"my-indent.html",
+			"cart-indent.html",
+			"my-wallet.html",
+			"address-manage.html",
+			"Member/order/cart-indent.html",
+			"Member/order/submitOrder.html"
 		]
 	},
 	"personal-center.html": {
@@ -87,7 +136,30 @@
 			"empty-shoppingcart.html",
 			"allgoods.html",
 			"css/iconfont.css",
-			"my-collect.html"
+			"my-collect.html",
+			"images/minebg.jpg",
+			"images/nologin.png",
+			"js/app.js",
+			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+			"libs/easymob-webim-sdk/json2.js",
+			"libs/easymob-webim-sdk/jquery-1.11.1.js",
+			"js/mui.locker.js",
+			"css/feedback-page.css",
+			"css/reset.css",
+			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+			"js/mui.view.js",
+			"login.html",
+			"js/main.js",
+			"coin.html",
+			"coupon.html",
+			"about-us.html",
+			"address-manage.html",
+			"Browsing history.html",
+			"customer-service.html",
+			"js/jQuery.min.js",
+			"css/foot.css",
+			"fonts/mui.ttf",
+			"assets/iconfont.woff"
 		],
 		"refer": [
 			"my-indent.html",
@@ -96,7 +168,17 @@
 			"my-wallet.html",
 			"empty-shoppingcart.html",
 			"allgoods.html",
-			"my-collect.html"
+			"my-collect.html",
+			"coupon.html",
+			"address-manage.html",
+			"about-us.html",
+			"coin.html",
+			"browsing_history.html",
+			"Member/order/my-indent.html",
+			"Member/userinfo/personal-information.html",
+			"Member/userinfo/address-manage.html",
+			"customer-service.html",
+			"Member/userinfo/browsing_history.html"
 		]
 	},
 	"my-indent.html": {
@@ -107,12 +189,20 @@
 			"index.html",
 			"indent-details.html",
 			"personal-center.html",
-			"js/main.js"
+			"js/main.js",
+			"indent-edit.html",
+			"js/jQuery.min.js",
+			"empty-shoppingcart.html",
+			"allgoods.html",
+			"css/iconfont.css",
+			"css/reset.css"
 		],
 		"refer": [
 			"index.html",
 			"indent-details.html",
-			"personal-center.html"
+			"personal-center.html",
+			"empty-shoppingcart.html",
+			"allgoods.html"
 		]
 	},
 	"allgoods.html": {
@@ -127,7 +217,23 @@
 			"goods-category.html",
 			"css/iconfont.css",
 			"personal-center.html",
-			"pullrefresh_sub.html"
+			"pullrefresh_sub.html",
+			"js/jQuery.min.js",
+			"my-wallet.html",
+			"js/main.js",
+			"login.html",
+			"fonts/mui.ttf",
+			"assets/iconfont.woff",
+			"css/fl.css",
+			"css/reset.css",
+			"images/goods-details-banner2.jpg",
+			"js/app.js",
+			"js/jquery.fly.min.js",
+			"images/new-goods_12.png",
+			"index2.html",
+			"js/shopCart.js",
+			"js/jquery-1.7.2.min.js",
+			"address-manage.html"
 		],
 		"refer": [
 			"empty-shoppingcart.html",
@@ -135,7 +241,10 @@
 			"goods-detail.html",
 			"goods-category.html",
 			"personal-center.html",
-			"pullrefresh_sub.html"
+			"pullrefresh_sub.html",
+			"index2.html",
+			"classfy.html",
+			"cart/shoppingcart.html"
 		]
 	},
 	"indent-details.html": {
@@ -147,12 +256,17 @@
 			"images/goods-preview.jpg",
 			"js/mui.min.js",
 			"my-indent.html",
-			"goods-detail.html"
+			"goods-detail.html",
+			"js/jQuery.min.js",
+			"address-manage.html",
+			"css/iconfont.css",
+			"css/reset.css"
 		],
 		"refer": [
 			"afford.html",
 			"my-indent.html",
-			"goods-detail.html"
+			"goods-detail.html",
+			"address-manage.html"
 		]
 	},
 	"exchange-details.html": {
@@ -162,7 +276,10 @@
 			"css/main.css",
 			"js/mui.min.js",
 			"css/mui.min.css",
-			"afford.html"
+			"afford.html",
+			"js/jQuery.min.js",
+			"css/iconfont.css",
+			"css/reset.css"
 		],
 		"refer": [
 			"index.html",
@@ -175,7 +292,11 @@
 			"indent-details.html",
 			"js/main.js",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/jQuery.min.js",
+			"css/main.css",
+			"css/iconfont.css",
+			"css/reset.css"
 		],
 		"refer": [
 			"exchange-details.html",
@@ -196,12 +317,26 @@
 			"js/main.js",
 			"js/mui.min.js",
 			"allgoods.html",
-			"sales-promotion.html"
+			"sales-promotion.html",
+			"js/jquery.fly.min.js",
+			"index.html",
+			"js/jQuery.min.js",
+			"js/mui.zoom.js",
+			"js/mui.previewimage.js",
+			"css/reset.css",
+			"css/iconfont.css",
+			"index2.html",
+			"empty-shoppingcart.html",
+			"js/app.js",
+			"fonts/mui.ttf",
+			"assets/iconfont.woff"
 		],
 		"refer": [
 			"indent-details.html",
 			"allgoods.html",
-			"sales-promotion.html"
+			"sales-promotion.html",
+			"index.html",
+			"index2.html"
 		]
 	},
 	"sales-promotion.html": {
@@ -219,7 +354,9 @@
 			"images/3.jpg",
 			"images/4.jpg",
 			"css/iconfont.css",
-			"js/vue.js"
+			"js/vue.js",
+			"js/jQuery.min.js",
+			"css/reset.css"
 		],
 		"refer": [
 			"empty-shoppingcart.html",
@@ -234,20 +371,35 @@
 			"js/mui.min.js",
 			"css/iconfont.css",
 			"css/mui.min.css",
-			"empty-shoppingcart.html"
+			"empty-shoppingcart.html",
+			"js/jQuery.min.js",
+			"change-password.html",
+			"js/main.js",
+			"allgoods.html"
 		],
 		"refer": [
 			"personal-center.html",
-			"empty-shoppingcart.html"
+			"empty-shoppingcart.html",
+			"change-password.html",
+			"index.html"
 		]
 	},
 	"my-wallet.html": {
 		"resources": [
 			"images/account_bonus.png",
-			"personal-center.html"
+			"personal-center.html",
+			"css/mui.min.css",
+			"empty-shoppingcart.html",
+			"allgoods.html",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"css/main.css",
+			"index.html"
 		],
 		"refer": [
-			"personal-center.html"
+			"personal-center.html",
+			"empty-shoppingcart.html",
+			"index.html"
 		]
 	},
 	"goods-category.html": {
@@ -274,7 +426,8 @@
 			"js/vue.js",
 			"js/mui.min.js",
 			"css/mui.min.css"
-		]
+		],
+		"refer": []
 	},
 	"pullrefresh_sub.html": {
 		"resources": [
@@ -285,6 +438,475 @@
 		],
 		"refer": [
 			"goods-category.html",
+			"goods-detail.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.enterfocus.js",
+			"images/sinaweibo.png",
+			"images/weixin.png",
+			"images/qq.png",
+			"css/main.css",
+			"css/iconfont.css",
+			"assets/iconfont.woff",
+			"index.html",
+			"personal-center.html",
+			"js/jQuery.min.js",
+			"allgoods.html",
+			"css/reset.css",
+			"fonts/mui.ttf",
+			"js/jquery-1.7.2.min.js"
+		],
+		"refer": [
+			"reg.html",
+			"forget_password.html",
+			"unlock.html",
+			"index.html",
+			"personal-center.html",
+			"allgoods.html"
+		]
+	},
+	"reg.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"login.html",
+			"css/main.css",
+			"css/iconfont.css",
+			"js/mui.min.js",
+			"index.html",
+			"js/main.js",
+			"js/app.js",
+			"js/jQuery.min.js",
+			"css/reset.css",
+			"css/mui.indexedlist.css"
+		],
+		"refer": [
+			"login.html"
+		]
+	},
+	"forget_password.html": {
+		"resources": [
+			"css/mui.min.css",
+			"index.html",
+			"js/app.js",
+			"js/mui.min.js"
+		],
+		"refer": []
+	},
+	"cart-indent.html": {
+		"resources": [
+			"css/mui.min.css",
+			"images/empty-address.jpg",
+			"customer-information.html",
+			"empty-shoppingcart.html",
+			"js/main.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"afford.html",
+			"css/main.css",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"customer-information.html",
+			"empty-shoppingcart.html"
+		]
+	},
+	"customer-information.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/area.js",
+			"empty-shoppingcart.html",
+			"cart-indent.html",
+			"address-manage.html",
+			"js/main.js",
+			"js/jQuery.min.js",
+			"css/main.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"allgoods.html",
+			"index.html",
+			"js/mui.poppicker.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.min.css",
+			"js/city.data.js",
+			"js/city.data-3.js",
+			"js/mui.picker.min.js"
+		],
+		"refer": [
+			"index.html",
+			"cart-indent.html",
+			"address-manage.html",
+			"personal-center.html"
+		]
+	},
+	"change-password.html": {
+		"resources": [
+			"personal-information.html",
+			"css/mui.min.css",
+			"index.html",
+			"css/main.css"
+		],
+		"refer": [
+			"personal-information.html"
+		]
+	},
+	"address-manage.html": {
+		"resources": [
+			"js/main.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"customer-information.html",
+			"indent-details.html",
+			"personal-center.html",
+			"css/main.css",
+			"index.html",
+			"empty-shoppingcart.html",
+			"allgoods.html"
+		],
+		"refer": [
+			"customer-information.html",
+			"personal-center.html",
+			"index.html",
+			"indent-details.html",
+			"empty-shoppingcart.html"
+		]
+	},
+	"indent-edit.html": {
+		"resources": [
+			"images/goods-preview.jpg",
+			"css/mui.min.css",
+			"my-indent.html"
+		],
+		"refer": [
+			"my-indent.html"
+		]
+	},
+	"about-us.html": {
+		"resources": [
+			"index.html",
+			"images/brief-production1.jpg",
+			"images/brief-production2.jpg",
+			"js/main.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"personal-center.html",
+			"css/main.css",
+			"css/iconfont.css",
+			"css/reset.css",
+			"allgoods.html"
+		],
+		"refer": [
+			"index.html",
+			"personal-center.html",
+			"allgoods.html"
+		]
+	},
+	"coin.html": {
+		"resources": [
+			"js/jQuery.min.js",
+			"personal-center.html",
+			"js/jquery.fly.min.js",
+			"css/main.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"personal-center.html"
+		]
+	},
+	"coupon.html": {
+		"resources": [
+			"js/jQuery.min.js",
+			"images/outdate.png",
+			"images/used.png",
+			"images/noused.png",
+			"personal-center.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/main.js",
+			"empty-shoppingcart.html",
+			"css/main.css"
+		],
+		"refer": [
+			"empty-shoppingcart.html"
+		]
+	},
+	"Browsing history.html": {
+		"resources": [
+			"js/main.js",
+			"images/goods-preview.jpg",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"personal-center.html"
+		],
+		"refer": [
+			"personal-center.html"
+		]
+	},
+	"customer-service.html": {
+		"resources": [
+			"js/main.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"empty-shoppingcart.html",
+			"personal-center.html"
+		],
+		"refer": []
+	},
+	"news-center.html": {
+		"resources": [
+			"js/main.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"allgoods.html",
+			"index.html",
+			"css/main.css",
+			"css/iconfont.css",
+			"css/reset.css"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"unlock.html": {
+		"resources": [
+			"js/mui.locker.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"index2.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/index-logo_16.png",
+			"js/main.js",
+			"images/index-logo_17.png",
+			"js/app.js",
+			"images/index-logo_15.png",
+			"css/main.css",
+			"images/index-news_03.png",
+			"css/fl.css",
+			"images/index-logo_09.png",
+			"assets/iconfont.woff",
+			"js/jQuery.min.js",
+			"css/iconfont.css",
+			"images/sslogo.png",
+			"images/new-goods_12.png",
+			"images/index-logo_18.png",
+			"js/jquery.fly.min.js",
+			"images/index-logo_05.png",
+			"images/index-logo_03.png",
+			"images/index-logo_07.png",
+			"css/reset.css",
+			"images/goods-details-banner2.jpg",
+			"index.html",
+			"allgoods.html",
+			"empty-shoppingcart.html",
+			"js/shopCart.js",
+			"personal-center.html"
+		],
+		"refer": [
+			"allgoods.html",
+			"index.html",
+			"goods-detail.html",
+			"personal-center.html"
+		]
+	},
+	"classfy.html": {
+		"resources": [
+			"css/main.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/fl.css",
+			"css/reset.css",
+			"images/goods-details-banner2.jpg",
+			"js/jquery-1.7.2.min.js",
+			"js/app.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js",
+			"js/shopCart.js"
+		],
+		"refer": [
+			"allgoods.html"
+		]
+	},
+	"browsing_history.html": {
+		"resources": [
+			"images/goods-preview.jpg",
+			"css/main.css",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"Member/order/my-indent.html": {
+		"resources": [
+			"css/mui.min.css",
+			"css/main.css",
+			"css/iconfont.css",
+			"css/reset.css",
+			"fonts/mui.ttf",
+			"assets/iconfont.woff",
+			"js/main.js",
+			"js/app.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"Member/order/indent-details.html",
+			"Member/order/indent-edit.html"
+		]
+	},
+	"Member/userinfo/personal-information.html": {
+		"resources": [
+			"css/mui.min.css",
+			"css/main.css",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"assets/iconfont.woff",
+			"css/reset.css",
+			"js/main.js",
+			"js/app.js",
+			"js/jQuery.min.js",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"Member/userinfo/change-password.html"
+		]
+	},
+	"Member/userinfo/change-password.html": {
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"personal-center.html"
+		]
+	},
+	"Member/userinfo/address-manage.html": {
+		"resources": [
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/main.js",
+			"js/app.js",
+			"js/jQuery.min.js",
+			"css/main.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"assets/iconfont.woff",
+			"css/reset.css"
+		],
+		"refer": [
+			"Member/userinfo/customer-information.html"
+		]
+	},
+	"Member/userinfo/customer-information.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"js/mui.poppicker.js",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.min.css",
+			"js/city.data.js",
+			"js/city.data-3.js",
+			"js/main.js",
+			"js/app.js",
+			"css/main.css",
+			"fonts/mui.ttf",
+			"assets/iconfont.woff",
+			"css/iconfont.css",
+			"css/reset.css",
+			"js/jQuery.min.js",
+			"js/mui.min.js"
+		]
+	},
+	"Member/order/indent-details.html": {
+		"resources": [
+			"css/main.css",
+			"images/goods-preview.jpg",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"afford.html",
+			"Member/userinfo/address-manage.html"
+		]
+	},
+	"Member/order/indent-edit.html": {
+		"resources": [
+			"css/mui.min.css",
+			"images/goods-preview.jpg",
+			"js/app.js",
+			"js/jQuery.min.js",
+			"css/main.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"js/shopCart.js",
+			"assets/iconfont.woff",
+			"css/reset.css"
+		],
+		"refer": [
+			"allgoods.html",
+			"Member/order/cart-indent.html"
+		]
+	},
+	"Member/order/cart-indent.html": {
+		"resources": [
+			"css/mui.min.css",
+			"images/empty-address.jpg",
+			"js/main.js",
+			"js/jQuery.min.js",
+			"css/main.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/reset.css",
+			"assets/iconfont.woff"
+		],
+		"refer": [
+			"Member/userinfo/customer-information.html",
+			"Member/userinfo/address-manage.html"
+		]
+	},
+	"Member/order/submitOrder.html": {
+		"resources": [
+			"js/main.js",
+			"css/main.css",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/reset.css",
+			"js/jQuery.min.js",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"Member/userinfo/address-manage.html",
+			"afford.html"
+		]
+	},
+	"cart/shoppingcart.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"Member/userinfo/browsing_history.html": {
+		"resources": [
+			"css/main.css",
+			"css/mui.min.css",
+			"images/goods-preview.jpg"
+		],
+		"refer": [
 			"goods-detail.html"
 		]
 	}

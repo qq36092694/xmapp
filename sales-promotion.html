@@ -6,10 +6,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>促销活动</title>
 		<script src="js/mui.min.js"></script>
-		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
@@ -19,11 +20,11 @@
 	<body>
 		<div class="mui-content">
 			<header id="header" class="mui-bar mui-bar-nav">
-				<a onClick="javascript :history.back(-1);" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 				<h1 class="mui-title">促销活动</h1>
 				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
 			</header>
-			<div style="margin-top: 2.7em;" id="slider" class="mui-slider">
+			<div id="slider" class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
 					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 					<div class="mui-slider-item mui-slider-item-duplicate">
@@ -94,46 +95,56 @@
 					<img src="images/sales-promotion1.png"/>
 				</a>
 			</div>
-			<div id="index-footer" class="index-footer mui-bar-footer">
-				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-col-xs-2">
+			<ul class="footer mui-bar-footer">
+					<li>
 						<a href="index.html">
-							<i class="iconfont">&#xe639;</i>
-							<a href="index.html">
-								<div class="mui-media-body">首页</div>
-							</a>
+							<div class="iconfont">
+								&#xe639;
+							</div>
+							<div class="">
+								首页
+							</div>
 						</a>
 					</li>
-					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<i class="iconfont">&#xe604;</i>
-						<div class="mui-media-body">电话</div>
+					<li id="call">
+						<div class="iconfont">
+							&#xe604;
+						</div>
+						<div class="">
+							电话
+						</div>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<a style="color: #da0203" href="#">
-							<i class="iconfont">&#xe643;</i>
-							<a href="">
-								<div class="mui-media-body">促销</div>
-							</a>
+					<li>
+						<a href="allgoods.html">
+							<div style="font-weight: bolder;" class="iconfont">
+								&#xe6a4;
+							</div>
+							<div class="">
+								商品
+							</div>
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+					<li>
 						<a href="empty-shoppingcart.html">
-							<i class="iconfont">&#xe600;</i>
-							<a href="empty-shoppingcart.html">
-								<div class="mui-media-body">购物车</div>
-							</a>
+							<div class="iconfont">
+								&#xe600;
+							</div>
+							<div class="">
+								购物车
+							</div>
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
+					<li>
 						<a href="personal-center.html">
-							<i class="iconfont">&#xe6c9;</i>
-							<a href="personal-center.html">
-								<div class="mui-media-body">我的</div>
-							</a>
+							<div style="color: #da0203;" class="iconfont">
+								&#xe6c9;
+							</div>
+							<div style="color: #da0203;" class="">
+								我的
+							</div>
 						</a>
 					</li>
 				</ul>
-			</div>
 		</div>
 		<script type="text/javascript">
 			document.getElementById("call").addEventListener('tap', function() {

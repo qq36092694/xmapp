@@ -4,18 +4,22 @@
  * =====================================================
  */
 
-
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-
-html {
-	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+	html {
+		font-family: sans-serif;
+		-webkit-text-size-adjust: 100%;
+		font-size: 16px;
+	}
+	body {
+		font-family: 'Helvetica Neue', Helvetica, sans-serif;
+		font-size: 16px;
+		line-height: 21px;
+		color: #515151;
+		background-color: #efeff4;
+		-webkit-overflow-scrolling: touch
+	}
 }
-
-body {
-	margin: 0
-}
-
 article,
 aside,
 details,
@@ -219,15 +223,6 @@ th {
 	-webkit-tap-highlight-color: transparent
 }
 
-body {
-	font-family: 'Helvetica Neue', Helvetica, sans-serif;
-	font-size: 17px;
-	line-height: 21px;
-	color: #000;
-	background-color: #efeff4;
-	-webkit-overflow-scrolling: touch
-}
-
 a {
 	text-decoration: none;
 	color: #007aff
@@ -238,7 +233,7 @@ a:active {
 }
 
 .mui-content {
-	background-color: #efeff4;
+	/*background-color: #fcfcfc;*/
 	-webkit-overflow-scrolling: touch
 }
 
@@ -1291,8 +1286,8 @@ input[type=submit]:enabled:active {
 
 .mui-bar-nav {
 	top: 0;
-	-webkit-box-shadow: 0 1px 6px #ccc;
-	box-shadow: 0 1px 6px #ccc
+/*	-webkit-box-shadow: 0 1px 6px #ccc;
+*/	/*box-shadow: 0 1px 6px #ccc*/
 }
 
 .mui-bar-nav~.mui-content .mui-anchor {
@@ -1442,7 +1437,7 @@ input[type=submit]:enabled:active {
 }
 
 .mui-bar .mui-icon {
-	font-size: 24px;
+	font-size: 22px;
 	position: relative;
 	z-index: 20;
 	padding-top: 10px;
@@ -1775,7 +1770,7 @@ input[type=submit]:enabled:active {
 	content: '';
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
-	background-color: #c8c7cc;
+	background-color: #fcfcfc;
 	top: -1px
 }
 
@@ -1870,7 +1865,7 @@ input[type=submit]:enabled:active {
 	-webkit-touch-callout: none
 }
 
-.mui-table-view-cell:after {
+/*.mui-table-view-cell:after {
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -1880,7 +1875,7 @@ input[type=submit]:enabled:active {
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
 	background-color: #c8c7cc
-}
+}*/
 
 .mui-table-view-cell.mui-checkbox input[type=checkbox],
 .mui-table-view-cell.mui-radio input[type=radio] {
@@ -1899,17 +1894,6 @@ input[type=submit]:enabled:active {
 .mui-table-view-cell:last-child:after,
 .mui-table-view-cell:last-child:before {
 	height: 0
-}
-
-.mui-table-view-cell>a:not(.mui-btn) {
-	position: relative;
-	display: block;
-	overflow: hidden;
-	margin: -11px -15px;
-	padding: inherit;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	color: inherit
 }
 
 .mui-table-view-cell>a:not(.mui-btn).mui-active {
@@ -2251,14 +2235,14 @@ input[type=submit]:enabled:active {
 	content: '';
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
-	background-color: #c8c7cc
+	background-color: #fcfcfc
 }
 
 .mui-table-view.mui-grid-view {
 	font-size: 0;
 	display: block;
 	width: 100%;
-	padding: 0 10px 10px 0;
+	padding: 0 0 8px 0;
 	white-space: normal
 }
 
@@ -2269,17 +2253,20 @@ input[type=submit]:enabled:active {
 	padding: 10px 0 0 14px;
 	text-align: center;
 	vertical-align: middle;
-	background: 0 0
+	background: #fcfcfc
 }
 
 .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
 	width: 100%;
 	max-width: 100%;
-	height: auto
+	height: auto;
 }
 
 .mui-table-view.mui-grid-view .mui-table-view-cell>a:not(.mui-btn) {
-	margin: -10px 0 0 -14px
+	display: block;
+	width: 109%;
+	margin: -10px 0 0 -14px;
+	overflow: hidden;
 }
 
 .mui-table-view.mui-grid-view .mui-table-view-cell>a:not(.mui-btn).mui-active,
@@ -2288,8 +2275,8 @@ input[type=submit]:enabled:active {
 }
 
 .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
-	font-size: 15px;
-	line-height: 15px;
+	font-size: 14px;
+	line-height: 14px;
 	display: block;
 	width: 100%;
 	height: 15px;
@@ -2380,7 +2367,7 @@ input,
 select,
 textarea {
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
-	font-size: 17px;
+	font-size: 0.96rem;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-tap-highlight-color: transparent
 }
@@ -2407,12 +2394,24 @@ input[type=text],
 input[type=time],
 input[type=url],
 input[type=week],
-select,
+select{
+	line-height: 19px;
+/*	width: 100%;*/
+	height: 40px;
+	/*margin-bottom: 15px;*/
+	padding: 10px 15px;
+	-webkit-user-select: text;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 3px;
+	outline: 0;
+	background-color: #fff;
+	-webkit-appearance: none
+}
 textarea {
-	line-height: 21px;
+	line-height: 19px;
 	width: 100%;
 	height: 40px;
-	margin-bottom: 15px;
+	/*margin-bottom: 15px;*/
 	padding: 10px 15px;
 	-webkit-user-select: text;
 	border: 1px solid rgba(0, 0, 0, .2);
@@ -2434,9 +2433,9 @@ input[type=search] {
 	box-sizing: border-box;
 	height: 34px;
 	text-align: center;
-	border: 0;
+/*	border: 0;*/
 	border-radius: 6px;
-	background-color: rgba(0, 0, 0, .1)
+	background-color: #fff
 }
 
 input[type=search]:focus {
@@ -2514,7 +2513,7 @@ select:focus {
 }
 
 .mui-input-row select {
-	font-size: 17px;
+	font-size: 0.96rem;
 	height: 37px;
 	padding: 0
 }
@@ -2529,7 +2528,7 @@ select:focus {
 	height: 40px
 }
 
-.mui-input-group .mui-input-row:after {
+/*.mui-input-group .mui-input-row:after {
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -2539,15 +2538,15 @@ select:focus {
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
 	background-color: #c8c7cc
-}
+}*/
 
-.mui-input-row label {
+/*.mui-input-row label {
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 	line-height: 1.1;
 	float: left;
 	width: 35%;
 	padding: 11px 15px
-}
+}*/
 
 .mui-input-row label~input,
 .mui-input-row label~select,
@@ -2605,7 +2604,7 @@ select:focus {
 	font-size: 20px;
 	position: absolute;
 	z-index: 1;
-	top: 10px;
+	top: 0px;
 	right: 0;
 	width: 38px;
 	height: 38px;
@@ -2922,7 +2921,8 @@ select:focus {
 .mui-segmented-control.mui-segmented-control-inverted {
 	width: 100%;
 	border: 0;
-	border-radius: 0
+	border-radius: 0;
+	background: #f0f0f0
 }
 
 .mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item,
@@ -2936,11 +2936,11 @@ select:focus {
 }
 
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-	color: #F23A17;
+	/*color: #F23A17;*/
+	/*border-left: 0.2rem solid #ff5500;*/
 	border-bottom: 2px solid #007aff;
-	background: 0 0
+	background:#fff;
 }
-
 .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar {
 	background-color: #007aff
 }
@@ -3722,6 +3722,7 @@ body>.mui-progressbar {
 	position: relative;
 	display: inline-block;
 	width: 100%;
+	height: 100%;
 	overflow: hidden;
 	vertical-align: top;
 	white-space: normal
@@ -3734,7 +3735,7 @@ body>.mui-progressbar {
 }
 
 .mui-slider .mui-slider-group .mui-slider-item img {
-	width: 100%
+	display:block;width: 100%;float: left;
 }
 
 .mui-slider .mui-slider-group .mui-slider-item .mui-table-view:after,
@@ -4064,8 +4065,9 @@ body>.mui-progressbar {
 	line-height: 17px;
 	position: fixed;
 	z-index: 9999;
-	bottom: 50px;
+	bottom: 20%;
 	left: 50%;
+	letter-spacing: 0.03rem;
 	-webkit-transition: opacity .3s;
 	transition: opacity .3s;
 	-webkit-transform: translate(-50%, 0);

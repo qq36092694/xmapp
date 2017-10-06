@@ -8,54 +8,16 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/app.js"></script>
+		<script src="js/shopCart.js"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.fly.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 		<style>
-			html,
-			body {
-				background-color: #efeff4;
-			}
-			
-			#offCanvasWrapper {
-				widows: 100%;
-				max-width: 640px;
-				overflow: hidden;
-				margin: auto;
-				margin: auto;
-			}
-			
-			p {
-				text-indent: 22px;
-			}
-			
-			span.mui-icon {
-				font-size: 14px;
-				color: #007aff;
-				margin-left: -15px;
-				padding-right: 10px;
-			}
-			
-			.mui-off-canvas-left {
-				color: #fff;
-			}
-			
-			.title {
-				margin: 35px 15px 10px;
-			}
-			
-			.title+.content {
-				margin: 10px 15px 35px;
-				color: #bbb;
-				text-indent: 1em;
-				font-size: 14px;
-				line-height: 24px;
-			}
-			
-			input {
-				color: #000;
-			}
-			
 			header {
 				margin: auto;
 			}
@@ -68,320 +30,547 @@
 				color: #515151;
 				line-height: 2.7em;
 			}
+			
+			#segmentedControlContents>.mui-control-content>ul>li {
+				width: 33.33%;
+				padding: none;
+				float: left;
+				border-right: 1px solid #C8C7CC;
+				border-bottom: 1px solid #c8c7cc;
+				box-sizing: border-box;
+				text-align: center;
+			}
+			
+			#segmentedControlContents>.mui-control-content>ul>li:last-child {
+				border-right: 1px solid #c8c7cc;
+			}
+			
+			.index-entry-main .mui-table-view-cell>a:not(.mui-btn) {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				margin: -11px -15px;
+				padding: inherit;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: inherit
+			}
+			
+			.mui-pull-bottom-pocket {
+				z-index: 999;
+				bottom: 3.5em;
+			}
+			
+			#index-entry>ul>li img {
+				width: 46%;
+			}
 		</style>
 	</head>
-	<body>
-		<div class="mui-content">
-			<div class="mui-bar-nav">
-				<a href="index.html">
-					<div class="logo-index">首页</div>
-				</a>
-				<a href="Browsing history.html">
-					<div class="logo-other">每日上新</div>
-				</a>
-				<a href="allgoods.html">
-					<div class="logo-other">韩国进口</div>
-				</a>
-				<a href="allgoods.html">
-					<div class="logo-other">开心厨房</div>
-				</a>
-				<a href="allgoods.html">
-					<div class="logo-other">居家生活</div>
-				</a>
-				<a href="allgoods.html">
-					<div class="logo-other">卫浴清洁</div>
-				</a>
-			</div>
-			<div class="mui-row">
-				<div id="slider" class="mui-slider">
-					<div class="mui-slider-group mui-slider-loop">
-						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-						<div class="mui-slider-item mui-slider-item-duplicate">
-							<a href="goods-detail.html">
-								<img src="images/4.jpg">
-							</a>
-						</div>
-						<!-- 第一张 -->
-						<div class="mui-slider-item">
-							<a href="goods-detail.html">
-								<img src="images/1.png">
-							</a>
-						</div>
-						<!-- 第二张 -->
-						<div class="mui-slider-item">
-							<a href="goods-detail.html">
-								<img src="images/2.jpg">
-							</a>
-						</div>
-						<!-- 第三张 -->
-						<div class="mui-slider-item">
-							<a href="goods-detail.html">
-								<img src="images/3.jpg">
-							</a>
-						</div>
-						<!-- 第四张 -->
-						<div class="mui-slider-item">
-							<a href="goods-detail.html">
-								<img src="images/4.jpg">
-							</a>
-						</div>
 
-						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-						<div class="mui-slider-item mui-slider-item-duplicate">
-							<a href="goods-detail.html">
-								<img src="images/1.png">
-							</a>
-						</div>
+	<body>
+		<div class="search-box" style="background: rgba(230,0,69,1);">
+			<img src="images/sslogo.png" />
+			<input id="search" type="search" name="" id="" value="" placeholder="请输入产品名称" />
+			<a class="mui-icon mui-icon-search"></a>
+			<a id="fl" href="javascript:void(0)" class="iconfont">&#xe60d;</a>
+		</div>
+		<div id="pullrefresh" class="mui-scroll-wrapper">
+			<div class="mui-content mui-scroll" style="padding-bottom: 3em;padding-top: 3.2em;">
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop" id='index_Carousel'>
+
 					</div>
-					<div class="mui-slider-indicator">
-						<div class="mui-indicator mui-active"></div>
-						<div class="mui-indicator"></div>
-						<div class="mui-indicator"></div>
-						<div class="mui-indicator"></div>
-					</div>
-				</div>
-			</div>
-			<div class="mui-row mui-row-second">
-				<div class="index-search">
-					<img src="images/logo_03.png" />
-					<div class="">
-						<input style="" type="text" name="" id="" value="" placeholder="请输入搜索关键词!" />
-						<a href="allgoods.html"><span class="mui-icon mui-icon-search index-search-icon"></span></a>
-						<a href="goods-category.html"><i class="iconfont index-list-icon">&#xe60d;</i></a>
+					<div class="mui-slider-indicator" id='index_item'>
+
 					</div>
 				</div>
-				<div id="index-entry" class="mui-row mui-row-third">
-					<ul class="mui-table-view mui-grid-view">
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="goods-category.html">
-								<img class="mui-media-object" src="images/index-logo_03.png" style="width: 2.5rem;">
-								<div class="mui-media-body">全部分类</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="my-indent.html">
-								<img class="mui-media-object" src="images/index-logo_05.png" style="width: 2.5rem;">
-								<div class="mui-media-body">我的订单</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="Browsing history.html"><img class="mui-media-object" src="images/index-logo_07.png" style="width: 2.5rem;">
-								<div class="mui-media-body">每日上新</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="sales-promotion.html">
-								<img class="mui-media-object" src="images/index-logo_09.png" style="width: 2.5rem;">
-								<div class="mui-media-body">促销活动</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="allgoods.html">
-								<img class="mui-media-object" src="images/index-logo_15.png" style="width: 2.5rem;">
-								<div class="mui-media-body">热门搜索</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="about-us.html">
-								<img class="mui-media-object" src="images/index-logo_16.png" style="width: 2.5rem;">
-								<div class="mui-media-body">关于我们</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="personal-center.html"><img class="mui-media-object" src="images/index-logo_17.png" style="width: 2.5rem;">
-								<div class="mui-media-body">个人中心</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3">
-							<a href="empty-shoppingcart.html">
-								<img class="mui-media-object" src="images/index-logo_18.png" style="width: 2.5rem;">
-								<div class="mui-media-body">购物车</div>
-							</a>
-						</li>
-					</ul>
-					<a href="">
+				<div class="mui-row mui-row-second">
+					<div id="index-entry" class="mui-row mui-row-third">
+						<ul class="mui-table-view mui-grid-view index-entry-main">
+							<!--<li class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)">
+									<img class="mui-media-object" src="images/index-logo_03.png" ">
+									<div class="mui-media-body">全部分类</div>
+								</a>
+							</li>
+							<li name="my-indent.html" class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)">
+									<img class="mui-media-object" src="images/index-logo_05.png" ">
+									<div class="mui-media-body">我的订单</div>
+								</a>
+							</li>
+							<li name="allgoods.html" class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)"><img class="mui-media-object" src="images/index-logo_07.png" ">
+									<div class="mui-media-body">每月上新</div>
+								</a>
+							</li>
+							<li name="sales-promotion.html" class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)">
+									<img class="mui-media-object" src="images/index-logo_09.png" ">
+									<div class="mui-media-body">促销活动</div>
+								</a>
+							</li>
+							<li name="allgoods.html" class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)">
+									<img class="mui-media-object" src="images/index-logo_15.png" ">
+									<div class="mui-media-body">热门搜索</div>
+								</a>
+							</li>
+							<li name="about-us.html" class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)">
+									<img class="mui-media-object" src="images/index-logo_16.png" ">
+									<div class="mui-media-body">关于我们</div>
+								</a>
+							</li>
+							<li name="personal-center.html" class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)"><img class="mui-media-object" src="images/index-logo_17.png" ">
+									<div class="mui-media-body">个人中心</div>
+								</a>
+							</li>
+							<li name="empty-shoppingcart.html" class="mui-table-view-cell mui-media mui-col-xs-3">
+								<a href="javascript:void(0)">
+									<img class="mui-media-object" src="images/index-logo_18.png" ">
+									<div class="mui-media-body">购物车</div>
+								</a>
+							</li>-->
+						</ul>
 						<div class="index-news">
 							<img src="images/index-news_03.png" />
 							<div id="container">
 								<div id="inContainer">
-									<span id="onetxt">
-               关于G20峰会期间发货(快递物流)的通知
-            </span>
-									<span id="twotxt">
-                 关于G20峰会期间发货(快递物流)的通知
-            </span>
+									<div class="scrollText">
+										<ul id="newlist">
+
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>
-					</a>
-					<div class="index-activity">
-						| 热门活动
-					</div>
-					<div class="index-activity-cell">
-						<a href=""><img src="images/activity-cell_06.png" alt=" " /></a>
-						<a href=""><img src="images/activity-cell_07.png" alt="" /></a>
-						<a href=""><img src="images/activity-cell_08.png" alt="" /></a>
-						<a href=""><img src="images/activity-cell_09.png" alt="" /></a>
 					</div>
 					<div class="index-activity">
-						| 限量抢购
+						－－－－－－－－每月上新－－－－－－－－
 					</div>
-					<div class="index-activity-cell">
-						<a href=""><img src="images/activity-cell_06.png" alt=" " /></a>
-						<a href=""><img src="images/activity-cell_07.png" alt="" /></a>
-						<a href=""><img src="images/activity-cell_08.png" alt="" /></a>
-						<a href=""><img src="images/activity-cell_09.png" alt="" /></a>
-					</div>
-					<div class="index-activity">
-						| 爆款推荐
-					</div>
-					<div class="index-activity-cell">
-						<a href=""><img src="images/activity-cell_06.png" alt=" " /></a>
-						<a href=""><img src="images/activity-cell_07.png" alt="" /></a>
-						<a href=""><img src="images/activity-cell_08.png" alt="" /></a>
-						<a href=""><img src="images/activity-cell_09.png" alt="" /></a>
+					<div class="mui-row mui-row-four">
+						<ul id="newgoods" class="mui-table-view mui-grid-view">
+
+						</ul>
 					</div>
 				</div>
-				<div class="mui-row mui-row-four">
-					<img src="images/daily-newgoods.jpg"/>
-					<ul id="newgoods" class="mui-table-view mui-grid-view">
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6">
-							<a href="goods-detail.html">
-								<img class="mui-media-object" src="images/new-goods_12.png">
-								<div class="mui-media-body newsgoods-name">创意家居装饰墙纸防水</div>
-								<div class="mui-media-body newgoods-price">
-									现价:2.10
-								</div>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div id="index-footer" class="index-footer mui-bar-footer">
-				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
-						<a href="index.html">
-							<i class="iconfont">&#xe639;</i>
-							<a href="index.html">
-								<div class="mui-media-body">首页</div>
-							</a>
-						</a>
-					</li>
-					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<i class="iconfont">&#xe604;</i>
-						<div class="mui-media-body">电话</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<a href="#">
-							<i class="iconfont">&#xe643;</i>
-							<a href="sales-promotion.html">
-								<div class="mui-media-body">促销</div>
-							</a>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<a href="empty-shoppingcart.html">
-							<i class="iconfont">&#xe600;</i>
-							<a href="empty-shoppingcart.html">
-								<div class="mui-media-body">购物车</div>
-							</a>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<a href="personal-center.html">
-							<i class="iconfont">&#xe6c9;</i>
-							<a href="personal-center.html">
-								<div class="mui-media-body">我的</div>
-							</a>
-						</a>
-					</li>
-				</ul>
 			</div>
 		</div>
-		<script type="text/javascript"> 
+		<ul class="footer mui-bar-footer">
+			<li class="hrefCell" name="index.html">
+				<a href="javascript:void(0)">
+					<div style="color: #da0203;" class="iconfont">
+						&#xe639;
+					</div>
+					<div class="" style="color: #da0203;">
+						首页
+					</div>
+				</a>
+			</li>
+			<li id="call">
+				<div class="iconfont">
+					&#xe604;
+				</div>
+				<div class="">
+					电话
+				</div>
+			</li>
+			<li class="hrefCell" name="allgoods.html">
+				<a href="javascript:void(0)">
+					<div style="font-weight: bolder;" class="iconfont">
+						&#xe6a4;
+					</div>
+					<div class="">
+						商品
+					</div>
+				</a>
+			</li>
+			<li class="hrefCell" name="cart/shoppingcart.html">
+				<a href="javascript:void(0)">
+					<div class="iconfont">
+						&#xe600;
+					</div>
+					<div class="circle1">
+						0
+					</div>
+					<div class="">
+						购物车
+					</div>
+				</a>
+			</li>
+			<li class="hrefCell" name="personal-center.html">
+				<a href="javascript:void(0)">
+					<div class="iconfont">
+						&#xe6c9;
+					</div>
+					<div class="">
+						我的
+					</div>
+				</a>
+			</li>
+		</ul>
+		<div id="mask">
+		</div>
+		<!--	//页全局变量-->
+		<script>
+			var page = 1;
+			var sum = 0;
+			var mask = mui.createMask();
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: true, //默认为false，不监听
+					release: true //默认为false，不监听
+				}
+			});
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						style: 'circle',
+						callback: pulldownRefresh
+					},
+					up: {
+						auto: false,
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			//			mui('.mui-scroll-wrapper').scroll({
+			//				scrollY: true, //是否竖向滚动
+			//				scrollX: false, //是否横向滚动
+			//				startX: 0, //初始化时滚动至x
+			//				startY: 0, //初始化时滚动至y
+			//				indicators: false, //是否显示滚动条
+			//				deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
+			//				bounce: true //是否启用回弹
+			//			});
+			function pullupRefresh() {
+				setTimeout(function() {
+					upRefersh();
+				}, 1000);
+			};
+			// 下拉刷新具体业务实现
+			function pulldownRefresh() {
+				setTimeout(function() {
+					//					Carousel_fun();
+					downRefersh();
+				}, 1500);
+			};
+			//初化化数据开始
+			mui.plusReady(function() {
+				Carousel_fun();
+				GetNewsList();
+				upRefersh();
+				getDH();
+			});
+
+			function upRefersh() {
+				var _url = APP_SERVER_URL + APP_GetPro_List_app;
+
+				mui.ajax(_url, {
+					data: {
+						page: page,
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //关闭遮罩层
+					},
+					success: function(data) {
+						var str = "";
+						if(data.TotalCount == 0) {
+							mui('#pullrefresh').pullRefresh().endPullup(true);
+						} else {
+							mui('#pullrefresh').pullRefresh().endPullup(false);
+							page = page + 1;
+							$.each(data.data, function(i) {
+								sum = sum + 1
+
+								str += '<input type="hidden" id="hf_MinOrderNum_' + data.data[i].GuId + '" value="' + data.data[i].MinOrderNum + '" /> <input type="hidden" id="hf_price_' + data.data[i].GuId + '" value="' + data.data[i].price + '" />  <input type="hidden" id="hf_ProductName_' + data.data[i].GuId + '" value="' + data.data[i].ProductName + '" /><input type="hidden" id="hf_sPicUrl_' + data.data[i].GuId + '" value="' + data.data[i].sPicUrl + '" /><input type="hidden" id="hf_ProModel_' + data.data[i].GuId + '" value="' + data.data[i].ProModel + '" />';
+
+								str += '<li class="mui-table-view-cell mui-media hrefCell"><a href="javascript:;"><img name="goods-detail.html" class="mui-media-object goods-img"  src="' + APP_SERVER_WWW_URL + data.data[i].sPicUrl + '" /></a><div name="' + data.data[i].GuId + '" class="mui-media-body newsgoods-name">' + data.data[i].ProductName + '</div><div class="mui-media-body newgoods-price">' + '￥' + data.data[i].price + '</div><div class="mui-media-body old-price">' + '￥' + data.data[i].lPrice + '</div><a class="allgoods-buy" data="' + data.data[i].GuId + '" href="javascript:void(0)">购买</a></li>'
+
+							});
+						}
+						$("#newgoods").append(str);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				});
+			};
+
+			function downRefersh() {
+				var _url = APP_SERVER_URL + APP_GetPro_List_app;
+				mui.ajax(_url, {
+					data: {
+						page: page,
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //关闭遮罩层
+					},
+					success: function(data) {
+						var str = "";
+						if(data.TotalCount == 0) {
+							mui('#pullrefresh').pullRefresh().endPulldown(true);
+						} else {
+							mui('#pullrefresh').pullRefresh().endPulldown(false);
+							page = page + 1;
+							$.each(data.data, function(i) {
+								sum = sum + 1;
+								str += '<input type="hidden" id="hf_MinOrderNum_' + data.data[i].GuId + '" value="' + data.data[i].MinOrderNum + '" /> <input type="hidden" id="hf_price_' + data.data[i].GuId + '" value="' + data.data[i].price + '" />  <input type="hidden" id="hf_ProductName_' + data.data[i].GuId + '" value="' + data.data[i].ProductName + '" /><input type="hidden" id="hf_sPicUrl_' + data.data[i].GuId + '" value="' + data.data[i].sPicUrl + '" /><input type="hidden" id="hf_ProModel_' + data.data[i].GuId + '" value="' + data.data[i].ProModel + '" />';
+
+								str += '<li class="mui-table-view-cell mui-media hrefCell"><a href="javascript:;"><img name="goods-detail.html" class="mui-media-object goods-img"  src="' + APP_SERVER_WWW_URL + data.data[i].sPicUrl + '" /></a><div name="' + data.data[i].GuId + '" class="mui-media-body newsgoods-name">' + data.data[i].ProductName + '</div><div class="mui-media-body newgoods-price">' + '￥' + data.data[i].price + '</div><div class="mui-media-body old-price">' + '￥' + data.data[i].lPrice + '</div><a class="allgoods-buy" data="' + data.data[i].GuId + '" href="javascript:void(0)">购买</a></li>'
+							});
+						};
+						$("#newgoods").html(str);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				});
+			};
+
+			function GetNewsList() {
+				mui.get(APP_SERVER_URL + APP_NewList_URL, {
+					category: 'news'
+				}, function(data) {
+					var list = '';
+					$.each(data, function(i, n) {
+						//获取对象中属性为optionsValue的值  
+
+						list += '<li><a href="javascript:;" onclick="OPENrulid(\'news-center.html\',' + n["id"] + ')">' + n["title"] + '</a></li>';
+
+					});
+					document.getElementById("newlist").innerHTML = list;
+
+				}, 'json');
+
+			};
+
+			function Carousel_fun() {
+				mui.ajax(APP_SERVER_URL + APP_Carousel_URL, {
+					data: {
+
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+
+					},
+					complete: function() {
+
+					},
+					success: function(data) {
+						var list = '';
+						var lastlist = '';
+						var list_item = ''
+						var list_home = '';
+						$.each(data, function(i, n) {
+							//获取对象中属性为optionsValue的值  
+
+							list_home = '<div class="mui-slider-item mui-slider-item-duplicate"><a href="' + n["url"] + '">	<img src="' + APP_SERVER_WWW_URL + n["pic"] + '"></a></div>';
+							if(i == 0) {
+								lastlist = '<div class="mui-slider-item mui-slider-item-duplicate">	<a href="' + n["url"] + '">	<img src="' + APP_SERVER_WWW_URL + n["pic"] + '">	</a></div>';
+
+								list_item = '<div class="mui-indicator mui-active"></div>';
+
+							} else {
+
+								list_item += '<div class="mui-indicator"></div>';
+
+							}
+							list += '<div class="mui-slider-item"><a href="' + n["url"] + '">	<img src="' + APP_SERVER_WWW_URL + n["pic"] + '"></a></div>';
+						});
+
+						document.getElementById("index_Carousel").innerHTML = list_home + list + lastlist;
+
+						document.getElementById("index_item").innerHTML = list_item;
+
+						/********************************************************轮播*****************************************/
+						var gallery = mui("#slider");
+						gallery.slider({
+							interval: 5000
+						});
+						$(window).scroll(function() {
+							var scrollT = $(window).scrollTop();
+							var searchH = $(".search-box").height();
+							var sliderH = $("#slider").height();
+							if(scrollT < searchH) {
+								$(".search-box").css({
+									background: "rgba(230,0,69,1)"
+								})
+							}
+							if(scrollT >= searchH) {
+								$(".search-box").css({
+									background: "rgba(253,100,4,1)"
+								})
+							}
+						})
+
+					},
+					error: function(xhr, type, errorThrown) {
+						//异常处理；
+						console.log(errorThrown);
+					}
+				});
+			};
+			$("#index-entry>ul").on("tap", "li", function() {
+				var _url = $(this).attr("name");
+				if(_url == 'Category.html') {
+
+					openMenu();
+				} else {
+
+					var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+					mui.openWindow({
+						id: _url + rand,
+						url: _url,
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						}
+					})
+				}
+			});
+			//监听搜索
+			$("#search").on("keydown", function(e) {
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				if(e.keyCode == 13) {
+					mui.openWindow({
+						id: "allgoods.html" + rand,
+						url: "allgoods.html",
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						},
+						extras: {
+							keyword: $("#search").val()
+						}
+
+					})
+				}
+			});
+			$("#newgoods").on("tap", "img", function() {
+				var _url = $(this).attr("name");
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				var productID = $(this).parent().parent().find(".newsgoods-name").attr("name");
+				mui.openWindow({
+					id: _url + rand,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: "slide-in-right",
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					},
+					extras: {
+						productID: productID
+					}
+
+				})
+			});
+			$(".footer").on("tap", ".hrefCell", function() {
+				var _url = $(this).attr("name");
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				var direction;
+				switch(_url) {
+					case "index.html":
+						direction = ""
+						break;
+					case "allgoods.html":
+						direction = "slide-in-right"
+						break;
+					case "empty-shoppingcart.html":
+						direction = "slide-in-right"
+						break;
+					case "personal-center.html":
+						direction = "slide-in-right"
+						break;
+				};
+				mui.openWindow({
+					id: _url + rand,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: direction,
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					}
+				})
+			});
+
+			function getDH() {
+				var _url = APP_SERVER_URL + APP_Get_menu_dh;
+				mui.ajax(_url, {
+					data: {},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //关闭遮罩层
+					},
+					success: function(data) {
+						var str = "";
+						$.each(data, function(i) {
+
+							str += '<li name="' + data[i].url + '" class="mui-table-view-cell mui-media mui-col-xs-3"><a href="javascript:void(0)"><img class="mui-media-object" src="' + APP_SERVER_WWW_URL + data[i].pic + '" "><div class="mui-media-body">' + data[i].name + '</div></a></li>'
+
+						});
+						$(".index-entry-main").append(str);
+					},
+
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				});
+			}
+			//-----------结束-------------------
 			document.getElementById("call").addEventListener('tap', function() {
-				console.log(111)
 				var btnArray = ['拨打', '取消'];
 				var Phone = "0571-88888888";
 				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
@@ -390,6 +579,275 @@
 					}
 				});
 			});
+
+			(function($) {
+				$.fn.textSlider = function(settings) {
+					settings = jQuery.extend({
+						speed: "normal",
+						line: 2,
+						timer: 3000
+					}, settings);
+					return this.each(function() {
+						$.fn.textSlider.scllor($(this), settings);
+					});
+				};
+				$.fn.textSlider.scllor = function($this, settings) {
+					var ul = $("ul:eq(0)", $this);
+					var timerID;
+					var li = ul.children();
+					var liHight = $(li[0]).height();
+					var upHeight = 0 - settings.line * liHight;
+					var scrollUp = function() {
+						ul.animate({
+							marginTop: upHeight
+						}, settings.speed, function() {
+							for(i = 0; i < settings.line; i++) {
+								ul.find("li:first", $this).appendTo(ul);
+							}
+							ul.css({
+								marginTop: 0
+							});
+						});
+					};
+					var autoPlay = function() {
+						timerID = window.setInterval(scrollUp, settings.timer);
+					};
+					var autoStop = function() {
+						window.clearInterval(timerID);
+					};
+					ul.hover(autoStop, autoPlay).mouseout();
+				};
+			})(jQuery);
+			$(document).ready(function() {
+				$("#inContainer").textSlider({
+					line: 1,
+					speed: 500,
+					timer: 3000
+				});
+			});
+			/**********************************购物车飞入动画*******************************/
+			$(document).on("click", ".allgoods-buy", function(e) {
+				var offset = $(this).offset();
+				var addcar = $(this);
+				var goodsImg = $(this).parent().find(".goods-img");
+				var gWidth = $(this).parent().find(".goods-img").width();
+				var x1 = e.clientX;
+				var y1 = e.clientY;
+				var imgsrc = $(this).parent().find(".goods-img").attr('src');
+				var flyer = $('<img class="u-flyer" src="' + imgsrc + '">');
+				//放入购物车
+				var _id = addcar.attr("data");
+				product.id = _id;
+				product.name = $("#hf_ProductName_" + _id).val();
+				product.num = $("#hf_MinOrderNum_" + _id).val();
+				product.pic = $("#hf_sPicUrl_" + _id).val();
+				product.ProModel = $("#hf_ProModel_" + _id).val();
+				product.price = $("#hf_price_" + _id).val();
+				cart.addProduct(product);
+				goodsum = orderdetail.totalNumber;
+				console.log(product.pic)
+				console.log(product.price)
+				console.log(product.num)
+				console.log(product.ProModel)
+				console.log(orderdetail.totalNumber)
+				if(goodsum > 99) {
+					$(".circle1").text("99+")
+				} else {
+					$(".circle1").text(goodsum)
+				}
+				//--放入购物车结束
+
+				flyer.fly({
+					start: {
+						left: x1 - gWidth / 2, //开始位置（必填）#fly元素会被设置成position: fixed 
+						top: y1 - gWidth / 1.1 //开始位置（必填） 
+					},
+					end: {
+						left: (screen.width) / 1.5, //结束位置（必填） 
+						top: (screen.height) / 1.1, //结束位置（必填） 
+						width: 0, //结束时宽度 
+						height: 0 //结束时高度 
+					},
+					onEnd: function() { //结束回调 
+						this.destory(); //移除dom 
+					}
+				});
+
+			})
+
+			//			---------------------飞入动画结束--------------------
+			/****************************************侧滑******************************************/
+			var aniShow = "pop-in";
+			var menu = null,
+				showMenu = false;
+			var mainA = null;
+			var isInTransition = false;
+			var _self;
+			var firstPage = false;
+			mui.init({
+				swipeBack: false,
+				beforeback: back
+			});
+
+			function back() {
+				if(showMenu) {
+					//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
+					closeMenu();
+					return false;
+				}
+
+			};
+			//只有ios支持的功能需要在Android平台隐藏；
+
+			//初始化，并预加载webview模式的选项卡			
+			function preload() {
+				var menu_style = {
+					left: "100%",
+					width: '80%',
+					popGesture: "none",
+					render: "always"
+				};
+				if(mui.os.ios) {
+					menu_style.zindex = -1;
+				};
+				firstPage = true;
+				//处理侧滑导航，为了避免和子页面初始化等竞争资源，延迟加载侧滑页面；
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				menu = mui.openWindow({
+					id: 'classfy.html' + rand,
+					url: 'classfy.html',
+					styles: menu_style,
+					show: {
+						aniShow: 'none'
+					},
+					waiting: {
+						autoShow: false
+					},
+					extras: {
+						firstPage: firstPage
+					}
+				});
+
+			};
+			mui.plusReady(function() {
+				mainA = plus.webview.currentWebview().opener();
+				//读取本地存储，检查是否为首次启动
+				//预加载
+				preload();
+				//绘制顶部图标
+				_self = plus.webview.currentWebview();
+				//启用侧滑拖拽操作，延时的原因是menu页是延时创建的，所以这里需要相应延时
+				//			setTimeout(function() {
+				//				_self.drag({
+				//					direction: "left",
+				//					moveMode: "followFinger"
+				//				}, {
+				//					view: menu,
+				//					moveMode: "follow"
+				//				}, function(e) {
+				//					mask.show();
+				//				});
+				//			}, 350);
+
+			});
+			document.getElementById("fl").addEventListener("tap", function() {
+				openMenu();
+			})
+			document.getElementById("mask").addEventListener("tap", function() {
+				closeMenu();
+			})
+			window.addEventListener("swipeleft", function(e) {
+				var len = Math.abs(e.detail.deltaX);
+				if(len > screen.width / 3) {
+					openMenu()
+				}
+			});
+			window.addEventListener("swiperight", function() {
+				if(showMenu) {
+					//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
+					closeMenu();
+					return false;
+				}
+			});
+			//			window.addEventListener("menu:swiperight", closeMenu);
+			/**
+			 * 显示侧滑菜单
+			 */
+			function openMenu() {
+				$("#mask").fadeIn();
+				showMenu = true;
+				firstPage = true;
+				plus.webview.startAnimation({
+						'view': _self,
+						'styles': {
+							'fromLeft': '0%',
+							'toLeft': "-80%"
+						},
+						'action': 'show'
+					}, {
+						'view': menu,
+						'styles': {
+							'fromLeft': "100%",
+							'toLeft': '20%'
+						},
+						'action': 'show'
+					},
+					function(e) {
+						//console.log(JSON.stringify(e));
+						if(e.id == menu.id) { //侧滑菜单打开
+						}
+					}.bind(this)
+				)
+			};
+			/**
+			 * 关闭菜单
+			 */
+			function closeMenu() {
+				$("#mask").fadeOut();
+				showMenu = false;
+				firstPage = false;
+				plus.webview.startAnimation({
+						'view': _self,
+						'styles': {
+							'fromLeft': '-80%',
+							'toLeft': "0%"
+						},
+						'action': 'show'
+					}, {
+						'view': menu,
+						'styles': {
+							'fromLeft': "20%",
+							'toLeft': '100%'
+						},
+						'action': 'show'
+					},
+					function(e) {
+						console.log(JSON.stringify(e));
+						if(e.id == _self.id) {}
+					}.bind(this)
+
+				)
+			};
+			//			window.addEventListener('dateDetail', function(e) {
+			//				closeMenu();
+			//				//获得事件参数
+			//				var obj = JSON.parse(e.detail.obj);
+			//				state = obj.state;
+			//				sum = obj.sum;
+			//				page = obj.page;
+			//				dateBtext = obj.dateBtext;
+			//				dateStext = obj.dateStext;
+			//				isClick = obj.isClick;
+			//				$("#item1").html("");
+			//				initHtml();
+			//			});
+			//			window.addEventListener('empty', function(e) {
+			//				closeMenu();
+			//				//获得事件参数
+			//				var obj = JSON.parse(e.detail.obj);
+			//				dateBtext = obj.dateBtext;
+			//				dateStext = obj.dateStext;
+			//			});
 		</script>
 	</body>
 

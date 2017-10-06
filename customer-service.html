@@ -6,13 +6,12 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>客户服务</title>
 		<script src="js/mui.min.js"></script>
-		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
-		<script type="text/javascript" charset="utf-8">
-			mui.init();
-		</script>
 	</head>
 
 	<body>
@@ -26,7 +25,8 @@
 				<div class="">
 					服务类型
 				</div>
-				<select class="service-option" name="">
+				<i class="iconfont mui-pull-right">&#xe61d;</i>
+				<select class="service-option mui-pull-right" name="">
 					<option value="">建议</option>
 					<option value="">投诉</option>
 					<option value="">查询</option>
@@ -34,53 +34,100 @@
 					<option value="">求购</option>
 				</select>
 			</div>
-			<textarea style="text-indent: 0.2em;font-size: 0.9em;" name="" rows="6" cols="" placeholder="请输入您要提交的内容" maxlength="300">
+			<form class="mui-input-group">
+				<div class="mui-input-row contact-container">
+					<select id="contact-choose" class="contact-choose mui-pull-left" name="contact-choose">
+						<option value="联系方式">联系方式</option>
+						<option value="手机">手机</option>
+						<option value="QQ">QQ</option>
+						<option value="邮箱">邮箱</option>
+					</select>
+					<i class="iconfont mui-pull-left">&#xe61d;</i>
+					<input type="number" name="contact-detail" class="mui-input mui-input-clear mui-pull-left" id="contact-detail" value="" placeholder="您的联系方式" />
+				</div>
+			</form>
+			<textarea id="message-area" style="text-indent: 0.2em;font-size: 0.9em;" name="" rows="6" cols="" placeholder="请输入您要提交的内容" maxlength="300">
 			</textarea>
-			<div class="add-address">
+			<a id="add-address" href="" class="add-address">
 				提交
-			</div>
-			<div id="index-footer" class="index-footer mui-bar-footer">
-				<ul id="index-footer-main" class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-media-first mui-col-xs-2">
-						<a href="index.html">
-							<i class="iconfont">&#xe639;</i>
-							<a href="index.html">
-								<div class="mui-media-body">首页</div>
-							</a>
-						</a>
-					</li>
-					<li id="call" class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<i class="iconfont">&#xe604;</i>
-						<div class="mui-media-body">电话</div>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<a href="sales-promotion.html">
-							<i class="iconfont">&#xe643;</i>
-							<a href="">
-								<div class="mui-media-body">促销</div>
-							</a>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<a href="empty-shoppingcart.html">
-							<i class="iconfont">&#xe600;</i>
-							<a href="empty-shoppingcart.html">
-								<div class="mui-media-body">购物车</div>
-							</a>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-media-other mui-col-xs-2">
-						<a href="personal-center.html">
-							<i class="iconfont">&#xe6c9;</i>
-							<a href="personal-center.html">
-								<div class="mui-media-body">我的</div>
-							</a>
-						</a>
-					</li>
-				</ul>
-			</div>
+			</a>
+			<ul class="footer mui-bar-footer">
+				<li>
+					<a href="index.html">
+						<div class="iconfont">
+							&#xe639;
+						</div>
+						<div class="">
+							首页
+						</div>
+					</a>
+				</li>
+				<li id="call">
+					<div class="iconfont">
+						&#xe604;
+					</div>
+					<div class="">
+						电话
+					</div>
+				</li>
+				<li>
+					<a href="allgoods.html">
+						<div style="font-weight: bolder;" class="iconfont">
+							&#xe6a4;
+						</div>
+						<div class="">
+							商品
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="empty-shoppingcart.html">
+						<div class="iconfont">
+							&#xe600;
+						</div>
+						<div class="">
+							购物车
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="personal-center.html">
+						<div style="color: #da0203;" class="iconfont">
+							&#xe6c9;
+						</div>
+						<div style="color: #da0203;" class="">
+							我的
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
 		<script type="text/javascript">
+			$("#add-address").click(function() {
+				var c_value = $("#contact-choose").val();
+				var regphone = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+				if(c_value == "联系方式") {
+					mui.alert('请选择联系方式', function() {});
+					return false;
+				}
+				var contacttext = $("#contact-datail").val();
+				if(c_value == "手机" && !regphone.test(contacttext)) {
+					mui.alert('请输入正确的手机号', function() {});
+					return false;
+				}
+				var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+				if(c_value == "邮箱" && !regemail.test(contacttext)) {
+					mui.alert('您输入的邮箱格式有误', function() {});
+					return false;
+				}
+				var len = $("#message-area").val().length;
+				if(len < 10) {
+					mui.alert('您提交的内容过少', function() {});
+					return false;
+				} else {
+					return true;
+				}
+			})
 			document.getElementById("call").addEventListener('tap', function() {
 				var btnArray = ['拨打', '取消'];
 				var Phone = "0571-88888888";

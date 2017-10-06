@@ -6,15 +6,216 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>商品详情</title>
 		<script src="js/mui.min.js"></script>
-		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.fly.min.js" type="text/javascript" charset="utf-8"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
-		<script type="text/javascript" charset="utf-8">
-			mui.init();
-		</script>
+		<style type="text/css">
+			.circle1 {
+				right: -0.5em;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+			
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+			
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+			
+			@media only screen and (min-width: 320px) and (max-width: 375px) {
+				.mui-preview-header .mui-preview-indicator {
+					display: block;
+					line-height: 1.7em;
+					color: #fff;
+					text-align: center;
+					margin: 0px auto;
+					margin-top: 2.8em;
+					width: 70px;
+					background-color: rgba(0, 0, 0, 0.4);
+					border-radius: 0.3em;
+					font-size: 0.96em;
+				}
+			}
+			
+			@media only screen and (min-width: 375px) {
+				.mui-preview-header .mui-preview-indicator {
+					display: block;
+					line-height: 2.1em;
+					color: #fff;
+					text-align: center;
+					margin: 0px auto;
+					margin-top: 2.8em;
+					width: 70px;
+					background-color: rgba(0, 0, 0, 0.4);
+					border-radius: 0.3em;
+					font-size: 1em;
+				}
+			}
+			
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+			
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+			
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+			
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+			
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+			
+			.mui-slider .mui-slider-group .mui-slider-item .mui-zoom-scroller img {
+				margin-top: 2.4em
+			}
+			
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+			
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+			
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+			
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+			
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+			
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			
+			p img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -22,64 +223,17 @@
 			<header style="background: #414141;" id="header" class="mui-bar mui-bar-nav">
 				<a style="color: #fff;" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 				<h1 style="color: #fff;" class="mui-title">商品详情</h1>
-				<a href="index.html" class="mui-pull-right"><i style="color: #fff;" class="iconfont">&#xe639;</i></a>
 			</header>
-			<div id="slider" class="mui-slider" style="margin-top: 2.7em;">
-				<div class="mui-slider-group mui-slider-loop">
-					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
-							<img src="images/goods-details-banner5.jpg">
-						</a>
-					</div>
-					<!-- 第一张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img class="fisrtimg" src="images/goods-details-banner1.jpg">
-						</a>
-					</div>
-					<!-- 第二张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="images/goods-details-banner2.jpg">
-						</a>
-					</div>
-					<!-- 第三张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="images/goods-details-banner3.jpg">
-						</a>
-					</div>
-					<!-- 第四张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="images/goods-details-banner4.jpg">
-						</a>
-					</div>
-					<!-- 第五张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="images/goods-details-banner5.jpg">
-						</a>
-					</div>
+			<div id="slider" class="mui-slider">
+				<div id="bannerBox" class="mui-slider-group mui-slider-loop">
 
-					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
-							<img src="images/goods-details-banner1.jpg">
-						</a>
-					</div>
 				</div>
-				<div class="mui-slider-indicator">
-					<div class="mui-indicator mui-active"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
+				<div id="circleBox" class="mui-slider-indicator">
+
 				</div>
 			</div>
 			<div class="goods-details-top">
-				<span>￥16.30</span><span>￥20.38</span><br />
+				<span class="newPrice">￥16.30</span><span class="oldPrice">￥20.38</span><br />
 				<span class="goods-details-name">S6552韩式卡通手动环保伞</span><span class="mui-pull-right goods-details-unit">件</span><span class="mui-pull-right goods-details-sum">1</span><span class="mui-pull-right goods-details-description">起定量 </span>
 			</div>
 			<div id="best-service" class="goods-details-bottom mui-row">
@@ -87,7 +241,7 @@
 					<i class="iconfont">&#xe638;</i><span>正品保障</span>
 				</div>
 				<div class="mui-col-xs-4">
-					<i class="iconfont">&#xe695;</i><span>官方直营</span>
+					<i class="iconfont">&#xe608;</i><span>官方直营</span>
 				</div>
 				<div class="mui-col-xs-4">
 					<i class="iconfont">&#xe647;</i><span>7天退换</span>
@@ -97,9 +251,11 @@
 				详细说明
 			</div>
 			<div class="product-show">
-				<img src="images/detailed-description.jpg" />
-				<img src="images/detailed-description.jpg" />
-				<img src="images/detailed-description.jpg" />
+				<div id="imgBox" class="mui-content-padded">
+					<!--<p><img src="images/detailed-description.jpg" data-preview-src="" data-preview-group="1" /></p>
+					<p><img src="images/detailed-description.jpg" data-preview-src="" data-preview-group="1" /></p>
+					<p><img src="images/detailed-description.jpg" data-preview-src="" data-preview-group="1" /></p>-->
+				</div>
 			</div>
 			<div id="purchase-commodity" class="purchase-commodity mui-bar-footer">
 				<div class="goods-collect">
@@ -107,28 +263,31 @@
 					<span>客服</span>
 				</div>
 				<div class="goods-collect">
-					<i class="iconfont">&#xe614;</i><br />
+					<i class="iconfont icon-collect">&#xe607;</i><br />
 					<span>收藏</span>
 				</div>
 				<div class="cart-details">
 					<i class="iconfont">&#xe600;</i><br />
 					<span>购物车</span>
-					<div class="circle1">
+					<div class="circle1 sum">
 						0
+					</div>
+					<div class="circle1 fly-circle" style="display: none;">
+						+1
 					</div>
 				</div>
 				<a href="javascript:" class="quick-buy">
 					立即购买
 				</a>
 			</div>
-			<div class="select-hide">
+			<div class="select-hide mui-bar-footer">
 				<div class="select-hide-top">
 					<div>
 						<img src="images/goods-details-banner1.jpg" />
 					</div>
 					<div>
 						<div>￥16.3</div>
-						<div>库存数量：10000 把</div>
+						<div>库存数量：<span class="blue">10000</span></div>
 						<div>请选择 规格</div>
 					</div>
 				</div>
@@ -148,5 +307,164 @@
 				</a>
 			</div>
 		</div>
+		<div id="mask">
+
+		</div>
+		<script src="js/mui.zoom.js"></script>
+		<script src="js/mui.previewimage.js"></script>
+		<script>
+			mui.previewImage();
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var productID = self.productid||self.productID;
+				console.log(productID);
+				$(".mui-title").attr("name", productID)
+				getImg();
+				initHtml();
+			});
+			var mask = mui.createMask();
+			var _url = "http://m.15scsc.com/app/Product/GetdetailsByGuId.ashx";
+			var comUrl = "http://www.15scsc.com";
+			function initHtml() {
+				mui.ajax(_url, {
+					data: {
+						GuId: $(".mui-title").attr("name")
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //显示遮罩层
+					},
+					success: function(data) {
+						var str = "";
+						var str2 = "";
+						var strF="";
+						var strF="";
+						var strL="";
+						var imgList = data.Extattr.split(",");
+						console.log($(".mui-title").attr("name"));
+						console.log(data.Extattr);
+						$.each(imgList, function(i) {
+							str += '<div class="mui-slider-item"><a href="#"><img src="' + comUrl + imgList[i] + '"></a></div>';
+							sreF='<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="' + comUrl + imgList[imgList.length - 1] + '"></a></div>';
+							strL='<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img class="fisrtimg" src="' + comUrl + imgList[0] + '"></a></div>';	
+							if (i=0) {
+								str2 += '<div class="mui-indicator mui-active"></div>';							
+							}else{
+								str2 += '<div class="mui-indicator"></div>';
+							}
+						});
+						$("#bannerBox").html(sreF+str+strL);
+						$("#circleBox").html(str2);
+						var gallery = mui("#slider");
+						gallery.slider({
+							interval: 5000
+						});
+						$(".oldPrice").text(data.lPrice);
+						$(".newPrice").text(data.price);
+						$(".goods-details-name").text(data.ProductName);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				})
+			};
+			window.addEventListener("swiperight", function(e) {
+				var len = Math.abs(e.detail.deltaX);
+				if(len > screen.width / 2) {
+					mui.back()
+				}
+
+			});
+			function getImg() {
+				var _url = APP_SERVER_URL+APP_goodDetail_getImg;
+				console.log($(".mui-title").attr("name"));
+				mui.ajax(_url, {
+					data: {
+						GuId: $(".mui-title").attr("name")
+					},
+					dataType: 'text', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //显示遮罩层
+					},
+					success: function(data) {
+						$("#imgBox").html(data)
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				})
+			};
+			/******************************************************点击显示隐藏******************************************************************/
+			$(".quick-buy").on("tap", function() {
+				$(".select-hide").slideDown();
+				$("#mask").fadeIn();
+			});
+			$(".select-hide-main .goods-option").on("tap", function() {
+				$(this).removeClass("option-notactive").addClass("option-active").siblings().removeClass("option-active").addClass("option-notactive")
+			});
+			$(".select-hide-bottom").on("tap", function() {
+				$(".select-hide").slideUp();
+				$("#mask").fadeOut();
+			});
+			$("#mask").on("tap", function() {
+				$(".select-hide").slideUp();
+				$("#mask").fadeOut();
+			});
+			setTimeout(() => window.scrollTo(0, 0), 150)
+			var collect = "on"
+			$(".icon-collect").click(function() {
+				if(collect == "on") {
+					mui.toast("收藏成功")
+					$(".icon-collect").css({
+						color: "#ef3030"
+					})
+					collect = "off"
+				} else {
+					mui.toast("取消收藏成功")
+					$(".icon-collect").css({
+						color: "#818181"
+					})
+					collect = "on"
+				}
+			});
+			$(".cart-details").click(function() {
+				goodsum = $(".circle1.sum").text();
+				console.log(goodsum);
+				goodsum++;
+				if(goodsum > 99) {
+					$(".circle1.sum").text("99+")
+				} else {
+					$(".circle1.sum").text(goodsum)
+				}
+				$(".fly-circle").show().animate({
+					width: "1.6em",
+					height: "1.6em",
+					opacity: "0.1",
+					right: "-3em",
+					top: "-3em"
+				}, 300).hide(300).animate({
+					width: "1.6em",
+					height: "1.6em",
+					right: "-0.5em",
+					top: "-0.7em",
+					opacity: "1"
+				}, 301)
+			})
+		</script>
 	</body>
+
 </html>
