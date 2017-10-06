@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>交易详情</title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">交易详情</h1>
+				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
+			</header>
+			<div class="afford-warning">
+				<i class="iconfont">&#xe676;</i><span id="congratulation">由于某种原因,您未能支付成功!请检查网络是否畅通或者账户余额是否充足,如有问题可以咨询客服</span><br />
+			</div>
+			<div id="call" class="call-for-help">
+				<i class="iconfont">&#xe606;</i> <span class="mui-pull-right">0571-88888888</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("call").addEventListener('tap', function() {
+				var btnArray = ['拨打', '取消'];
+				var Phone = "0571-88888888";
+				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.device.dial(Phone, false);
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

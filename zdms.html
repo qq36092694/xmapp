@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title></title>
+	</head>
+	<body>
+		<span id="timebox">11:21:55</span> //第一次将服务器时间显示在这里
+<script type="text/javascript">
+  $(function () {
+    var oTime = $("#timebox");
+    var ts = oTime.text().split(":", 3);
+    var tnums = [parseInt(ts[0]), parseInt(ts[1]), parseInt(ts[2])];
+    setInterval(function () {
+      tnums = getNextTimeNumber(tnums[0], tnums[1], tnums[2]);
+      showNewTime(tnums[0], tnums[1], tnums[2]);
+    }, 1000);
+    function showNewTime(h, m, s) {
+      var timeStr = ("0" + h.toString()).substr(-2) + ":"
+              + ("0" + m.toString()).substr(-2) + ":"
+              + ("0" + s.toString()).substr(-2);
+      oTime.text(timeStr);
+    }
+    function getNextTimeNumber(h, m, s) {
+      if (++s == 60) {
+        s = 0;
+      }
+      if (s == 0) {
+        if (++m == 60) {
+          m = 0;
+        }
+      }
+      if (m == 0) {
+        if (++h == 24) {
+          h = 0;
+        }
+      }
+      return [h, m, s];
+    }
+  });
+</script>
+	</body>
+</html>

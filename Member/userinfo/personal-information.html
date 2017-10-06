@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人中心</title>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<style type="text/css">
+			.mui-content>div>input {
+				text-indent: 0.3em;
+				font-size: 0.96em;
+				width: 75%;
+			}
+			.mui-icon-clear{
+				line-height: 2.8rem !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">个人中心</h1>
+			</header>
+			<div id="nickname" class="nickname info-change mui-input-row" style="margin-top: 2.7em;">
+				<span>昵称 :</span><input class="mui-input-clear" type="" name="" id="nickname1" value="" />
+			</div>
+			<div id="qq" class="qq info-change mui-input-row">
+				<span>QQ :</span><input class="mui-input-clear" type="" name="" id="qq1" value="" />
+			</div>
+			<div id="phonenumber" class="phonenumber info-change mui-input-row">
+				<span>手机 :</span><input class="mui-input-clear" type="phonenumber1" name="" id="phonenumber1" value="" />
+			</div>
+			<div id="phone" class="phone info-change mui-input-row">
+				<span>电话 :</span><input class="mui-input-clear" type="phone1" name="" id="phone1" value="" />
+			</div>
+			<a name="change-password.html" class="hrefCell">
+				<div class="change-password">
+					<span>修改密码</span><span style="color: #717171;" class="mui-icon mui-icon-arrowright mui-pull-right"></span>
+				</div>
+			</a>
+			<a>
+				<div class="change-go">
+					确定
+				</div>
+			</a>
+			<ul class="footer mui-bar-footer">
+				<li>
+					<a name="../../index.html" class="hrefCell">
+						<div class="iconfont">
+							&#xe639;
+						</div>
+						<div class="">
+							首页
+						</div>
+					</a>
+				</li>
+				<li id="call">
+					<div class="iconfont">
+						&#xe604;
+					</div>
+					<div class="">
+						电话
+					</div>
+				</li>
+				<li>
+					<a name="../../allgoods.html" class="hrefCell">
+						<div style="font-weight: bolder;" class="iconfont">
+							&#xe6a4;
+						</div>
+						<div class="">
+							商品
+						</div>
+					</a>
+				</li>
+				<li>
+					<a name="../../empty-shoppingcart.html" class="hrefCell">
+						<div class="iconfont">
+							&#xe600;
+						</div>
+						<div class="">
+							购物车
+						</div>
+					</a>
+				</li>
+				<li>
+					<a name="../../personal-center.html" class="hrefCell">
+						<div class="iconfont">
+							&#xe6c9;
+						</div>
+						<div class="">
+							我的
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var mask = mui.createMask();
+			mui.plusReady(function () {
+			  var self=plus.webview.currentWebview() ;
+			  var baseObj=JSON.parse(self.baseObj);
+			  $("#nickname1").val(baseObj.nickName);
+			  $("#qq1").val(baseObj.qq);
+			  $("#phonenumber1").val(baseObj.phoneNum);
+			  $("#phone1").val(baseObj.tel)
+			});
+			document.getElementById("call").addEventListener('tap', function() {
+				var btnArray = ['拨打', '取消'];
+				var Phone = "0571-88888888";
+				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.device.dial(Phone, false);
+					}
+				});
+			});
+			$(".change-go").on("tap", function() {
+				var _url = APP_SERVER_URL+APP_user_infoChange;
+				var regphone = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+				if(!regphone.test($("#phonenumber1").val())) {
+					mui.toast("手机号码错误")
+				} else {
+					mui.ajax(_url, {
+						data: {
+							UserId: app.getState().UserId,
+							UserName: $("#nickname1").val(),
+							QQ: $("#qq1").val(),
+							Tel: $("#phone1").val(),
+							Mobile: $("#phonenumber1").val()
+						},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						beforeSend: function() {
+							plus.nativeUI.showWaiting();
+							mask.show(); //显示遮罩层
+						},
+						complete: function() {
+							plus.nativeUI.closeWaiting();
+							mask.close(); //关闭遮罩层
+						},
+						success: function(data) {
+							mui.toast(data.msg);
+						},
+						error: function(xhr, type, errorThrown) {
+							mui.toast(errorThrown);
+						}
+					});
+				}
+
+			});
+
+			$(".mui-content").on("tap", ".hrefCell", function() {
+				var _url = $(this).attr("name");
+				mui.openWindow({
+					id: _url,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: "slide-in-right",
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

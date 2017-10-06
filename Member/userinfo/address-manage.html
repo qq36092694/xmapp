@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>管理地址</title>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<style type="text/css">
+			.addressBox {
+				width: 100%;
+				overflow: hidden;
+				margin-top: 2.7rem;
+			}
+			
+			.address-cell>div {
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.address-cell>div:nth-child(2) span {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">收货人信息</h1>
+			</header>
+			<div class="addressBox">
+				<!--<div class="address-cell b-b">
+					<div class="">
+						<span>王大锤</span>
+						<span>11011011011</span>
+						<span class="mui-pull-right"><i class="iconfont icon-select icon-active">&#xe619;</i><i class="hrefCell iconfont ml-1" name="customer-information.html">&#xe630;</i><i class="iconfont address-delete ml-1">&#xe602;</i></span>
+					</div>
+					<div class="">
+						<span>浙江省金华市义乌市金麟北路36-6号</span>
+					</div>
+				</div>
+				<div class="address-cell b-b">
+					<div class="">
+						<span>王大锤</span>
+						<span>11011011011</span>
+						<span class="mui-pull-right"><i class="iconfont icon-select icon-default">&#xe619;</i><i class="hrefCell iconfont ml-1" name="customer-information.html">&#xe630;</i><i class="iconfont address-delete ml-1">&#xe602;</i></span>
+
+					</div>
+					<div class="">
+						<span>浙江省金华市义乌市金麟北路36-6号</span>
+					</div>
+				</div>-->
+			</div>
+			<div id="addAddress" class="hrefCell" name="customer-information.html">
+				<div class="add-address">
+					添加地址
+				</div>
+			</div>
+			<ul class="footer mui-bar-footer">
+				<li>
+					<a class="hrefCell" name="../../index.html">
+						<div class="iconfont">
+							&#xe639;
+						</div>
+						<div class="">
+							首页
+						</div>
+					</a>
+				</li>
+				<li id="call">
+					<div class="iconfont">
+						&#xe604;
+					</div>
+					<div class="">
+						电话
+					</div>
+				</li>
+				<li>
+					<a class="hrefCell" name="a../../llgoods.html">
+						<div style="font-weight: bolder;" class="iconfont">
+							&#xe6a4;
+						</div>
+						<div class="">
+							商品
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="hrefCell" name="../../empty-shoppingcart.html">
+						<div class="iconfont">
+							&#xe600;
+						</div>
+						<div class="">
+							购物车
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="hrefCell" name="../../personal-center.html">
+						<div style="color: #da0203;" class="iconfont">
+							&#xe6c9;
+						</div>
+						<div style="color: #da0203;" class="">
+							我的
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			mui.init({
+				beforeback: back
+			});
+			var main = null;
+			var selectedShr = {};
+			document.getElementById("call").addEventListener('tap', function() {
+				var btnArray = ['拨打', '取消'];
+				var Phone = "0571-88888888";
+				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.device.dial(Phone, false);
+					}
+				});
+			});
+			$(".mui-content").on("tap", ".hrefCell", function() {
+				var _url = $(this).attr("name");
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				if($(this).hasClass("iconfont")) {
+					var shr = $(this).parent().parent().find(".shr").text();
+					var phoneNum = $(this).parent().parent().find(".phoneNum").text();
+					var addressID = $(this).parent().attr("name");
+					console.log(addressID);
+					var shrObj = {
+						shr: shr,
+						phoneNum: phoneNum,
+						addressID: addressID
+
+					};
+					mui.openWindow({
+						id: _url + rand,
+						url: _url,
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						},
+						extras: {
+							shrObj: JSON.stringify(shrObj)
+						}
+					})
+				} else {
+					mui.openWindow({
+						id: _url + rand,
+						url: _url,
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						}
+					})
+				}
+
+			});
+			var mask = mui.createMask();
+			mui.plusReady(function() {
+				main = plus.webview.currentWebview().opener();
+				initHtml();
+			});
+
+			function back() {
+				mui.fire(main, "selShr", {
+					selectedShr: selectedShr
+				})
+			};
+
+			function initHtml() {
+				var _url = APP_SERVER_URL + APP_user_address;
+				mui.ajax(_url, {
+					data: {
+						UserId: app.getState().UserId
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //显示遮罩层
+					},
+					success: function(data) {
+						console.log(JSON.stringify(data))
+						var str = "";
+						mui.each(data, function(i) {
+							if(i == 0) {
+								var mainAddress = data[i].ToProvince + data[i].ToCity + data[i].ToCounty;
+								var fullAddress = data[i].ToAddress;
+								var extraAddress = fullAddress.replace(mainAddress, "");
+								str += '<div name="' + mainAddress + "," + data[i].ToAddress + '" class="address-cell b-b"><div class=""><span class="shr">' + data[i].ToUserName + '</span><span class="phoneNum">' + data[i].ToMobile + '</span><span name="' + data[i].Id + '" class="mui-pull-right"><i name="' + data[i].Id + '" class="iconfont icon-select icon-active">&#xe619;</i><i class="hrefCell iconfont ml-1" name="customer-information.html">&#xe630;</i><i class="iconfont address-delete ml-1">&#xe602;</i></span></div><div class=""><span>' + data[i].ToAddress + '</span></div></div>'
+							} else {
+								var mainAddress = data[i].ToProvince + data[i].ToCity + data[i].ToCounty;
+								var fullAddress = data[i].ToAddress;
+								var extraAddress = fullAddress.replace(mainAddress, "");
+								str += '<div class="address-cell b-b"><div class=""><span class="shr">' + data[i].ToUserName + '</span><span class="phoneNum">' + data[i].ToMobile + '</span><span name="' + data[i].Id + '" class="mui-pull-right"><i name="' + data[i].Id + '" class="iconfont icon-select icon-default">&#xe619;</i><i class="hrefCell iconfont ml-1" name="customer-information.html">&#xe630;</i><i class="iconfont address-delete ml-1">&#xe602;</i></span></div><div class=""><span>' + data[i].ToAddress + '</span></div></div>'
+
+							};
+
+						});
+						$(".addressBox").append(str);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				})
+			};
+			$(".addressBox").on("tap", ".address-delete", function() {
+				var adderssID = $(this).parent().attr("name");
+				var m = $(this);
+				var btnArray = ["确认", "取消"];
+				mui.confirm("是否删除这个地址", "星迈科技", btnArray, function(e) {
+					if(e.index == 0) {
+						m.parent().parent().parent().remove();
+						var _url = APP_SERVER_URL + APP_user_delAddress;
+						console.log(adderssID);
+						console.log(app.getState().UserId);
+						mui.ajax(_url, {
+							data: {
+								id: adderssID,
+								UserId: app.getState().UserId
+							},
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							beforeSend: function() {
+								plus.nativeUI.showWaiting();
+								mask.show(); //显示遮罩层
+							},
+							complete: function() {
+								plus.nativeUI.closeWaiting();
+								mask.close(); //显示遮罩层
+							},
+							success: function(data) {
+								mui.toast(data.msg);
+							},
+							error: function(xhr, type, errorThrown) {
+								mui.toast(errorThrown);
+							}
+						})
+					}
+				})
+
+			});
+			$(".addressBox").on("tap", ".icon-select", function() {
+				$(this).addClass("icon-active").parents(".address-cell").siblings().find(".icon-select").removeClass("icon-active");
+				var adderssID = $(this).attr("name");
+				var _url = APP_SERVER_URL + APP_user_addressSet;
+				mui.ajax(_url, {
+					data: {
+						id: adderssID,
+						UserId: app.getState().UserId
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //显示遮罩层
+					},
+					success: function(data) {
+						mui.toast(data.msg);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				})
+			});
+		</script>
+	</body>
+
+</html>

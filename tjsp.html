@@ -1,0 +1,785 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>商品管理</title>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.poppicker.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="shortcut icon" href="../images/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="../css/touch.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/touch.develop.min.css" />
+		<link rel="stylesheet" type="text/css" href="../assets/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<style type="text/css">
+			.mui-poppicker {
+				width: 85%;
+				left: 15%;
+			}
+			
+			.mui-dtpicker {
+				width: 85%;
+				left: 15%;
+			}
+			
+			#segmentedControls>a {
+				font-size: 0.9em;
+				letter-spacing: 1px;
+				color: #515151;
+			}
+			
+			.mui-col-xs-3,
+			.mui-control-content {
+				overflow-y: auto;
+				height: 100%;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+				border-left: 3px solid #007aff;
+			}
+			
+			#segmentedControlContents>.mui-control-content>ul>li {
+				width: 33.33%;
+				padding: 0;
+				float: left;
+				border-right: 1px solid #C8C7CC;
+				border-bottom: 1px solid #c8c7cc;
+				box-sizing: border-box;
+				text-align: center;
+			}
+			
+			#segmentedControlContents>.mui-control-content>ul>li:last-child {
+				border-right: 1px solid #c8c7cc;
+			}
+			
+			.index-entry-main .mui-table-view-cell>a:not(.mui-btn) {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				margin: -11px -15px;
+				padding: inherit;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: inherit
+			}
+			
+			.mui-control-content>ul>li>a {
+				display: block;
+				width: 100%;
+				margin: auto;
+				overflow: hidden;
+				padding: none;
+				font-size: 0.8rem;
+				color: #414141;
+				background: #fcfcfc;
+				letter-spacing: 1px;
+			}
+			
+			.mui-control-content>ul>li>a:last-child {
+				width: 100%;
+				height: 2.2em;
+				line-height: 2.2em;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			#segmentedControlContents .mui-table-view>li>a>img {
+				display: block;
+				width: 100%;
+			}
+			
+			.mui-control-content.mui-active>ul {
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.mui-control-content.mui-active>ul>li {
+				padding: 0;
+			}
+			
+			.sptj1,
+			.sptj2 {
+				text-align: center !important;
+			}
+			
+			#mask {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background: rgba(0, 0, 0, 0.5);
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="ecjia-header">
+			<div class="ecjia-header-left">
+				<a class="mui-action-back">
+					<i class="iconfont">&#xe65f;</i>
+				</a>
+			</div>
+			<div class="ecjia-header-title">商品管理</div>
+			<div class="ecjia-header-right">
+				<a name="../jcxx/xzsp.html">
+					<i class="iconfont">&#xe670;</i>
+				</a>
+			</div>
+		</header>
+		<div class="con">
+			<!--<div class="ecjia-header ecjia-margin-t" style="background:#FFF; position:relative;border-bottom: 1px solid #efeff2;">
+				<div class="ecjia-header-left">
+					<a class="ecjia-header-icon" style="color:#4f9ce2"><i class="iconfont">&#xe65b;</i></a>
+				</div>
+				<div class="ecjia-search-header">
+					<form action="" method="post" id="searchForm" name="searchForm">
+						<input id="keywordBox" name="keywords" type="search" placeholder="单据/商品名称/编码">
+						<button onclick="clicked('../barcode_scan.html',true,true)" type="button" value=""><i class="iconfont">&#xe65e;</i></button>
+					</form>
+				</div>
+			</div>-->
+			<div class="mui-content mui-row">
+				<div class="mui-col-xs-3">
+					<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+						<a class="mui-control-item" href="#content1">毛巾抹布</a>
+						<a class="mui-control-item" href="#content2">韩国牙刷</a>
+						<a class="mui-control-item" href="#content3">舒爽洗浴</a>
+						<a class="mui-control-item" href="#content4">开心厨房</a>
+						<a class="mui-control-item" href="#content5">时尚生活</a>
+						<a class="mui-control-item" href="#content6">韩国洗化</a>
+						<a class="mui-control-item" href="#content7">美妆工具</a>
+					</div>
+				</div>
+				<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+					<div id="content1" class="mui-control-content mui-active">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">竹纤维抹</a>
+
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">不沾油抹布</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">印花毛巾</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">儿童毛巾 </a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">万用抹布</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">毛巾面巾</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">擦手巾</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">所有毛巾抹布</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content2" class="mui-control-content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">旅行牙具套装</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">五支装牙刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">四支装牙刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">三支装牙刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">两支装牙刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">单支装牙刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">儿童护齿牙刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">所有韩国牙刷</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content3" class="mui-control-content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">干发帽/干发巾</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">超柔浴巾</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">牙签/牙线 </a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">牙具盒/牙刷架</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">漱口杯/洗簌套装</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">洗浴包/浴帘/浴垫</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">拖鞋/居家拖</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">浴室吸盘挂钩</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">实用沐浴套装</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">皂盒/牙刷架</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">浴帽/束发带</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">浴花/浴球/澡巾</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">韩国进口牙膏</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">精油皂/手工皂</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">所有舒爽洗浴</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content4" class="mui-control-content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">开瓶器/开罐器</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">清洁膏</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">磨刀器/研磨器 </a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">泡茶器/茶球</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">保温杯</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">保鲜盒/保鲜膜</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">封口夹/食物夹</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">切菜器/食物罩</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">饭盒/便当盒</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">起碗夹/蒸架</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">核桃夹/压蒜器</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">餐具盒/筷子笼</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">打蛋器</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">冰箱除味</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">厨房小工具</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">其他厨房用品</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">洗碗巾/百洁布</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">杯刷/清洁刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">厨房小家电</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">水果签</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">铝台布/抗菌垫</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">油壶/调味罐</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">围裙/微波炉手套</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">烧烤夹/烤肉盘</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">炒锅/汤锅/煎锅</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">炒铲/汤勺/漏勺</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">果盘/沥水篮</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">菜板</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">剔骨刀/鸡骨剪</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">菜刀/肉片刀</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">刨皮刀/水果刀</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">杯垫/隔热垫</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">碗/碗筷套装</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">叉/勺/餐具套装</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">筷子/学习筷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">所有开心厨房</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content5" class="mui-control-content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">脸盆</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">其他生活用品</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">创可贴/药盒 </a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">闹钟/计时器</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">棉签/耳勺</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">家务手套</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">电源插板</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">剃须刀</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">礼品袋/购物袋</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">门垫/地垫</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">袜子/保暖裤</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">雨伞/雨衣</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">充电宝/耳机</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">钥匙扣</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">吸盘/挂钩</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">安全防护/门塞</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">汽车周边</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">居家装饰</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">去毛器/除尘刷</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">针线盒</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">卫生间清洁</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">鞋子周边</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">马桶周边</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">收纳储存</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">家务清洁</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">洗衣晾晒</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">所有时尚生活</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content6" class="mui-control-content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">抹布皂/尿布皂</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">唇膏</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">去灰皂</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">美容皂</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">护手霜</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">面膜</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">所有韩国洗化</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content7" class="mui-control-content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">黄瓜切片器</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">化妆棉/卸妆棉</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">头绳/发圈</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">刮痧板</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">脚部护理工具</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">指甲剪/修甲刀</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">眉刀/修眉工具</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">喷瓶/化妆瓶套装</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">美发梳</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">化妆镜</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">粉刺针</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">面扑/粉扑</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="javascript:coid(0)"><img src="../images/goods-details-banner2.jpg" /></a>
+								<a href="javascript:coid(0)">所有美妆工具</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<script>
+					var controls = document.getElementById("segmentedControls");
+					var contents = document.getElementById("segmentedControlContents");
+					//默认选中第一个
+					controls.querySelector('.mui-control-item').classList.add('mui-active');
+					contents.querySelector('.mui-control-content').classList.add('mui-active');
+				</script>
+			</div>
+			<div id="mask">
+
+			</div>
+			<div class="add-goods">
+				<div class="nav-header" style="background: #fcfcfc;">
+					<a id="spxq" href="javascript:void(0)">
+						<img id="goods-img" src="../images/index-tb08.png" />
+						<div class="img-center">
+							<p id="goods-name">韩国高大上雨伞</p>
+							<p>销售金额:￥<span id="unitPirce">20</span></p>
+							<p>库存:<span id="stock">6</span></p>
+						</div>
+					</a>
+				</div>
+				<div class="nav-header" style="background: #fcfcfc">
+					<a href="javascript:void(0)">
+						<select id="sel1" name="">
+							<option value="1">红色</option>
+							<option value="2">黄色</option>
+							<option value="3">蓝色</option>
+						</select>
+						<i class="iconfont">&#xe61d;</i>
+						<select id="sel2" name="">
+							<option value="1">尺寸:30</option>
+							<option value="2">尺寸:31</option>
+							<option value="3">尺寸:32</option>
+						</select>
+						<i class="iconfont">&#xe61d;</i>
+						<div style="display: inline-block;margin-left: 1em;" class="mui-numbox" data-numbox-min='1' data-numbox-max='99'>
+							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							<input id="goodSum" class="mui-input-numbox input-number" type="number" value="1" />
+							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+						</div>
+					</a>
+				</div>
+				<div class="btn-sub">
+					<div id="add1" class="mui-pull-left sptj1">
+						添加
+					</div>
+					<div id="add2" class="mui-pull-right sptj2">
+						添加并返回
+					</div>
+				</div>
+			</div>
+			<script src="../js/jquery.panelslider.min.js"></script>
+			<script type="text/javascript">
+				$(".ecjia-header-right a").on("tap", function() {
+					var _url = $(this).attr("name");
+					mui.openWindow({
+						id: "",
+						url: _url,
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						}
+					})
+				});
+				mui('.mui-segmented-control').on('tap', 'a', function() {
+					$(this).addClass('mui-active').siblings().removeClass('mui-active');
+					$(this).parent().siblings().children().removeClass('mui-active');
+					var item = $(this).attr("href");
+					$(item).show().siblings().hide()
+				});
+				/*********************************添加商品*******************************************/
+				var goodName, imgsrc, unitPrice, stock, goodSum, totalGoodSum, sel1, sel2;
+				var selectedGoods2 = {};
+				$("#segmentedControlContents>div>ul>li").on("tap", function() {
+					goodName = $(this).find("a").eq(1).text();
+					imgsrc = $(this).find("img").eq(0).attr("src");
+					$("#goods-name").text(goodName);
+					$("#goods-img").attr("src", imgsrc);
+					$("#mask").fadeIn();
+					$(".add-goods").slideDown();
+				});
+				$("#mask").on("tap", function() {
+					$(".add-goods").slideUp();
+					$(this).fadeOut();
+				});
+				$("#add1").on("tap", function() {
+					unitPrice = $("#unitPirce").text();
+					stock = $("#stock").text();
+					goodSum = $("#goodSum").val();
+					sel1 = $("#sel1").find("option:selected").text();
+					sel2 = $("#sel2").find("option:selected").text();
+					$(".add-goods").slideUp();
+					$("#mask").fadeOut();
+				});
+				//				$("#add2").on("tap", function() {
+				//					unitPrice = $("#unitPirce").text();
+				//					stock = $("#stock").text();
+				//					goodSum = $("#goodSum").val();
+				//					totalGoodSum = goodSum;
+				//					sel1 = $("#sel1").find("option:selected").text();
+				//					sel2 = $("#sel2").find("option:selected").text();
+				//					subtotal = unitPrice * goodSum;
+				//					selectedGoods2 = {
+				//						"unitPirce": unitPirce,
+				//						"stock": stock,
+				//						"goodSum": goodSum,
+				//						"subtotal": subtotal,
+				//						'totalGoodSum': totalGoodSum,
+				//						"sel1": sel1,
+				//						"sel2": sel2
+				//					}
+				//					var addgoods2 = '<a class="spxq" href="javascript:void(0)"><img src="' + imgsrc + '" /><div class="img-center"><p>' + goodName + '</p><p>XV89GDAS76DSGSA</p><p>￥<span class="unitPrice">' + unitPrice + '</span>*<span class="goodSum">' + goodSum + '</span></p></div><div class="img-right"><p>待发货</p><p>￥ <span class="subtotal">' + subtotal + '</span></p></div></a>'
+				//					localStorage.setItem("addgoods2", addgoods2);
+				//					localStorage.setItem("selectedGoods2", JSON.stringify(selectedGoods2));
+				//					mui.openWindow({
+				//						id: "",
+				//						url: "../xs/ddxg.html"
+				//					})
+				//				})
+			</script>
+	</body>
+
+</html>

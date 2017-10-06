@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>所有商品</title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/app.js"></script>
+		<script src="js/shopCart.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.fly.min.js" type="text/javascript" charset="utf-8"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style type="text/css">
+			#segmentedControlContents>.mui-control-content>ul>li {
+				width: 33.33%;
+				float: left;
+				border-bottom: 1px solid #c8c7cc;
+				border-right: 1px solid #c8c7cc;
+				box-sizing: border-box;
+				text-align: center;
+			}
+			
+			#segmentedControlContents>.mui-control-content>ul>li:last-child {
+				border-right: 1px solid #c8c7cc;
+			}
+			
+			.mui-pull-top-pocket {
+				z-index: 999;
+			}
+			
+			.mui-pull-bottom-pocket {
+				z-index: 999;
+				bottom: 3.5em;
+			}
+			
+			.pxicon {
+				position: absolute;
+			}
+			
+			.pxCell {
+				display: block;
+				float: left;
+				width: 20%;
+			}
+			
+			.pxCell>div {
+				width: 100% !important;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="mui-box" class="mui-box">
+			<header style="background: #414141;" id="header" class="mui-bar mui-bar-nav">
+				<a style="color: #fff;" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<div class="">
+					<input id="allgoods-search" type="search" name="" value="" placeholder="请输入搜索关键词!" />
+					<a href="allgoods.html"><span style="position: absolute;left: 90%;top: 0.1rem;" id="search-icon" class="mui-icon mui-icon-search"></span></a>
+				</div>
+			</header>
+			<div id="allgoods-logo" class="allgoods-logo b-b" style="position: fixed;left: 0;top: 2.7rem;">
+				<a name="a" class="pxCell active">
+					<div><span>默认</span> </div>
+				</a>
+				<a name="b" class="pxCell">
+					<div><span>人气</span> <span name="1" class="iconfont pxicon">&#xe618;</span></div>
+				</a>
+				<a name="c" class="pxCell">
+					<div><span>销量</span> <span class="iconfont pxicon">&#xe618;</span></div>
+				</a>
+				<a name="d" class="pxCell">
+					<div><span>价格</span> <span class="iconfont pxicon">&#xe618;</span></div>
+				</a>
+				<a>
+					<div id="fl"><i class="iconfont">&#xe60d;</i></div>
+				</a>
+			</div>
+			<div id="pullrefresh">
+				<div class="mui-content" style="padding-bottom: 3em;">
+					<div class="mui-row" style="margin-top: 5.2rem;">
+						<ul id="collect" class="mui-table-view mui-grid-view">
+
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			<ul class="footer mui-bar-footer">
+				<li class="hrefCell" name="index.html">
+					<a href="javascript:void(0)">
+						<div class="iconfont">
+							&#xe639;
+						</div>
+						<div class="">
+							首页
+						</div>
+					</a>
+				</li>
+				<li id="call">
+					<div class="iconfont">
+						&#xe604;
+					</div>
+					<div class="">
+						电话
+					</div>
+				</li>
+				<li class="hrefCell" name="allgoods.html">
+					<a href="javascript:void(0)">
+						<div style="font-weight: bolder;color: #da0203;" class="iconfont">
+							&#xe6a4;
+						</div>
+						<div class="">
+							商品
+						</div>
+					</a>
+				</li>
+				<li class="hrefCell" name="cart/shoppingcart.html">
+					<a href="javascript:void(0)">
+						<div class="iconfont">
+							&#xe600;
+						</div>
+						<div class="circle1">
+							0
+						</div>
+						<div class="">
+							购物车
+						</div>
+					</a>
+				</li>
+				<li class="hrefCell" name="personal-center.html">
+					<a href="javascript:void(0)">
+						<div class="iconfont">
+							&#xe6c9;
+						</div>
+						<div class="">
+							我的
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="mask">
+
+		</div>
+		<!--	//页全局变量-->
+		<script>
+			var page = 1;
+			var sum = 0;
+			var OrderBy = "";
+			var ordertype = "";
+			var sx = false;
+			var mask = mui.createMask();
+			var zfl = "";
+			var classid = "";
+			var productID = "";
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: true, //默认为false，不监听
+					release: true //默认为false，不监听
+				}
+			});
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					//					down: {
+					//						style: 'circle',
+					//						callback: pulldownRefresh
+					//					},
+					up: {
+						auto: false,
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function(e) {
+				var self = plus.webview.currentWebview();
+				if(self.keyword) {
+					var keyword = self.keyword;
+					$("#allgoods-search").val(keyword);
+				};
+				if(self.zfl) {
+					zfl = self.zfl
+				};
+				if(self.classid) {
+					classid = self.classid
+				};
+				upRefersh();
+			});
+
+			function pullupRefresh() {
+				upRefersh();
+				setTimeout(function() {}, 1000);
+			};
+			// 下拉刷新具体业务实现
+			function pulldownRefresh() {
+				downRefersh();
+				setTimeout(function() {}, 1500);
+			};
+			var _url = APP_SERVER_URL+APP_allgoods_query;
+			var comUrl = APP_SERVER_WWW_URL;
+			console.log(_url);
+			function upRefersh() {
+				mui.ajax(_url, {
+					data: {
+						page: page,
+						px: ordertype,
+						OrderBy: OrderBy,
+						UserLevel: app.getState().UserLevel,
+						classid: classid,
+						zfl: zfl,
+						keyword: $("#allgoods-search").val()
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //关闭遮罩层
+					},
+					success: function(data) {
+						var str = "";
+						if(data.TotalCount == 0) {
+							mui('#pullrefresh').pullRefresh().endPullup(true);
+						} else {
+							mui('#pullrefresh').pullRefresh().endPullup(false);
+							page = page + 1
+							var state = app.getState();
+							$.each(data.data, function(i) {
+								sum = sum + 1;
+								str += '<li  class="mui-table-view-cell mui-media hrefCell"><a href="javascript:;"><img name="goods-detail.html" class="mui-media-object goods-img"  src="' + comUrl + data.data[i].sPicUrl + '" /></a><div name="' + data.data[i].GuId + '" class="mui-media-body newsgoods-name">' + data.data[i].ProductName + '</div><div class="mui-media-body newgoods-price">' + '￥' + data.data[i].price + '</div><div class="mui-media-body old-price">' + '￥' + data.data[i].lPrice + '</div><a class="allgoods-buy" data="' + data.data[i].GuId + '" href="javascript:void(0)">购买</a></li>'
+							});
+						}
+						$("#collect").append(str);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				});
+			};
+
+			function downRefersh() {
+				mui.ajax(_url, {
+					data: {
+						page: page,
+						px: ordertype,
+						OrderBy: OrderBy,
+						UserLevel: app.getState().UserLevel,
+						keyword: $("#allgoods-search").val()
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //关闭遮罩层
+					},
+					success: function(data) {
+						var str = "";
+						if(data.TotalCount == 0) {
+							mui('#pullrefresh').pullRefresh().endPulldown(true);
+						} else {
+							mui('#pullrefresh').pullRefresh().endPulldown(false);
+							page = page + 1;
+							$.each(data.data, function(i) {
+								sum = sum + 1;
+								str += '<li  class="mui-table-view-cell mui-media hrefCell"><a href="javascript:;"><img name="goods-detail.html" class="mui-media-object goods-img"  src="' + comUrl + data.data[i].sPicUrl + '" /></a><div name="' + data.data[i].GuId + '" class="mui-media-body newsgoods-name">' + data.data[i].ProductName + '</div><div class="mui-media-body newgoods-price">' + '￥' + data.data[i].price + '</div><div class="mui-media-body old-price">' + '￥' + data.data[i].lPrice + '</div><a class="allgoods-buy" href="javascript:void(0)">购买</a></li>'
+								console.log(data.data[i].GuId)
+							});
+						};
+						$("#collect").html(str);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				});
+			};
+
+			function search() {
+				sum = 0;
+				page = 1;
+				$("#collect").html("");
+				upRefersh();
+			};
+			$("#allgoods-search").on("keydown", function(e) {
+				if(e.keyCode == 13) {
+					search()
+				}
+			});
+			$("#allgoods-logo").on("tap", ".pxCell", function() {
+				mui('#pullrefresh').pullRefresh().refresh(true);
+				var m = $(this);
+				m.addClass("active").siblings().removeClass("active");
+				if(m.hasClass("active")) {
+					OrderBy = m.attr("name");
+					sx = !sx;
+					var icon = m.find(".pxicon");
+					icon.animate({}, function() {
+						icon.css({
+							"transform": "rotate(" + 180 * Number(sx) + "deg)"
+						})
+					})
+				};
+				switch(sx) {
+					case false:
+						ordertype = 0
+						break;
+					case true:
+						ordertype = 1
+						break;
+					default:
+						break;
+				}
+				sum = 0;
+				page = 1;
+				$("#collect").html("");
+				upRefersh();
+			});
+			$("#collect").on("tap", "img", function() {
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				productID = $(this).parent().parent().find(".newsgoods-name").attr("name");
+				console.log(productID);
+				var _url = $(this).attr("name");
+				mui.openWindow({
+					id: _url + rand,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: "slide-in-right",
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					},
+					extras: {
+						productid: productID
+					}
+				})
+			});
+			/**********************************购物车飞入动画*******************************/
+			$(document).on("click", ".allgoods-buy", function(e) {
+				var offset = $(this).offset();
+				var addcar = $(this);
+				var goodsImg = $(this).parent().find(".goods-img");
+				var gWidth = $(this).parent().find(".goods-img").width();
+				var x1 = e.clientX;
+				var y1 = e.clientY;
+				var imgsrc = $(this).parent().find(".goods-img").attr('src');
+				var flyer = $('<img class="u-flyer" src="' + imgsrc + '">');
+				//放入购物车
+				var _id = addcar.attr("data");
+				product.id = _id;
+				product.name = $("#hf_ProductName_" + _id).val();
+				product.num = $("#hf_MinOrderNum_" + _id).val();
+				product.pic = $("#hf_sPicUrl_" + _id).val();
+				product.ProModel = $("#hf_ProModel_" + _id).val();
+				product.price = $("#hf_price_" + _id).val();
+				cart.addProduct(product);
+				goodsum = orderdetail.totalNumber;
+				console.log(product.pic)
+				console.log(product.price)
+				console.log(product.num)
+				console.log(product.ProModel)
+				console.log(orderdetail.totalNumber)
+				if(goodsum > 99) {
+					$(".circle1").text("99+")
+				} else {
+					$(".circle1").text(goodsum)
+				}
+				flyer.fly({
+					start: {
+						left: x1 - gWidth / 2, ///开始位置（必填）#fly元素会被设置成position: fixed 
+						top: y1 - gWidth / 1.1 ///开始位置（必填） 
+					},
+					end: {
+						left: (screen.width) / 1.5, ///结束位置（必填） 
+						top: (screen.height) / 1.1, ///结束位置（必填） 
+						width: 0, //结束时宽度 
+						height: 0 //结束时高度 
+					},
+					onEnd: function() { //结束回调 
+						this.destory(); //移除dom 
+					}
+				});
+				$(".circle1").text(goodsum)
+			});
+			document.getElementById("call").addEventListener('tap', function() {
+				var btnArray = ['拨打', '取消'];
+				var Phone = "0571-88888888";
+				mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.device.dial(Phone, false);
+					}
+				});
+			});
+			$(".footer").on("tap", ".hrefCell", function() {
+				var _url = $(this).attr("name");
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				var direction;
+				switch(_url) {
+					case "index.html":
+						direction = "slide-in-left"
+						break;
+					case "allgoods.html":
+						direction = ""
+						break;
+					case "empty-shoppingcart.html":
+						direction = "slide-in-right"
+						break;
+					case "personal-center.html":
+						direction = "slide-in-right"
+						break;
+				};
+				mui.openWindow({
+					id: _url + rand,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: direction,
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					}
+				})
+			});
+			/****************************************侧滑开始******************************************/
+			var aniShow = "pop-in";
+			var menu = null,
+				showMenu = false;
+			var isInTransition = false;
+			var _self;
+			mui.init({
+				swipeBack: false,
+				beforeback: back
+			});
+			function back() {
+				var len = $(".spxq.active").size();
+				if(showMenu) {
+					//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
+					closeMenu();
+					return false;
+				}
+
+			};
+			//只有ios支持的功能需要在Android平台隐藏；
+			//初始化，并预加载webview模式的选项卡			
+			function preload() {
+				var menu_style = {
+					left: "100%",
+					width: '80%',
+					popGesture: "none",
+					render: "always"
+				};
+				if(mui.os.ios) {
+					menu_style.zindex = -1;
+				};
+				//处理侧滑导航，为了避免和子页面初始化等竞争资源，延迟加载侧滑页面；
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				menu = mui.openWindow({
+					id: 'classfy' + rand,
+					url: 'classfy.html',
+					styles: menu_style,
+					show: {
+						aniShow: 'none'
+					},
+					waiting: {
+						autoShow: false
+					}
+				});
+			};
+			mui.plusReady(function() {
+				//读取本地存储，检查是否为首次启动
+				//预加载
+				preload();
+				//绘制顶部图标
+				_self = plus.webview.currentWebview();
+				//启用侧滑拖拽操作，延时的原因是menu页是延时创建的，所以这里需要相应延时
+				//			setTimeout(function() {
+				//				_self.drag({
+				//					direction: "left",
+				//					moveMode: "followFinger"
+				//				}, {
+				//					view: menu,
+				//					moveMode: "follow"
+				//				}, function(e) {
+				//					mask.show();
+				//				});
+				//			}, 350);
+
+			});
+			document.addEventListener("selectClass", function(e) {
+				closeMenu();
+				classid = e.detail.classid;
+				$("#collect").html("");
+				page = 1;
+				sum = 0;
+				upRefersh();
+			});
+			document.addEventListener("selectzdyClass", function(e) {
+				closeMenu();
+				zfl = e.detail.zfl;
+				$("#collect").html("");
+				page = 1;
+				sum = 0;
+				upRefersh();
+			});
+			document.getElementById("fl").addEventListener("tap", function() {
+				openMenu();
+			});
+			document.getElementById("mask").addEventListener("tap", function() {
+				closeMenu();
+			});
+			window.addEventListener("swipeleft", function(e) {
+				var len = Math.abs(e.detail.deltaX);
+				if(len > screen.width / 3) {
+					openMenu()
+				}
+			});
+			window.addEventListener("swiperight", function() {
+				if(showMenu) {
+					//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
+					closeMenu();
+					return false;
+				}
+			});
+			window.addEventListener("menu:close", closeMenu);
+			window.addEventListener("menu:swiperight", closeMenu);
+
+			/**
+			 * 显示侧滑菜单
+			 */
+			function openMenu() {
+				$("#mask").fadeIn();
+				showMenu = true;
+				plus.webview.startAnimation({
+						'view': _self,
+						'styles': {
+							'fromLeft': '0%',
+							'toLeft': "-80%"
+						},
+						'action': 'show'
+					}, {
+						'view': menu,
+						'styles': {
+							'fromLeft': "100%",
+							'toLeft': '20%'
+						},
+						'action': 'show'
+					},
+					function(e) {
+						//console.log(JSON.stringify(e));
+						if(e.id == menu.id) { //侧滑菜单打开
+						}
+					}.bind(this)
+				)
+			};
+			/**
+			 * 关闭菜单
+			 */
+			function closeMenu() {
+				$("#mask").fadeOut();
+				showMenu = false;
+				plus.webview.startAnimation({
+						'view': _self,
+						'styles': {
+							'fromLeft': '-80%',
+							'toLeft': "0%"
+						},
+						'action': 'show'
+					}, {
+						'view': menu,
+						'styles': {
+							'fromLeft': "20%",
+							'toLeft': '100%'
+						},
+						'action': 'show'
+					},
+					function(e) {
+						console.log(JSON.stringify(e));
+						if(e.id == _self.id) {}
+					}.bind(this)
+
+				)
+			};
+			//----------侧滑结速-----------------
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+		<!--标准mui.css-->
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/main.css" />
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../css/app.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<style type="text/css">
+			.mui-poppicker {
+				width: 80%;
+				left: 20%;
+			}
+			
+			.mui-dtpicker {
+				width: 80%;
+				left: 20%;
+			}
+			
+			.nav-header a .ecjiaf-fr2 {
+				width: 100%;
+			}
+			
+			.state-box {
+				width: 100%;
+				max-width: 640px;
+				overflow: hidden;
+				margin: auto;
+				background: #fff;
+				padding: 0.3rem;
+			}
+			
+			.item-box {
+				width: 100%;
+				overflow: hidden;
+				font-size: 0.9rem;
+			}
+			
+			.state-box>div {
+				width: 25%;
+				overflow: hidden;
+				float: left;
+			}
+			
+			.state-box>div:nth-child(-n+4)>div:first-child {
+				font-size: 1.6em;
+			}
+			
+			.state-box>div:nth-child(5)>div:first-child {
+				font-size: 1.2em;
+			}
+			
+			.state-box>div>div:first-child {
+				width: 100%;
+				height: 1.2em;
+				text-align: center;
+				line-height: 1.2em;
+			}
+			
+			.state-box>div:nth-child(-n+4)>div:nth-child(2) {
+				width: 100%;
+				height: 1.2em;
+				text-align: center;
+				line-height: 1.2em;
+			}
+			
+			.state-box>div:nth-child(5)>div:nth-child(2) {
+				width: 100%;
+				height: 2em;
+				text-align: center;
+				line-height: 2.05em;
+			}
+			
+			.order-cell {
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.order-bottom-cell {
+				overflow: hidden;
+			}
+			
+			.order-bottom-cell>span {
+				display: inline-block;
+				float: left;
+			}
+			
+			.goodsTotalPrice {
+				max-width: 10em;
+				padding-right: 0.5em;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.shr {
+				max-width: 6em;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.mui-slider-handle>a {
+				color: #515151;
+				line-height: 130%;
+			}
+			
+			#keywordBox {
+				width: 96%;
+				margin-left: calc(2%);
+				text-indent: calc(3%);
+				border: none;
+				outline: none;
+			}
+			
+			.orderDate {
+				color: #818181;
+			}
+			
+			.dd-bottom>.order-bottom-cell:last-child>div {
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<style>
+			.mui-control-content {
+				background-color: white;
+			}
+			
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+		</style>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的订单</h1>
+		</header>
+		<div class="ecjia-header ecjia-margin-t" style="background:#FFF; position:fixed;left: 0;top:3em;right:0;margin: auto;box-sizing: border-box;border-bottom: 1px solid #ececec;z-index: 990;">
+			<div class="ecjia-search-header">
+				<a class="ecjia-header-icon" style="color:#4f9ce2"><i class="iconfont">&#xe617;</i></a>
+				<input id="keywordBox" name="keywords" type="search" placeholder="订单号">
+			</div>
+		</div>
+		<div id="pullrefresh" class="con mui-scroll-wrapper" style="max-width: 640px;margin-top: 5.3rem;">
+			<div class="mui-scroll">
+				<div class="state-box b-b">
+					<div class="state-cell active" name="1">
+						<div class="iconfont">&#xe65c;</div>
+						<div>未付款</div>
+					</div>
+					<div class="state-cell" name="2">
+						<div class="iconfont">&#xe65b;</div>
+						<div>待发货</div>
+					</div>
+					<div class="state-cell" name="3">
+						<div class="iconfont">&#xe65d;</div>
+						<div>待收货</div>
+					</div>
+					<div class="state-cell" name="5">
+						<div class="iconfont">&#xe65e;</div>
+						<div>已完成</div>
+					</div>
+				</div>
+				<div class="item-box">
+					<div id="item1" class="mui-control-content mui-active">
+						<!--<div class="order-cell">
+							<ul class="mui-table-view b-b">
+								<li class="mui-table-view-cell">
+									<div class="mui-slider-right mui-disabled">
+										<a class="mui-btn mui-btn-red order-cancel">取消订单</a>
+										<a name="indent" class="mui-btn mui-btn-blue order-look">编辑</a>
+									</div>
+									<div class="mui-slider-handle">
+										<a href="javascript:void(0)">
+											<div class="mui-pull-left">订单号:<span class="ddh">FGDFGFSDGFX</span></div>
+											<div class="mui-pull-left ml-1 mui-badge mui-badge-danger ddState">未付款</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+							<div name="indent-details.html" class="dd-head hrefCell b-p">
+								<div class="dd-head-top"><span class="mui-pull-left"><span>1.</span><span class="ddh">FGDFGFSDGFX</span></span><span class="mui-pull-right grey orderDate">2017/09/28</span></div>
+								<div class="dd-bottom">
+									<div class="order-bottom-cell"><span>收货人:</span><span class="shr">刘强东</span></div>
+									<div class="order-bottom-cell">
+										<div><span>共</span><span class="red goodSum">4</span><span>件商品 合计:</span><span class="totalPrice red">999</span></div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="mask">
+
+		</div>
+		<script type="text/javascript">
+			//			mui('.mui-scroll-wrapper').scroll({
+			//				scrollY: true, //是否竖向滚动
+			//				scrollX: false, //是否横向滚动
+			//				startX: 0, //初始化时滚动至x
+			//				startY: 0, //初始化时滚动至y
+			//				indicators: false, //是否显示滚动条
+			//				deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
+			//				bounce: true //是否启用回弹
+			//			});
+			var page = 1;
+			var sum = 0;
+			var status = 1;
+			var mask = mui.createMask(); //遮罩层
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: true, //默认为false，不监听
+					release: true //默认为false，不监听
+				}
+			});
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					//					down: {
+					//						style: 'circle', //必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+					//						color: '#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+					//						height: '50px', //可选,默认50px.下拉刷新控件的高度,
+					//						range: '100px', //可选 默认100px,控件可下拉拖拽的范围
+					//						offset: '0px', //可选 默认0px,下拉刷新控件的起始位置
+					//						auto: false, //可选,默认false.首次加载自动上拉刷新一次
+					//						callback: pulldownRefresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					//					},
+					up: {
+						auto: false,
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+
+					}
+				}
+			});
+
+			function pullupRefresh() {
+				setTimeout(function() {
+					upRefersh();
+				}, 1000);
+			};
+
+			function pulldownRefresh() {
+				setTimeout(function() {
+
+				}, 1000);
+			};
+			mui('.state-box').on('tap', '.state-cell', function() {
+				mui('#pullrefresh').pullRefresh().refresh(true);
+				$(this).addClass('active').siblings().removeClass('active');
+				status = $(this).attr("name");
+				page = 1;
+				sum = 0;
+				$("#item1").html("");
+				upRefersh();
+			});
+			mui.plusReady(function() {
+				upRefersh();
+			});
+			//监听输入法搜索或者enter键
+			$("#keywordBox").on("keydown", function(e) {
+				if(e.keyCode == 13) {
+					search()
+				}
+			});
+
+			function search() {
+				page = 1;
+				sum = 0;
+				status = "";
+				$("#item1").html("");
+				upRefersh();
+			};
+
+			function upRefersh() {
+				console.log(page);
+				console.log(app.getState().UserId);
+				console.log(status);
+				var _url = APP_SERVER_URL + APP_allgoods_order;
+				mui.ajax(_url, {
+					data: {
+						page: page,
+						UserId: app.getState().UserId,
+						Status: status,
+						keyword: $("#keywordBox").val()
+
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					beforeSend: function() {
+						plus.nativeUI.showWaiting();
+						mask.show(); //显示遮罩层
+					},
+					complete: function() {
+						plus.nativeUI.closeWaiting();
+						mask.close(); //关闭遮罩层
+					},
+					success: function(data) {
+						var str = "";
+						if(data.TotalCount == 0) {
+							mui('#pullrefresh').pullRefresh().endPullup(true);
+						} else {
+							mui('#pullrefresh').pullRefresh().endPullup(false);
+							page = page + 1;
+
+							var state = app.getState();
+							$.each(data.data, function(i) {
+								sum++;
+								str += '<div class="order-cell"><ul class="mui-table-view b-b"><li class="mui-table-view-cell"><div class="mui-slider-right mui-disabled"><a class="mui-btn mui-btn-red order-cancel">取消订单</a><a name="indent-edit.html" class="mui-btn mui-btn-blue order-edit hrefCell">编辑</a></div><div class="mui-slider-handle"><a href="javascript:void(0)"><div class="mui-pull-left">订单号:<span class="ddh">' + data.data[i].orderid + '</span></div><div name="' + data.data[i].orderid + '" class="mui-pull-left ml-1 mui-badge mui-badge-danger ddState">未付款</div></a></div></li><div name="indent-details.html" class="dd-head hrefCell b-p"><div class="dd-head-top"><span class="mui-pull-left"><span>' + sum + '.</span><span class="ddh">' + data.data[i].orderid + '</span></span><span class="mui-pull-right grey orderDate">' + data.data[i].SendTime + '</span></div><div class="dd-bottom"><div class="order-bottom-cell"><span>收货人:</span><span class="shr">' + data.data[i].Consignee + '</span></div><div class="order-bottom-cell"><div><span>共</span><span class="red goodSum">' + data.data[i].ItemNum + '</span><span>件商品 合计:</span><span class="totalPrice red">' + data.data[i].OrderTotalPrice + '</span></div></div></div></div></div>'
+
+							});
+						}
+						$("#item1").append(str);
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast(errorThrown);
+					}
+				});
+			};
+			$(".mui-scroll").on("tap", ".hrefCell", function() {
+				var _url = $(this).attr("name");
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				if($(this).hasClass(".dd-head")) {
+					var orderID = $(this).find(".ddh").text();
+					mui.openWindow({
+						id: _url + rand,
+						url: _url,
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						},
+						extra: {
+							orderID: orderID
+						}
+					});
+				} else {
+					mui.openWindow({
+						id: _url + rand,
+						url: _url,
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						}
+					});
+				}
+			});
+			$(".order-cell").on("tap", ".ddState", function() {
+				console.log(999999)
+				var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+				if($(this).text() == "未付款") {
+					orderID = $(this).attr("name");
+					mui.openWindow({
+						id: rand,
+						url: "indent-details.html",
+						title: "正在加载",
+						show: {
+							autoShow: "true",
+							aniShow: "slide-in-right",
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+						},
+						extras: {
+							orderID: orderID
+						}
+					})
+				}
+			})
+		</script>
+	</body>
+
+</html>

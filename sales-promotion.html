@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>促销活动</title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header id="header" class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">促销活动</h1>
+				<a href="index.html" class="mui-pull-right"><i class="iconfont">&#xe639;</i></a>
+			</header>
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="goods-detail.html">
+							<img src="images/4.jpg">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="goods-detail.html">
+							<img src="images/1.png">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="goods-detail.html">
+							<img src="images/2.jpg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="goods-detail.html">
+							<img src="images/3.jpg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="goods-detail.html">
+							<img src="images/4.jpg">
+						</a>
+					</div>
+
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="goods-detail.html">
+							<img src="images/1.png">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div class="sales-production-cell">
+				<div class="sales-production-heading">
+					<span class="mui-pull-left">喜迎双11 全场狂欢购</span><span class="mui-pull-right">活动日期:2017-11-10 → 2017-11-12</span>
+				</div>
+				<a href="">
+					<img src="images/sales-promotion1.png"/>
+				</a>
+			</div>
+			<div class="sales-production-cell">
+				<div class="sales-production-heading">
+					<span class="mui-pull-left">喜迎双11 全场狂欢购</span><span class="mui-pull-right">活动日期:2017-11-10 → 2017-11-12</span>
+				</div>
+				<a href="">
+					<img src="images/sales-promotion1.png"/>
+				</a>
+			</div>
+			<div class="sales-production-cell">
+				<div class="sales-production-heading">
+					<span class="mui-pull-left">喜迎双11 全场狂欢购</span><span class="mui-pull-right">活动日期:2017-11-10 → 2017-11-12</span>
+				</div>
+				<a href="">
+					<img src="images/sales-promotion1.png"/>
+				</a>
+			</div>
+			<ul class="footer mui-bar-footer">
+					<li>
+						<a href="index.html">
+							<div class="iconfont">
+								&#xe639;
+							</div>
+							<div class="">
+								首页
+							</div>
+						</a>
+					</li>
+					<li id="call">
+						<div class="iconfont">
+							&#xe604;
+						</div>
+						<div class="">
+							电话
+						</div>
+					</li>
+					<li>
+						<a href="allgoods.html">
+							<div style="font-weight: bolder;" class="iconfont">
+								&#xe6a4;
+							</div>
+							<div class="">
+								商品
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="empty-shoppingcart.html">
+							<div class="iconfont">
+								&#xe600;
+							</div>
+							<div class="">
+								购物车
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="personal-center.html">
+							<div style="color: #da0203;" class="iconfont">
+								&#xe6c9;
+							</div>
+							<div style="color: #da0203;" class="">
+								我的
+							</div>
+						</a>
+					</li>
+				</ul>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("call").addEventListener('tap', function() {
+					var btnArray = ['拨打', '取消'];
+					var Phone = "0571-88888888";
+					mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+						if(e.index == 0) {
+							plus.device.dial(Phone, false);
+						}
+					});
+				});
+		</script>
+	</body>
+</html>

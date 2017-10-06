@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/foot.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				margin: auto;
+				max-width: 640px;
+				overflow: hidden;
+				background-color: #fcfcfc;
+			}
+			
+			.mui-pages {
+				top: 46px;
+				height: auto;
+			}
+			
+			.mui-scroll-wrapper,
+			.mui-scroll {
+				background-color: #efeff4;
+			}
+			
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 200ms ease;
+				transition: transform 200ms ease;
+			}
+			
+			.mui-page-left {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			
+			.mui-ios .mui-page-left {
+				-webkit-transform: translate3d(-20%, 0, 0);
+				transform: translate3d(-20%, 0, 0);
+			}
+			
+			.mui-navbar {
+				width: 100%;
+				max-width: 640px;
+				margin: auto;
+				position: fixed;
+				right: 0;
+				left: 0;
+				z-index: 10;
+				height: 44px;
+				background-color: #f7f7f8;
+			}
+			
+			.mui-navbar .mui-bar {
+				position: absolute;
+				background: transparent;
+				text-align: center;
+			}
+			
+			.mui-android .mui-navbar-inner.mui-navbar-left {
+				opacity: 0;
+			}
+			
+			.mui-ios .mui-navbar-left .mui-left,
+			.mui-ios .mui-navbar-left .mui-center,
+			.mui-ios .mui-navbar-left .mui-right {
+				opacity: 0;
+			}
+			
+			.mui-navbar .mui-btn-nav {
+				-webkit-transition: none;
+				transition: none;
+				-webkit-transition-duration: .0s;
+				transition-duration: .0s;
+			}
+			
+			.mui-navbar .mui-bar .mui-title {
+				display: inline-block;
+				position: static;
+				width: auto;
+			}
+			
+			.mui-page-shadow {
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 16px;
+				height: 100%;
+				z-index: -1;
+				content: '';
+			}
+			
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 200ms ease, -webkit-transform 200ms ease;
+				transition: opacity 200ms ease, transform 200ms ease;
+			}
+			
+			.mui-page {
+				display: none;
+				width: 100%;
+				max-width: 640px;
+			}
+			
+			.mui-pages .mui-page {
+				display: block;
+			}
+			
+			.mui-table-view {
+				margin-top: 1px;
+				background: #fcfcfc;
+			}
+			
+			.mui-table-view:after {
+				height: 0;
+			}
+			
+			.mui-table-view span.mui-pull-right {
+				color: #999;
+			}
+			
+			.mui-table-view-divider {
+				background-color: #efeff4;
+				font-size: 14px;
+			}
+			
+			.mui-table-view-divider:before,
+			.mui-table-view-divider:after {
+				height: 0;
+			}
+			
+			.mui-switch:before {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin: 10px 0px;
+			}
+			
+			.mui-locker {
+				margin: 35px auto;
+				display: none;
+			}
+			
+			.personal-info {
+				display: block;
+				background: url(images/minebg.jpg) no-repeat;
+				background-size: 100%;
+			}
+			
+			.personal-info>li>img {
+				width: 24%;
+				display: block;
+				float: left;
+			}
+			
+			.gus-name {
+				font-size: 1.1rem;
+				font-family: "微软雅黑";
+				color: #fff;
+				line-height: 4rem;
+				float: left;
+				margin-left: 1rem;
+				letter-spacing: 0.05rem;
+			}
+			
+			.manage-address {
+				font-size: 0.96rem;
+				color: #fff;
+				float: right;
+				margin-right: -3rem;
+				line-height: 5rem;
+				letter-spacing: 0.05rem;
+			}
+			
+			#personal-info a {
+				display: block;
+				font-size: 0.96rem;
+				font-family: "微软雅黑";
+				color: #fff;
+				float: right;
+				margin-top: 1.2rem;
+			}
+			
+			.menu-list>li>a>div {
+				margin-left: 2rem;
+			}
+			
+			.wallet-details .mui-col-xs-3 {
+				display: block;
+				text-align: center;
+				background: #fff;
+				padding: 0.4rem 0rem 0.4rem 0rem;
+				line-height: 1.6rem;
+			}
+			
+			.wallet-details .mui-col-xs-3 .iconfont {
+				font-size: 1.6rem;
+				color: #515151;
+			}
+			
+			.wallet-details .mui-col-xs-3 div {
+				font-size: 0.96rem;
+				color: #515151;
+			}
+			
+			.wallet-details .mui-col-xs-4 {
+				display: block;
+				text-align: center;
+				background: #fff;
+				padding: 0.4rem 0rem 0.4rem 0rem;
+				line-height: 1.6rem;
+				border-top: 1px solid #ececec;
+				border-right: 1px solid #ececec;
+			}
+			
+			.wallet-details .mui-col-xs-4 div:first-child {
+				font-size: 1.2rem;
+				color: #ff5500;
+			}
+			
+			.wallet-details .mui-col-xs-4 div:last-child {
+				font-size: 0.96rem;
+				color: #515151;
+			}
+			
+			.my-pocket {
+				display: block;
+				margin-top: 0.5rem;
+			}
+			
+			.my-pocket,
+			.my-pocket>div {
+				background: #fff;
+			}
+			
+			.my-pocket>div>div:first-child {
+				font-size: 1.5rem;
+				color: #515151;
+			}
+			
+			.my-pocket>div>div:nth-child(2) {
+				font-size: 0.96rem;
+				line-height: 1.6rem;
+				color: #515151;
+				float: left;
+				margin-left: 0.8rem;
+			}
+			
+			.my-pocket>div>div:last-child {
+				font-size: 0.96rem;
+				color: #ff5500;
+				width: 4rem;
+				height: 1.6rem;
+				text-align: center;
+				line-height: 1.6rem;
+				float: right;
+				margin-right: -3rem;
+				border-radius: 0.25rem;
+				border: 1px solid #ff5500;
+			}
+			
+			#exit {
+				display: block;
+				width: 98%;
+				height: 2.4rem;
+				border-radius: 0.3rem;
+				text-align: center;
+				line-height: 2.4rem;
+				color: #fff;
+				background: #ff5500;
+				margin: auto;
+				margin-top: 0.5rem;
+			}
+			
+			.footer {
+				width: 100%;
+				max-width: 640px;
+				background: #fff;
+				position: fixed;
+				margin: auto;
+				z-index: 999;
+			}
+			
+			.footer>li {
+				width: 20%;
+				float: left;
+			}
+			
+			.footer>li>a {
+				display: block;
+				width: 100%;
+				padding: 0.5rem 0rem 0.5rem 0rem;
+				position: relative;
+			}
+			
+			.footer>li>a>.iconfont {
+				text-align: center;
+				font-size: 1.2rem;
+				color: #515151;
+				line-height: 1.2rem;
+			}
+			
+			.footer>li>a>.iconfont {
+				text-align: center;
+				font-size: 1.2rem;
+				color: #515151;
+				line-height: 1.2rem;
+			}
+			
+			.footer>li>a>div:last-child {
+				text-align: center;
+				font-size: 0.96rem;
+				color: #515151;
+				font-family: "微软雅黑";
+				line-height: 0.96rem;
+				margin-top: 0.5rem;
+			}
+			
+			.footer>li>.iconfont {
+				text-align: center;
+				font-size: 1.2rem;
+				color: #515151;
+				line-height: 1.2rem;
+			}
+			
+			.footer>li>div:last-child {
+				text-align: center;
+				font-size: 0.96rem;
+				color: #515151;
+				font-family: "微软雅黑";
+				line-height: 0.96rem;
+				margin-top: 0.5rem;
+			}
+			
+			#call {
+				padding: 0.5rem 0rem 0.5rem 0rem;
+			}
+			
+			.wallet-details {
+				position: relative;
+			}
+			
+			.circle1 {
+				display: block;
+				width: 1.6em;
+				height: 1.6em;
+				border-radius: 0.8em;
+				background: red;
+				text-align: center;
+				line-height: 1.6em;
+				color: #fff;
+				position: absolute;
+				right: 0.2em;
+				top: -0.5em;
+			}
+			
+			.circle2 {
+				display: block;
+				width: 1.6em;
+				height: 1.6em;
+				border-radius: 0.8em;
+				background: red;
+				text-align: center;
+				line-height: 1.6em;
+				color: #fff;
+				position: absolute;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				margin: -11px -15px;
+				padding: inherit;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: inherit
+			}
+			
+			.menu-list>li {
+				border-bottom: 1px solid #ececec;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/feedback-page.css" />
+	</head>
+
+	<body>
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<header style="background: #fff;z-index: 998;box-shadow: none;border: none;" id="header" class="mui-bar mui-bar-nav mui-navbar-inner">
+				<a style="color: #515151;" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">个人中心</h1>
+			</header>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" style="overflow: hidden;padding-bottom: 4rem;">
+					<div class="mui-scroll">
+						<a name="Member/userinfo/personal-information.html" id="personal-info" class="mui-table-view mui-table-view-chevron personal-info hrefCell">
+							<li class="mui-table-view-cell">
+								<img src="images/nologin.png" />
+								<div class="gus-name">王大锤</div>
+								<span class="manage-address">账户设置</span>
+							</li>
+						</a>
+						<ul class="mui-table-view mui-table-view-chevron my-indent-entry">
+							<li class="mui-table-view-cell">
+								<i class="iconfont mui-pull-left">&#xe622;</i>
+								<span style="float: left;margin-left: 0.9rem;" id="myindent" class="">
+									我的订单
+								</span>
+								<span class="mui-navigate-right"></span>
+								<a name="Member/order/my-indent.html" style="display:inline-block;float: right;color: #818181;font-size: 0.8rem;margin-right: -5.5rem;" class="hrefCell">
+									查看全部订单
+								</a>
+							</li>
+						</ul>
+						<div class="mui-row wallet-details">
+							<a name="Member/order/my-indent.html" class="mui-col-xs-3 hrefCell">
+								<i class="iconfont">&#xe60e;</i>
+								<div>待付款</div>
+								<a href="" class="circle2 dfkCircle" style="left: 15%;">
+									0
+								</a>
+							</a>
+							<a name="Member/order/my-indent.html" class="mui-col-xs-3 hrefCell">
+								<i class="iconfont">&#xe661;</i>
+								<div>待发货</div>
+								<a href="" class="circle2 dfhCircle" style="left: 40%;">
+									1
+								</a>
+							</a>
+							<a name="Member/order/my-indent.html" class="mui-col-xs-3 hrefCell">
+								<i class="iconfont">&#xe611;</i>
+								<div>待收货</div>
+								<a href="" class="circle2 dshCircle" style="left: 65%;">
+									1
+								</a>
+							</a>
+							<a name="Member/order/my-indent.html" class="mui-col-xs-3 hrefCell">
+								<i class="iconfont">&#xe66d;</i>
+								<div>已完成</div>
+								<a class="circle2 ywcCircle" style="left: 90%;">
+									1
+								</a>
+							</a>
+						</div>
+						<a name="Member/money/my-wallet.html" class="mui-table-view mui-table-view-chevron my-pocket hrefCell">
+							<div class="mui-table-view-cell">
+								<div class="iconfont mui-pull-left">&#xe709;</div>
+								<div>我的钱包</div>
+								<div>去充值</div>
+							</div>
+						</a>
+						<div class="mui-row wallet-details">
+							<a name="Member/money/coin.html" class="mui-col-xs-4 hrefCell">
+								<div>2.00</div>
+								<div>账户余额</div>
+							</a>
+							<a name="Member/money/coupon.html" class="mui-col-xs-4 hrefCell">
+								<div>2</div>
+								<div>优惠券</div>
+							</a>
+							<a class="mui-col-xs-4">
+								<div>100</div>
+								<div>积分</div>
+							</a>
+						</div>
+						<ul class="mui-table-view mui-table-view-chevron menu-list">
+							<li name="about-us.html" class="mui-table-view-cell hrefCell">
+								<a>
+									<i class="iconfont mui-pull-left">&#xe60c;</i>
+									<div>关于我们</div>
+									<span class="mui-navigate-right"></span>
+								</a>
+							</li>
+							<li name="Member/userinfo/address-manage.html" class="mui-table-view-cell hrefCell">
+								<a>
+									<i class="iconfont mui-pull-left">&#xe700;</i>
+									<div>地址管理</div>
+									<span class="mui-navigate-right"></span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a id="share">
+									<i class="iconfont mui-pull-left">&#xe60a;</i>
+									<div>分享推荐</div>
+									<span class="mui-navigate-right"></span>
+								</a>
+							</li>
+							<li name="Member/userinfo/browsing_history.html" class="mui-table-view-cell hrefCell">
+								<a>
+									<i class="iconfont mui-pull-left">&#xe61e;</i>
+									<div>浏览历史</div>
+									<span class="mui-navigate-right"></span>
+								</a>
+							</li>
+							<li name="customer-service.html" class="mui-table-view-cell hrefCell">
+								<a>
+									<i class="iconfont mui-pull-left">&#xe60b;</i>
+									<div>问题反馈</div>
+									<span class="mui-navigate-right"></span>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell">
+								<a id="lockset" href="#lock" class="mui-navigate-right">设置锁屏图案</a>
+							</li>
+						</ul>
+						<a id="exit">
+							退出
+						</a>
+					</div>
+				</div>
+				<ul class="footer mui-bar-footer">
+					<li class="hrefCell" name="index.html">
+						<a href="javascript:void(0)">
+							<div class="iconfont">
+								&#xe639;
+							</div>
+							<div class="">
+								首页
+							</div>
+						</a>
+					</li>
+					<li id="call">
+						<div class="iconfont">
+							&#xe604;
+						</div>
+						<div class="">
+							电话
+						</div>
+					</li>
+					<li class="hrefCell" name="allgoods.html">
+						<a href="javascript:void(0)">
+							<div style="font-weight: bolder;" class="iconfont">
+								&#xe6a4;
+							</div>
+							<div class="">
+								商品
+							</div>
+						</a>
+					</li>
+					<li class="hrefCell" name="cart/shoppingcart.html">
+						<a href="javascript:void(0)">
+							<div class="iconfont">
+								&#xe600;
+							</div>
+							<div class="circle1">
+								0
+							</div>
+							<div class="">
+								购物车
+							</div>
+						</a>
+					</li>
+					<li class="hrefCell" name="personal-center.html">
+						<a href="javascript:void(0)">
+							<div class="iconfont" style="color: #da0203;">
+								&#xe6c9;
+							</div>
+							<div class="" style="color: #da0203;">
+								我的
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<div id="notifications_disturb" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav" style="z-index: 999;">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>新消息通知
+				</button>
+				<h1 class="mui-center mui-title">功能消息免打扰</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-radio">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">开启</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">只在夜间开启</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">关闭</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="lock" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span style="color: #515151;" class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">锁屏图案</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-content-padded">
+					<ul class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-cell">
+							使用手势解锁
+							<div id="lockState" class="mui-switch">
+								<div class="mui-switch-handle"></div>
+							</div>
+						</li>
+					</ul>
+					<div class="mui-locker" data-locker-width='320' data-locker-height='320' data-locker-options='{"ringColor":"rgba(221,221,221,1)","fillColor":"#ffffff","pointColor":"rgba(0,136,204,1)","lineColor":"rgba(0,136,204,1)"}'>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js "></script>
+	<script src="js/mui.view.js "></script>
+	<script src='libs/easymob-webim-sdk/jquery-1.11.1.js'></script>
+	<script src='libs/easymob-webim-sdk/strophe-custom-2.0.0.js'></script>
+	<script src='libs/easymob-webim-sdk/json2.js'></script>
+	<script src="libs/easymob-webim-sdk/easemob.im-1.0.5.js"></script>
+	<script src="js/mui.locker.js"></script>
+	<script src="js/jQuery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var baseObj;
+		document.getElementById("call").addEventListener('tap', function() {
+			var btnArray = ['拨打', '取消'];
+			var Phone = "0571-88888888";
+			mui.confirm('是否拨打 ' + Phone + ' ？', '提示', btnArray, function(e) {
+				if(e.index == 0) {
+					plus.device.dial(Phone, false);
+				}
+			});
+		});
+		$(".mui-scroll").on("tap", ".hrefCell", function() {
+			var _url = $(this).attr("name");
+			var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+			if($(this).hasClass("personal-info")) {
+				mui.openWindow({
+					id: _url + rand,
+					url: _url,
+					title: "正在加载",
+					show: {
+						autoShow: "true",
+						aniShow: "slide-in-right",
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '正在加载...', //等待对话框上显示的提示内容
+					},
+					extras:{
+						baseObj:JSON.stringify(baseObj)
+					}
+				})
+			}else{
+				mui.openWindow({
+				id: _url + rand,
+				url: _url,
+				title: "正在加载",
+				show: {
+					autoShow: "true",
+					aniShow: "slide-in-right",
+				},
+				waiting: {
+					autoShow: true, //自动显示等待框，默认为true
+					title: '正在加载...', //等待对话框上显示的提示内容
+				}
+			})
+			}
+			
+		});
+		var mask = mui.createMask();
+		mui.plusReady(function() {
+			initHtml();
+		});
+		function initHtml() {
+			var _url = APP_SERVER_URL+APP_getUser_info;
+			mui.ajax(_url, {
+				data: {
+					UserId: app.getState().UserId
+				},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				beforeSend: function() {
+					plus.nativeUI.showWaiting();
+					mask.show(); //显示遮罩层
+				},
+				complete: function() {
+					plus.nativeUI.closeWaiting();
+					mask.close(); //显示遮罩层
+				},
+				success: function(data) {
+					baseObj = {
+						nickName: data.BuyersName,
+						qq: data.QQ,
+						phoneNum: data.Mobile,
+						tel: data.Tel
+					};
+					console.log(JSON.stringify(data));
+					$(".mui-scroll .gus-name").text(data.BuyersName);
+					if(data.sorder_zt_1 > 0) {
+						$(".dfkCircle").show().text(data.sorder_zt_1)
+					} else {
+						$(".dfkCircle").hide()
+					}
+					if(data.sorder_zt_2 > 0) {
+						$(".dfhCircle").show().text(data.sorder_zt_2)
+					} else {
+						$(".dfhCircle").hide()
+					}
+					if(data.sorder_zt_3 > 0) {
+						$(".dshCircle").show().text(data.sorder_zt_3)
+					} else {
+						$(".dshCircle").hide()
+					}
+					if(data.sorder_zt_5 > 0) {
+						$(".ywcCircle").show().text(data.sorder_zt_5)
+					} else {
+						$(".ywcCircle").hide()
+					}
+
+				},
+				error: function(xhr, type, errorThrown) {
+					mui.toast(errorThrown);
+				}
+			})
+		};
+		$(".footer").on("tap", ".hrefCell", function() {
+			var _url = $(this).attr("name");
+			var rand = Number(new Date().getSeconds()) * parseInt(Math.random() * 1000);
+			var direction;
+			switch(_url) {
+				case "index.html":
+					direction = "slide-in-left"
+					break;
+				case "allgoods.html":
+					direction = "slide-in-left"
+					break;
+				case "empty-shoppingcart.html":
+					direction = "slide-in-left"
+					break;
+				case "personal-center.html":
+					direction = ""
+					break;
+			};
+			mui.openWindow({
+				id: _url + rand,
+				url: _url,
+				title: "正在加载",
+				show: {
+					autoShow: "true",
+					aniShow: direction,
+				},
+				waiting: {
+					autoShow: true, //自动显示等待框，默认为true
+					title: '正在加载...', //等待对话框上显示的提示内容
+				}
+			})
+		});
+		//初始化单页view
+		var viewApi = mui('#app').view({
+			defaultPage: '#setting'
+		});
+		//初始化单页的区域滚动
+		mui('.mui-scroll-wrapper').scroll();
+		//分享操作 
+		var shares = {};
+		mui.plusReady(function() {
+			plus.share.getServices(function(s) {
+				if(s && s.length > 0) {
+					for(var i = 0; i < s.length; i++) {
+						var t = s[i];
+						shares[t.id] = t;
+					}
+				}
+			}, function() {
+				console.log("获取分享服务列表失败");
+			});
+		});
+		//分享链接点击事件
+		document.getElementById("share").addEventListener('tap', function() {
+			var ids = [{
+					id: "weixin",
+					ex: "WXSceneSession"
+				}, {
+					id: "weixin",
+					ex: "WXSceneTimeline"
+				}, {
+					id: "sinaweibo"
+				}, {
+					id: "tencentweibo"
+				}, {
+					id: "qq"
+				}],
+				bts = [{
+					title: "发送给微信好友"
+				}, {
+					title: "分享到微信朋友圈"
+				}, {
+					title: "分享到新浪微博"
+				}, {
+					title: "分享到腾讯微博"
+				}, {
+					title: "分享到QQ"
+				}];
+			plus.nativeUI.actionSheet({
+				cancel: "取消",
+				buttons: bts
+			}, function(e) {
+				var i = e.index;
+				if(i > 0) {
+					var s_id = ids[i - 1].id;
+					var share = shares[s_id];
+					if(share.authenticated) {
+						shareMessage(share, ids[i - 1].ex);
+					} else {
+						share.authorize(function() {
+							shareMessage(share, ids[i - 1].ex);
+						}, function(e) {
+							console.log("认证授权失败：" + e.code + " - " + e.message);
+						});
+					}
+				}
+			});
+		});
+
+		function shareMessage(share, ex) {
+			var msg = {
+				extra: {
+					scene: ex
+				}
+			};
+			//			msg.href = "http://www.dcloud.io/hellomui/";
+			//			msg.title = "最接近原生APP体验的高性能前端框架";
+			//			msg.content = "我正在体验HelloMUI，果然很流畅，基本看不出和原生App的差距";
+			if(~share.id.indexOf('weibo')) {
+				msg.content += "；体验地址：http://www.dcloud.io/hellomui/";
+			}
+			msg.thumbs = ["_www/images/logo.png"];
+			share.send(msg, function() {
+				console.log("分享到\"" + share.description + "\"成功！ ");
+			}, function(e) {
+				console.log("分享到\"" + share.description + "\"失败: " + e.code + " - " + e.message);
+			});
+		}
+		//退出操作******************
+		document.getElementById('exit').addEventListener('tap', function() {
+			if(mui.os.ios) {
+				app.setState({});
+				mui.openWindow({
+					url: 'login.html',
+					id: 'login',
+					show: {
+						aniShow: 'pop-in'
+					},
+					waiting: {
+						autoShow: false
+					}
+				});
+				return;
+			}
+			var btnArray = [{
+				title: "注销当前账号"
+			}, {
+				title: "直接关闭应用"
+			}];
+			plus.nativeUI.actionSheet({
+				cancel: "取消",
+				buttons: btnArray
+			}, function(event) {
+				var index = event.index;
+				switch(index) {
+					case 1:
+						//注销账号
+						app.setState({});
+						/*
+						 * 注意：
+						 * 1、因本示例应用启动页就是登录页面，因此注册成功后，直接显示登录页即可；
+						 * 2、如果真实案例中，启动页不是登录页，则需修改，使用mui.openWindow打开真实的登录页面
+						 */
+						plus.webview.getLaunchWebview().show("pop-in");
+						//若启动页不是登录页，则需通过如下方式打开登录页
+						//						mui.openWindow({
+						//							url: 'login.html',
+						//							id: 'login',
+						//							show: {
+						//								aniShow: 'pop-in'
+						//							}
+						//						});
+						break;
+					case 2:
+						plus.runtime.quit();
+						break;
+				}
+			});
+		}, false);
+		//************************
+		//锁屏设置
+		(function($, doc) {
+			//$.init();
+			$.plusReady(function() {
+				var settings = app.getSettings();
+				var lockStateButton = doc.getElementById("lockState");
+				var locker = doc.querySelector('.mui-locker');
+				lockStateButton.classList[settings.gestures ? 'add' : 'remove']('mui-active')
+				locker.style.display = settings.gestures ? 'block' : 'none';
+				lockStateButton.addEventListener('toggle', function(event) {
+					var isActive = event.detail.isActive;
+					locker.style.display = isActive ? 'block' : 'none';
+					if(!isActive) {
+						//						alert(0);
+						settings.gestures = '';
+						app.setSettings(settings);
+					}
+				}, false);
+				var record = [];
+				locker.addEventListener('done', function(event) {
+					var rs = event.detail;
+					if(rs.points.length < 4) {
+						plus.nativeUI.toast('设定的手势太简单了');
+						record = [];
+						rs.sender.clear();
+						return;
+					}
+					record.push(rs.points.join(''));
+					if(record.length >= 2) {
+						if(record[0] == record[1]) {
+							plus.nativeUI.toast('解锁手势设定成功，以后用户只需使用手势解锁而无需输入密码登录。');
+							settings.gestures = record[0];
+							settings.autoLogin = true;
+							app.setSettings(settings);
+							setTimeout(function() {
+								$.back();
+							}, 200);
+						} else {
+							plus.nativeUI.toast('两次手势不一致,请重新设定');
+						}
+						rs.sender.clear();
+						record = [];
+					} else {
+						plus.nativeUI.toast('请确认手势设定');
+						rs.sender.clear();
+					}
+				}, false);
+			});
+		}(mui, document));
+		//********************
+		var view = viewApi.view;
+		(function($) {
+			//处理view的后退与webview后退
+			var oldBack = $.back;
+			$.back = function() {
+				if(viewApi.canBack()) { //如果view可以后退，则执行view的后退
+					viewApi.back();
+				} else { //执行webview后退
+					oldBack();
+				}
+			};
+			//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+			//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+			view.addEventListener('pageBeforeShow', function(e) {
+				//				console.log(e.detail.page.id + ' beforeShow');
+			});
+			view.addEventListener('pageShow', function(e) {
+				//进入手执设定界面时
+				if(e.detail.page.id == 'lock') {
+					var settings = app.getSettings();
+					/*if (!settings.autoLogin) {
+						plus.nativeUI.toast('当前没有启用 “自动登录”，需要在登录时启用 "自动登录"，设定的手势锁屏才会升效。');
+					}*/
+					var lockStateButton = document.getElementById("lockState");
+					var locker = document.querySelector('.mui-locker');
+					lockStateButton.classList[settings.gestures ? 'add' : 'remove']('mui-active')
+					locker.style.display = settings.gestures ? 'block' : 'none';
+				}
+				//				console.log(e.detail.page.id + ' show');
+			});
+			view.addEventListener('pageBeforeBack', function(e) {
+				//				console.log(e.detail.page.id + ' beforeBack');
+			});
+			view.addEventListener('pageBack', function(e) {
+				//				console.log(e.detail.page.id + ' back');
+			});
+		})(mui);
+	</script>
+
+</html>
